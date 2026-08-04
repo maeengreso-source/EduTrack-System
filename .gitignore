@@ -1,3 +1,18 @@
+# Dependencies
 node_modules/
+
+# Environment Variables
 .env
+
+# Seed Files
 seeds/
+
+# Logs
+*.log
+
+# OS Files
+.DS_Store
+Thumbs.db
+
+# VS Code
+.vscode/
