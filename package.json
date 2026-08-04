@@ -6,11 +6,15 @@
     "start": "node ./bin/www"
   },
   "dependencies": {
+    "bcrypt": "^6.0.0",
+    "connect-flash": "^0.1.1",
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
     "dotenv": "^17.4.2",
     "ejs": "^6.0.1",
     "express": "^4.22.2",
+    "express-session": "^1.19.0",
+    "express-validator": "^7.3.2",
     "http-errors": "~1.6.3",
     "morgan": "^1.11.0",
     "mysql2": "^3.23.2"

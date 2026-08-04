@@ -1,5 +1,7 @@
+require("dotenv").config();
 const createError = require('http-errors');
 const express = require('express');
+const session = require("express-session");
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
@@ -8,16 +10,15 @@ const logger = require('morgan');
 // DATABASE
 // ===============================
 
-
-const pool = require("./config/db"); // i-adjust ang path kung kinakailangan
+const pool = require("./config/db"); 
 
 (async () => {
   try {
     const connection = await pool.getConnection();
-    console.log("✅ Connected to MySQL");
+    console.log("Connected to MySQL");
     connection.release();
   } catch (err) {
-    console.error("❌ Database connection failed:");
+    console.error("Database connection failed:");
     console.error(err.message);
   }
 })();
@@ -25,6 +26,8 @@ const pool = require("./config/db"); // i-adjust ang path kung kinakailangan
 
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
+const authRoutes = require('./routes/authRoutes');
+const dashboardRoutes = require('./routes/dashboardRoutes');
 
 const app = express();
 
@@ -38,8 +41,26 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+//Session
+app.use(
+  session({
+    secret: process.env.SESSION_SECRET,
+    resave: false,
+    saveUninitialized: false,
+
+    cookie: {
+      httpOnly: true,
+      maxAge: 1000 * 60 * 60 * 2, // 2 hours
+      secure: false, // true kapag HTTPS na sa production
+      sameSite: "lax",
+    },
+  })
+);
+
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/', authRoutes);
+app.use('/dashboard', dashboardRoutes);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
