@@ -1,0 +1,325 @@
+/* ===================================
+   TOPBAR
+=================================== */
+
+.topbar{
+    width:100%;
+    height:75px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:0 25px;
+    margin:0;              /* idagdag */
+    background:#fff;
+    box-shadow:0 2px 12px rgba(0,0,0,.08);
+}
+/* ===================================
+   LEFT
+=================================== */
+
+.left-section{
+    display:flex;
+    align-items:center;
+    gap:18px;
+    flex:1;
+    min-width:0;
+}
+
+.page-title{
+    overflow:hidden;
+}
+
+.page-title h3{
+    margin:0;
+    font-size:28px;
+    font-weight:700;
+    color:#222;
+}
+
+.page-title p{
+    margin:3px 0 0;
+    color:#777;
+    font-size:14px;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+}
+
+/* ===================================
+   RIGHT
+=================================== */
+
+.right-section{
+    display:flex;
+    align-items:center;
+    justify-content:flex-end;
+    gap:18px;
+}
+
+/* ===================================
+   TOGGLE BUTTON
+=================================== */
+
+.toggle-btn{
+    width:46px;
+    height:46px;
+    border:none;
+    border-radius:12px;
+    background:#fff;
+    box-shadow:0 5px 15px rgba(0,0,0,.08);
+    cursor:pointer;
+    transition:.3s;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.toggle-btn:hover{
+    background:var(--primary);
+    color:#fff;
+}
+
+/* ===================================
+   DATE & TIME
+=================================== */
+
+.date-time{
+    display:flex;
+    flex-direction:column;
+    align-items:flex-end;
+    white-space:nowrap;
+}
+
+.date{
+    display:flex;
+    align-items:center;
+    gap:6px;
+    color:#777;
+    font-size:13px;
+}
+
+.time{
+    display:flex;
+    align-items:center;
+    gap:6px;
+    color:var(--primary);
+    font-size:21px;
+    font-weight:700;
+}
+
+.date i,
+.time i{
+    color:var(--primary);
+}
+
+/* ===================================
+   NOTIFICATION
+=================================== */
+
+.icon-btn{
+    width:45px;
+    height:45px;
+    border:none;
+    border-radius:12px;
+    background:#fff;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    position:relative;
+    cursor:pointer;
+    box-shadow:0 5px 15px rgba(0,0,0,.08);
+    transition:.3s;
+}
+
+.icon-btn:hover{
+    background:var(--primary);
+    color:#fff;
+}
+
+.icon-btn i{
+    font-size:20px;
+}
+
+.badge{
+    position:absolute;
+    top:5px;
+    right:5px;
+    width:18px;
+    height:18px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    border-radius:50%;
+    font-size:10px;
+}
+
+/* ===================================
+   PROFILE
+=================================== */
+
+.profile{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.profile img{
+    width:46px;
+    height:46px;
+    border-radius:50%;
+    object-fit:cover;
+    flex-shrink:0;
+}
+
+.profile-info{
+    display:flex;
+    flex-direction:column;
+}
+
+.profile strong{
+    font-size:15px;
+    color:#222;
+}
+
+.profile small{
+    color:#777;
+    font-size:13px;
+}
+
+/* ===================================
+   LARGE LAPTOP
+=================================== */
+
+@media (max-width:1200px){
+
+    .page-title h3{
+        font-size:25px;
+    }
+
+    .date-time{
+        min-width:170px;
+    }
+
+}
+
+/* ===================================
+   TABLET
+=================================== */
+
+@media (max-width:992px){
+
+    .date-time{
+        display:none;
+    }
+
+    .page-title h3{
+        font-size:24px;
+    }
+
+    .right-section{
+        gap:15px;
+    }
+
+}
+
+/* ===================================
+   MOBILE
+=================================== */
+
+@media (max-width:768px){
+
+    .topbar{
+        height:70px;
+        padding:0 15px;
+    }
+
+    .page-title p{
+        display:none;
+    }
+
+    .page-title h3{
+        font-size:22px;
+    }
+
+    .profile-info{
+        display:none;
+    }
+
+    .profile img{
+        width:42px;
+        height:42px;
+    }
+
+    .toggle-btn,
+    .icon-btn{
+        width:42px;
+        height:42px;
+    }
+
+    .right-section{
+        gap:10px;
+    }
+
+}
+
+/* ===================================
+   SMALL PHONE
+=================================== */
+
+@media (max-width:576px){
+
+    .topbar{
+        padding:0 10px;
+    }
+
+    .page-title h3{
+        font-size:18px;
+    }
+
+    .toggle-btn,
+    .icon-btn{
+        width:40px;
+        height:40px;
+    }
+
+    .profile img{
+        width:38px;
+        height:38px;
+    }
+
+}
+
+/* ===================================
+   EXTRA SMALL
+=================================== */
+
+@media (max-width:400px){
+
+    .topbar{
+        height:65px;
+    }
+
+    .left-section{
+        gap:10px;
+    }
+
+    .right-section{
+        gap:8px;
+    }
+
+    .page-title h3{
+        font-size:17px;
+    }
+
+    .toggle-btn,
+    .icon-btn{
+        width:38px;
+        height:38px;
+    }
+
+    .profile img{
+        width:36px;
+        height:36px;
+    }
+
+}

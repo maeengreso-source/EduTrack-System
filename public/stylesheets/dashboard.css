@@ -1,0 +1,253 @@
+/* ==========================
+   DASHBOARD CARDS
+========================== */
+
+.dashboard-card{
+    background:#fff;
+    border-radius:18px;
+    padding:24px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    box-shadow:0 8px 20px rgba(0,0,0,.08);
+    transition:.3s;
+    height:100%;
+}
+
+.dashboard-card:hover{
+    transform:translateY(-5px);
+}
+
+.card-info small{
+    display:block;
+    color:#888;
+    font-size:14px;
+}
+
+.card-info h2{
+    font-size:38px;
+    font-weight:700;
+    margin:10px 0;
+    color:#222;
+}
+
+.card-info span{
+    display:block;
+    font-size:13px;
+}
+
+.card-icon{
+    width:70px;
+    height:70px;
+    border-radius:18px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    color:#fff;
+    font-size:30px;
+    flex-shrink:0;
+}
+
+.students .card-icon{
+    background:#0F7970;
+}
+
+.teachers .card-icon{
+    background:#0B625B;
+}
+
+.attendance .card-icon{
+    background:#159184;
+}
+
+.users .card-icon{
+    background:#0A8F7D;
+}
+
+/* ==========================
+   TABLE CARD
+========================== */
+
+.dashboard-table{
+    border:none;
+    border-radius:18px;
+    box-shadow:0 8px 20px rgba(0,0,0,.08);
+    overflow:hidden;
+}
+
+.dashboard-table .card-header{
+    background:#fff;
+    border-bottom:1px solid #eee;
+    padding:20px 25px;
+}
+
+.dashboard-table .table{
+    margin:0;
+}
+
+.dashboard-table .table th{
+    background:#f8f9fa;
+    font-weight:600;
+    white-space:nowrap;
+}
+
+.dashboard-table .table td{
+    vertical-align:middle;
+}
+
+
+/* ==========================
+   LARGE LAPTOP
+========================== */
+
+@media (max-width:1200px){
+
+    .dashboard-card{
+        padding:20px;
+    }
+
+    .card-info h2{
+        font-size:34px;
+    }
+
+}
+
+/* ==========================
+   TABLET
+========================== */
+
+@media (max-width:992px){
+
+    .dashboard-card{
+        padding:20px;
+    }
+
+    .card-info h2{
+        font-size:30px;
+    }
+
+    .card-icon{
+        width:60px;
+        height:60px;
+        font-size:26px;
+    }
+
+    .dashboard-table .card-header{
+        padding:18px;
+    }
+
+}
+
+/* ==========================
+   MOBILE
+========================== */
+
+@media (max-width:768px){
+
+    .dashboard-card{
+        padding:18px;
+    }
+
+    .card-info h2{
+        font-size:28px;
+    }
+
+    .card-icon{
+        width:55px;
+        height:55px;
+        font-size:24px;
+        border-radius:15px;
+    }
+
+    .dashboard-table .card-header{
+        padding:15px;
+    }
+
+    .activity-item{
+        padding:12px;
+    }
+
+    .activity-item strong{
+        font-size:14px;
+    }
+
+    .activity-item small{
+        font-size:12px;
+    }
+
+}
+
+/* ==========================
+   SMALL PHONES
+========================== */
+
+@media (max-width:576px){
+
+    .dashboard-card{
+        flex-direction:column;
+        text-align:center;
+        gap:15px;
+        padding:20px;
+    }
+
+    .card-info h2{
+        font-size:30px;
+    }
+
+    .card-icon{
+        width:65px;
+        height:65px;
+        font-size:28px;
+        margin:auto;
+    }
+
+    .dashboard-table .card-header{
+        flex-direction:column;
+        align-items:flex-start;
+        gap:10px;
+    }
+
+    .dashboard-table .table{
+        font-size:14px;
+    }
+
+}
+
+/* ==========================
+   EXTRA SMALL DEVICES
+========================== */
+
+@media (max-width:400px){
+
+    .dashboard-card{
+        padding:16px;
+    }
+
+    .card-info h2{
+        font-size:26px;
+    }
+
+    .card-info small{
+        font-size:13px;
+    }
+
+    .card-icon{
+        width:58px;
+        height:58px;
+        font-size:24px;
+    }
+
+    .activity-item{
+        gap:10px;
+        padding:10px;
+    }
+
+    .activity-item i{
+        font-size:20px;
+    }
+
+    .dashboard-table .table{
+        font-size:13px;
+    }
+
+}

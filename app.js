@@ -5,6 +5,7 @@ const session = require("express-session");
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
+const expressLayouts = require("express-ejs-layouts");
 
 // ===============================
 // DATABASE
@@ -29,7 +30,12 @@ const usersRouter = require('./routes/users');
 const authRoutes = require('./routes/authRoutes');
 const dashboardRoutes = require('./routes/dashboardRoutes');
 
+const studentRoutes = require('./routes/studentRoutes');
+
 const app = express();
+app.use(expressLayouts);
+
+app.set("layout", "layouts/layout");
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -60,7 +66,8 @@ app.use(
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/', authRoutes);
-app.use('/dashboard', dashboardRoutes);
+app.use('/dashboard', dashboardRoutes)
+app.use('/students', studentRoutes);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

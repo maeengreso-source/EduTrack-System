@@ -1,0 +1,330 @@
+/* ===================================
+   SIDEBAR
+=================================== */
+
+.sidebar{
+    width:260px;
+    height:100vh;
+    position:fixed;
+    top:0;
+    left:0;
+    background:linear-gradient(180deg,var(--primary),var(--primary-dark));
+    color:#fff;
+    display:flex;
+    flex-direction:column;
+    transition:.3s ease;
+    z-index:1000;
+    overflow:hidden;
+}
+
+/* Desktop Collapse */
+
+.sidebar.collapsed{
+    width:90px;
+}
+
+/* ===================================
+   HEADER
+=================================== */
+
+.sidebar-header{
+    display:flex;
+    align-items:center;
+    gap:15px;
+    padding:22px;
+    border-bottom:1px solid rgba(255,255,255,.15);
+}
+
+.logo{
+    width:52px;
+    height:52px;
+    border-radius:14px;
+    background:rgba(255,255,255,.15);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:24px;
+    flex-shrink:0;
+}
+
+.logo-text h4{
+    margin:0;
+    font-size:20px;
+    font-weight:700;
+}
+
+.logo-text small{
+    color:#d9f3ef;
+    font-size:12px;
+}
+
+/* ===================================
+   MENU
+=================================== */
+
+.sidebar-menu{
+    flex:1;
+    padding:18px 12px;
+}
+
+.sidebar-menu a,
+.sidebar-footer a{
+    display:flex;
+    align-items:center;
+    gap:15px;
+    padding:14px 18px;
+    margin-bottom:8px;
+    text-decoration:none;
+    color:#fff;
+    border-radius:14px;
+    transition:.25s;
+}
+
+.sidebar-menu a i,
+.sidebar-footer a i{
+    width:24px;
+    font-size:20px;
+    text-align:center;
+    flex-shrink:0;
+}
+
+.sidebar-menu a:hover,
+.sidebar-footer a:hover{
+    background:rgba(255,255,255,.15);
+}
+
+.sidebar-menu a.active{
+    background:#fff;
+    color:var(--primary);
+    font-weight:600;
+    box-shadow:0 8px 18px rgba(0,0,0,.12);
+}
+
+/* ===================================
+   FOOTER
+=================================== */
+
+.sidebar-footer{
+    padding:15px 12px;
+    border-top:1px solid rgba(255,255,255,.15);
+}
+
+.logout:hover{
+    background:#dc3545 !important;
+    color:#fff !important;
+}
+
+/* ===================================
+   COLLAPSED
+=================================== */
+
+.sidebar.collapsed .logo-text,
+.sidebar.collapsed span{
+    display:none;
+}
+
+.sidebar.collapsed .sidebar-header{
+    justify-content:center;
+}
+
+.sidebar.collapsed .sidebar-menu a,
+.sidebar.collapsed .sidebar-footer a{
+    width:60px;
+    height:60px;
+    padding:0;
+    margin:8px auto;
+    justify-content:center;
+}
+
+.sidebar.collapsed .sidebar-menu a i,
+.sidebar.collapsed .sidebar-footer a i{
+    font-size:24px;
+    width:auto;
+}
+
+/* ===================================
+   BUTTONS
+=================================== */
+
+.toggle-btn,
+.icon-btn{
+    width:45px;
+    height:45px;
+    border:none;
+    border-radius:12px;
+    background:#fff;
+    cursor:pointer;
+    box-shadow:0 4px 12px rgba(0,0,0,.08);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    transition:.25s;
+}
+
+.toggle-btn:hover,
+.icon-btn:hover{
+    background:var(--primary);
+    color:#fff;
+}
+
+/* Notification Badge */
+
+.icon-btn{
+    position:relative;
+}
+
+.icon-btn .badge{
+    position:absolute;
+    top:4px;
+    right:4px;
+    width:18px;
+    height:18px;
+    border-radius:50%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:10px;
+    background:#dc3545;
+    color:#fff;
+}
+
+/* ===================================
+   PROFILE
+=================================== */
+
+.profile{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.profile img{
+    width:46px;
+    height:46px;
+    border-radius:50%;
+    object-fit:cover;
+}
+
+.profile strong{
+    display:block;
+    font-size:15px;
+}
+
+.profile small{
+    color:#777;
+    font-size:13px;
+}
+
+/* ===================================
+   RESPONSIVE
+=================================== */
+
+/* Laptop */
+
+@media (max-width:1200px){
+
+    .sidebar{
+        width:230px;
+    }
+
+}
+
+/* Tablet */
+
+@media (max-width:992px){
+
+    .sidebar{
+        width:90px;
+    }
+
+    .sidebar .logo-text,
+    .sidebar span{
+        display:none;
+    }
+
+    .sidebar-header{
+        justify-content:center;
+        padding:20px 0;
+    }
+
+    .sidebar-menu a,
+    .sidebar-footer a{
+        width:60px;
+        height:60px;
+        padding:0;
+        margin:8px auto;
+        justify-content:center;
+    }
+
+    .sidebar-menu a i,
+    .sidebar-footer a i{
+        font-size:24px;
+        width:auto;
+    }
+
+}
+
+/* Mobile */
+
+@media (max-width:768px){
+
+    .sidebar{
+        width:260px;
+        left:-260px;
+    }
+
+    .sidebar.show{
+        left:0;
+    }
+
+    .sidebar .logo-text,
+    .sidebar span{
+        display:block;
+    }
+
+    .sidebar-header{
+        justify-content:flex-start;
+        padding:22px;
+    }
+
+    .sidebar-menu a,
+    .sidebar-footer a{
+        width:100%;
+        height:auto;
+        justify-content:flex-start;
+        padding:14px 18px;
+    }
+
+}
+
+/* Small Phones */
+
+@media (max-width:576px){
+
+    .sidebar{
+        width:240px;
+        left:-240px;
+    }
+
+}
+
+/* Extra Small */
+
+@media (max-width:400px){
+
+    .sidebar{
+        width:220px;
+        left:-220px;
+    }
+
+    .logo{
+        width:46px;
+        height:46px;
+        font-size:22px;
+    }
+
+    .sidebar-menu a{
+        padding:12px 15px;
+    }
+
+}

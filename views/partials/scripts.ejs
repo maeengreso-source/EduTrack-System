@@ -1,0 +1,43 @@
+<script>
+const sidebar = document.getElementById("sidebar");
+const main = document.getElementById("main");
+
+function toggleSidebar(){
+
+    if(window.innerWidth <=768){
+
+        sidebar.classList.toggle("show");
+
+    }else{
+
+        sidebar.classList.toggle("collapsed");
+        main.classList.toggle("expanded");
+
+    }
+
+}
+
+function updateDateTime(){
+
+    const now = new Date();
+
+    const date = now.toLocaleDateString("en-PH",{
+        weekday:"long",
+        year:"numeric",
+        month:"long",
+        day:"numeric"
+    });
+
+    const time = now.toLocaleTimeString("en-PH",{
+        hour:"2-digit",
+        minute:"2-digit",
+        second:"2-digit"
+    });
+
+    document.getElementById("currentDate").textContent = date;
+    document.getElementById("currentTime").textContent = time;
+}
+
+updateDateTime();
+setInterval(updateDateTime,1000);
+</script>
