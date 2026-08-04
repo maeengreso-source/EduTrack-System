@@ -1,13 +1,32 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
+const createError = require('http-errors');
+const express = require('express');
+const path = require('path');
+const cookieParser = require('cookie-parser');
+const logger = require('morgan');
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
+// ===============================
+// DATABASE
+// ===============================
 
-var app = express();
+
+const pool = require("./config/db"); // i-adjust ang path kung kinakailangan
+
+(async () => {
+  try {
+    const connection = await pool.getConnection();
+    console.log("✅ Connected to MySQL");
+    connection.release();
+  } catch (err) {
+    console.error("❌ Database connection failed:");
+    console.error(err.message);
+  }
+})();
+
+
+const indexRouter = require('./routes/index');
+const usersRouter = require('./routes/users');
+
+const app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
