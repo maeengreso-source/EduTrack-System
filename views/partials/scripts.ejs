@@ -1,43 +1,93 @@
 <script>
-const sidebar = document.getElementById("sidebar");
-const main = document.getElementById("main");
+    // ==========================
+    // Date & Time
+    // ==========================
+    function updateDateTime() {
 
+        const now = new Date();
+
+        const date = now.toLocaleDateString("en-PH", {
+            weekday: "long",
+            year: "numeric",
+            month: "long",
+            day: "numeric"
+        });
+
+        const time = now.toLocaleTimeString("en-PH", {
+            hour: "2-digit",
+            minute: "2-digit",
+            second: "2-digit"
+        });
+
+        const currentDate = document.getElementById("currentDate");
+        const currentTime = document.getElementById("currentTime");
+
+        if (currentDate) currentDate.textContent = date;
+        if (currentTime) currentTime.textContent = time;
+    }
+
+    updateDateTime();
+    setInterval(updateDateTime, 1000);
+
+    // ==========================
+    // Sidebar Toggle
+    // ==========================
 function toggleSidebar(){
 
-    if(window.innerWidth <=768){
+    const sidebar = document.getElementById("sidebar");
+    const main = document.getElementById("main");
+
+    if(window.innerWidth <= 992){
 
         sidebar.classList.toggle("show");
 
     }else{
 
         sidebar.classList.toggle("collapsed");
-        main.classList.toggle("expanded");
+        main.classList.toggle("collapsed");
 
     }
 
 }
 
-function updateDateTime(){
+    // ==========================
+    // Close sidebar on resize
+    // ==========================
+    window.addEventListener("resize", () => {
 
-    const now = new Date();
+        const sidebar = document.getElementById("sidebar");
+        const main = document.getElementById("main");
 
-    const date = now.toLocaleDateString("en-PH",{
-        weekday:"long",
-        year:"numeric",
-        month:"long",
-        day:"numeric"
+        if (!sidebar || !main) return;
+
+        if (window.innerWidth > 992) {
+            sidebar.classList.remove("show");
+        }
+
     });
 
-    const time = now.toLocaleTimeString("en-PH",{
-        hour:"2-digit",
-        minute:"2-digit",
-        second:"2-digit"
+
+const themeToggle = document.getElementById("themeToggle");
+
+if (themeToggle) {
+
+    // Load saved theme
+    if (localStorage.getItem("theme") === "dark") {
+        document.body.classList.add("dark");
+        themeToggle.checked = true;
+    }
+
+    // Toggle theme
+    themeToggle.addEventListener("change", function () {
+
+        document.body.classList.toggle("dark", this.checked);
+
+        localStorage.setItem(
+            "theme",
+            this.checked ? "dark" : "light"
+        );
+
     });
 
-    document.getElementById("currentDate").textContent = date;
-    document.getElementById("currentTime").textContent = time;
 }
-
-updateDateTime();
-setInterval(updateDateTime,1000);
 </script>

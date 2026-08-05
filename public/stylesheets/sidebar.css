@@ -1,330 +1,320 @@
-/* ===================================
+/* ==========================================
    SIDEBAR
-=================================== */
+========================================== */
+
+:root{
+    --sidebar-bg:#1e293b;
+    --sidebar-hover:#334155;
+    --sidebar-active:#22c55e;
+    --sidebar-text:#e2e8f0;
+    --sidebar-muted:#94a3b8;
+    --danger:#ef4444;
+}
 
 .sidebar{
-    width:260px;
-    height:100vh;
     position:fixed;
     top:0;
     left:0;
-    background:linear-gradient(180deg,var(--primary),var(--primary-dark));
+    width:260px;
+    height:100vh;
+    background:var(--sidebar-bg);
     color:#fff;
     display:flex;
     flex-direction:column;
-    transition:.3s ease;
+    overflow-y:auto;
+    transition:all .3s ease;
     z-index:1000;
-    overflow:hidden;
 }
 
-/* Desktop Collapse */
-
-.sidebar.collapsed{
-    width:90px;
-}
-
-/* ===================================
+/* ==========================================
    HEADER
-=================================== */
+========================================== */
 
 .sidebar-header{
     display:flex;
     align-items:center;
-    gap:15px;
-    padding:22px;
-    border-bottom:1px solid rgba(255,255,255,.15);
+    gap:12px;
+    padding:20px;
+    border-bottom:1px solid rgba(255,255,255,.08);
 }
 
 .logo{
-    width:52px;
-    height:52px;
-    border-radius:14px;
-    background:rgba(255,255,255,.15);
+    width:48px;
+    height:48px;
+    background:#16a34a;
+    border-radius:12px;
     display:flex;
     justify-content:center;
     align-items:center;
-    font-size:24px;
+    font-size:22px;
+    color:#fff;
     flex-shrink:0;
 }
 
 .logo-text h4{
     margin:0;
-    font-size:20px;
+    font-size:18px;
     font-weight:700;
 }
 
 .logo-text small{
-    color:#d9f3ef;
+    color:var(--sidebar-muted);
     font-size:12px;
 }
 
-/* ===================================
+/* ==========================================
    MENU
-=================================== */
+========================================== */
 
 .sidebar-menu{
     flex:1;
-    padding:18px 12px;
+    padding:12px 0;
+}
+
+.menu-title{
+    display:block;
+    padding:18px 22px 8px;
+    font-size:11px;
+    font-weight:700;
+    letter-spacing:1px;
+    text-transform:uppercase;
+    color:var(--sidebar-muted);
 }
 
 .sidebar-menu a,
 .sidebar-footer a{
+
     display:flex;
     align-items:center;
-    gap:15px;
-    padding:14px 18px;
-    margin-bottom:8px;
+    gap:14px;
+
+    padding:14px 22px;
+
+    color:var(--sidebar-text);
     text-decoration:none;
-    color:#fff;
-    border-radius:14px;
-    transition:.25s;
+
+    border-left:4px solid transparent;
+
+    transition:all .25s ease;
+
 }
 
 .sidebar-menu a i,
 .sidebar-footer a i{
-    width:24px;
-    font-size:20px;
+
+    width:22px;
     text-align:center;
+    font-size:18px;
     flex-shrink:0;
+
 }
 
 .sidebar-menu a:hover,
 .sidebar-footer a:hover{
-    background:rgba(255,255,255,.15);
+
+    background:var(--sidebar-hover);
+    color:#fff;
+
 }
 
 .sidebar-menu a.active{
-    background:#fff;
-    color:var(--primary);
-    font-weight:600;
-    box-shadow:0 8px 18px rgba(0,0,0,.12);
+
+    background:rgba(34,197,94,.15);
+    color:var(--sidebar-active);
+    border-left-color:var(--sidebar-active);
+
 }
 
-/* ===================================
+/* ==========================================
    FOOTER
-=================================== */
+========================================== */
 
 .sidebar-footer{
-    padding:15px 12px;
-    border-top:1px solid rgba(255,255,255,.15);
+
+    border-top:1px solid rgba(255,255,255,.08);
+    padding:12px 0;
+
+}
+
+.logout{
+
+    color:var(--danger)!important;
+
 }
 
 .logout:hover{
-    background:#dc3545 !important;
-    color:#fff !important;
+
+    background:rgba(239,68,68,.15);
+
 }
 
-/* ===================================
-   COLLAPSED
-=================================== */
+/* ==========================================
+   SCROLLBAR
+========================================== */
+
+.sidebar::-webkit-scrollbar{
+
+    width:6px;
+
+}
+
+.sidebar::-webkit-scrollbar-thumb{
+
+    background:rgba(255,255,255,.15);
+    border-radius:20px;
+
+}
+
+/* ==========================================
+   DESKTOP COLLAPSE
+========================================== */
+
+.sidebar.collapsed{
+
+    width:80px;
+
+}
 
 .sidebar.collapsed .logo-text,
-.sidebar.collapsed span{
+.sidebar.collapsed .menu-title,
+.sidebar.collapsed a span{
+
     display:none;
+
 }
 
 .sidebar.collapsed .sidebar-header{
+
     justify-content:center;
+
 }
 
-.sidebar.collapsed .sidebar-menu a,
-.sidebar.collapsed .sidebar-footer a{
-    width:60px;
-    height:60px;
-    padding:0;
-    margin:8px auto;
+.sidebar.collapsed a{
+
     justify-content:center;
+    padding:16px;
+
 }
 
-.sidebar.collapsed .sidebar-menu a i,
-.sidebar.collapsed .sidebar-footer a i{
-    font-size:24px;
+.sidebar.collapsed a i{
+
     width:auto;
-}
-
-/* ===================================
-   BUTTONS
-=================================== */
-
-.toggle-btn,
-.icon-btn{
-    width:45px;
-    height:45px;
-    border:none;
-    border-radius:12px;
-    background:#fff;
-    cursor:pointer;
-    box-shadow:0 4px 12px rgba(0,0,0,.08);
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    transition:.25s;
-}
-
-.toggle-btn:hover,
-.icon-btn:hover{
-    background:var(--primary);
-    color:#fff;
-}
-
-/* Notification Badge */
-
-.icon-btn{
-    position:relative;
-}
-
-.icon-btn .badge{
-    position:absolute;
-    top:4px;
-    right:4px;
-    width:18px;
-    height:18px;
-    border-radius:50%;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    font-size:10px;
-    background:#dc3545;
-    color:#fff;
-}
-
-/* ===================================
-   PROFILE
-=================================== */
-
-.profile{
-    display:flex;
-    align-items:center;
-    gap:12px;
-}
-
-.profile img{
-    width:46px;
-    height:46px;
-    border-radius:50%;
-    object-fit:cover;
-}
-
-.profile strong{
-    display:block;
-    font-size:15px;
-}
-
-.profile small{
-    color:#777;
-    font-size:13px;
-}
-
-/* ===================================
-   RESPONSIVE
-=================================== */
-
-/* Laptop */
-
-@media (max-width:1200px){
-
-    .sidebar{
-        width:230px;
-    }
+    font-size:20px;
 
 }
 
-/* Tablet */
+/* ==========================================
+   TABLET & MOBILE
+========================================== */
 
 @media (max-width:992px){
 
     .sidebar{
-        width:90px;
+
+        width:80px;
+
     }
 
     .sidebar .logo-text,
-    .sidebar span{
+    .sidebar .menu-title,
+    .sidebar a span{
+
         display:none;
+
     }
 
-    .sidebar-header{
+    .sidebar .sidebar-header{
+
         justify-content:center;
-        padding:20px 0;
+
     }
 
-    .sidebar-menu a,
-    .sidebar-footer a{
-        width:60px;
-        height:60px;
-        padding:0;
-        margin:8px auto;
+    .sidebar a{
+
         justify-content:center;
+        padding:16px;
+
     }
 
-    .sidebar-menu a i,
-    .sidebar-footer a i{
-        font-size:24px;
+    .sidebar a i{
+
         width:auto;
+        font-size:20px;
+
     }
 
-}
+    /* Active */
 
-/* Mobile */
+    .sidebar-menu a.active{
 
-@media (max-width:768px){
+        border-left:none;
+        border-radius:12px;
+        margin:0 10px;
 
-    .sidebar{
-        width:260px;
-        left:-260px;
     }
+
+    /* Expand */
 
     .sidebar.show{
-        left:0;
+
+        width:260px;
+
     }
 
-    .sidebar .logo-text,
-    .sidebar span{
+    .sidebar.show .logo-text,
+    .sidebar.show .menu-title,
+    .sidebar.show a span{
+
         display:block;
+
     }
 
-    .sidebar-header{
+    .sidebar.show .sidebar-header{
+
         justify-content:flex-start;
-        padding:22px;
+
     }
 
-    .sidebar-menu a,
-    .sidebar-footer a{
-        width:100%;
-        height:auto;
+    .sidebar.show a{
+
         justify-content:flex-start;
-        padding:14px 18px;
+        padding:14px 22px;
+
+    }
+
+    .sidebar.show a i{
+
+        width:22px;
+        font-size:18px;
+
     }
 
 }
 
-/* Small Phones */
+/* ==========================================
+   MOBILE
+========================================== */
 
 @media (max-width:576px){
 
-    .sidebar{
-        width:240px;
-        left:-240px;
-    }
-
-}
-
-/* Extra Small */
-
-@media (max-width:400px){
-
-    .sidebar{
-        width:220px;
-        left:-220px;
-    }
-
     .logo{
-        width:46px;
-        height:46px;
-        font-size:22px;
+
+        width:42px;
+        height:42px;
+        font-size:20px;
+
     }
 
-    .sidebar-menu a{
-        padding:12px 15px;
+    .logo-text h4{
+
+        font-size:16px;
+
+    }
+
+    .logo-text small{
+
+        font-size:11px;
+
     }
 
 }

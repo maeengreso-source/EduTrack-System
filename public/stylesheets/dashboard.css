@@ -251,3 +251,83 @@
     }
 
 }
+
+/* ==========================================
+   STUDENT STATS CARD
+========================================== */
+
+.icon-box{
+    width:60px;
+    height:60px;
+    border-radius:16px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-shrink:0;
+}
+
+.icon-box i{
+    font-size:28px;
+}
+
+/* Card */
+
+.card{
+    border-radius:18px;
+}
+
+/* Statistics */
+
+.card h2{
+    font-size:42px;
+    font-weight:700;
+}
+
+.card small{
+    font-size:15px;
+}
+
+/* Search */
+
+.input-group-text{
+    background:#fff;
+    border-right:none;
+}
+
+.input-group .form-control{
+    border-left:none;
+}
+
+.input-group .form-control:focus{
+    box-shadow:none;
+}
+
+/* Table */
+
+.table td,
+.table th{
+    vertical-align:middle;
+}
+
+.table tbody tr:hover{
+    background:#f8fafc;
+}
+
+/* Avatar */
+
+.table img{
+    width:46px;
+    height:46px;
+    object-fit:cover;
+}
+
+/* Action Buttons */
+
+.btn-sm{
+    width:36px;
+    height:36px;
+    display:inline-flex;
+    justify-content:center;
+    align-items:center;
+    border:none;
+}

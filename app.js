@@ -29,8 +29,8 @@ const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const authRoutes = require('./routes/authRoutes');
 const dashboardRoutes = require('./routes/dashboardRoutes');
-
 const studentRoutes = require('./routes/studentRoutes');
+const teacherRoutes = require('./routes/teacherRoutes');
 
 const app = express();
 app.use(expressLayouts);
@@ -68,6 +68,7 @@ app.use('/users', usersRouter);
 app.use('/', authRoutes);
 app.use('/dashboard', dashboardRoutes)
 app.use('/students', studentRoutes);
+app.use('/teachers', teacherRoutes);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -136,11 +136,11 @@
     color:#fff;
 }
 
-.icon-btn i{
-    font-size:20px;
+.icon-btn{
+    position:relative;
 }
 
-.badge{
+.icon-btn .badge{
     position:absolute;
     top:5px;
     right:5px;
@@ -184,6 +184,78 @@
 .profile small{
     color:#777;
     font-size:13px;
+}
+
+/* ===================================
+   THEME SWITCH
+=================================== */
+
+.theme-switch{
+
+    display:flex;
+    align-items:center;
+    gap:10px;
+
+}
+
+.theme-icon{
+
+    font-size:18px;
+    color:#64748b;
+    transition:.3s;
+
+}
+
+.switch{
+
+    position:relative;
+    display:inline-block;
+    width:50px;
+    height:26px;
+
+}
+
+.switch input{
+
+    display:none;
+
+}
+
+.slider{
+
+    position:absolute;
+    cursor:pointer;
+    inset:0;
+    background:#cbd5e1;
+    border-radius:30px;
+    transition:.3s;
+
+}
+
+.slider:before{
+
+    content:"";
+    position:absolute;
+    width:20px;
+    height:20px;
+    left:3px;
+    bottom:3px;
+    background:#fff;
+    border-radius:50%;
+    transition:.3s;
+
+}
+
+.switch input:checked + .slider{
+
+    background:var(--primary);
+
+}
+
+.switch input:checked + .slider:before{
+
+    transform:translateX(24px);
+
 }
 
 /* ===================================

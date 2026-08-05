@@ -1,1 +1,364 @@
-<h1>Students Page</h1>
+<div class="container-fluid">
+
+    <!-- =========================
+        HEADER
+    ========================== -->
+
+    <div class="d-flex justify-content-between align-items-center mb-4">
+
+        <div>
+            <h2 class="fw-bold mb-1">
+                <i class="bi bi-mortarboard-fill text-success me-2"></i>
+                Student Management
+            </h2>
+
+            <p class="text-muted mb-0">
+                Manage all registered students in the system.
+            </p>
+        </div>
+
+        <a href="/students/create" class="btn btn-success px-4">
+            <i class="bi bi-plus-circle me-2"></i>
+            Add Student
+        </a>
+
+    </div>
+
+    <!-- =========================
+        STATISTICS
+    ========================== -->
+
+    <div class="row g-4 mb-4">
+
+        <div class="col-xl-3 col-md-6">
+
+            <div class="card stats-card shadow-sm">
+
+                <div class="card-body">
+
+                    <div class="d-flex justify-content-between align-items-center">
+
+                        <div>
+
+                            <small class="text-muted">
+                                Total Students
+                            </small>
+
+                            <h2 class="fw-bold mb-1">
+                                250
+                            </h2>
+
+                            <small class="text-success">
+                                ↑ +15 this month
+                            </small>
+
+                        </div>
+
+                        <div class="icon-box bg-success text-white">
+
+                            <i class="bi bi-people-fill"></i>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="col-xl-3 col-md-6">
+
+            <div class="card stats-card shadow-sm">
+
+                <div class="card-body">
+
+                    <div class="d-flex justify-content-between align-items-center">
+
+                        <div>
+
+                            <small class="text-muted">
+                                Active
+                            </small>
+
+                            <h2 class="fw-bold text-success">
+                                240
+                            </h2>
+
+                            <small class="text-success">
+                                96% Active
+                            </small>
+
+                        </div>
+
+                        <div class="icon-box bg-success text-white">
+
+                            <i class="bi bi-check-circle-fill"></i>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="col-xl-3 col-md-6">
+
+            <div class="card stats-card shadow-sm">
+
+                <div class="card-body">
+
+                    <div class="d-flex justify-content-between align-items-center">
+
+                        <div>
+
+                            <small class="text-muted">
+                                Male
+                            </small>
+
+                            <h2 class="fw-bold text-primary">
+                                120
+                            </h2>
+
+                            <small class="text-muted">
+                                48%
+                            </small>
+
+                        </div>
+
+                        <div class="icon-box bg-primary text-white">
+
+                            <i class="bi bi-gender-male"></i>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="col-xl-3 col-md-6">
+
+            <div class="card stats-card shadow-sm">
+
+                <div class="card-body">
+
+                    <div class="d-flex justify-content-between align-items-center">
+
+                        <div>
+
+                            <small class="text-muted">
+                                Female
+                            </small>
+
+                            <h2 class="fw-bold text-danger">
+                                130
+                            </h2>
+
+                            <small class="text-muted">
+                                52%
+                            </small>
+
+                        </div>
+
+                        <div class="icon-box bg-danger text-white">
+
+                            <i class="bi bi-gender-female"></i>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- =========================
+        SEARCH
+    ========================== -->
+
+    <div class="card shadow-sm mb-4">
+
+        <div class="card-body">
+
+            <div class="row g-3 align-items-center">
+
+                <div class="col-lg-5">
+
+                    <div class="input-group">
+
+                        <span class="input-group-text">
+
+                            <i class="bi bi-search"></i>
+
+                        </span>
+
+                        <input
+                            type="text"
+                            class="form-control"
+                            placeholder="Search student by ID or Name">
+
+                    </div>
+
+                </div>
+
+                <div class="col-lg-2">
+
+                    <select class="form-select">
+
+                        <option>Grade</option>
+
+                    </select>
+
+                </div>
+
+                <div class="col-lg-2">
+
+                    <select class="form-select">
+
+                        <option>Section</option>
+
+                    </select>
+
+                </div>
+
+                <div class="col-lg-2">
+
+                    <select class="form-select">
+
+                        <option>Status</option>
+
+                    </select>
+
+                </div>
+
+                <div class="col-lg-1 d-grid">
+
+                    <button class="btn btn-outline-secondary">
+
+                        <i class="bi bi-arrow-clockwise"></i>
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- =========================
+        TABLE
+    ========================== -->
+
+    <div class="card shadow-sm">
+
+        <div class="table-responsive">
+
+            <table class="table table-hover align-middle mb-0">
+
+                <thead>
+
+                    <tr>
+
+                        <th>ID</th>
+                        <th>Photo</th>
+                        <th>Student Name</th>
+                        <th>Grade</th>
+                        <th>Section</th>
+                        <th>Gender</th>
+                        <th>Status</th>
+                        <th class="text-center">Actions</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+                    <tr>
+
+                        <td>2026-0001</td>
+
+                        <td>
+
+                            <img src="/images/default-avatar.png"
+                                 class="rounded-circle"
+                                 width="45"
+                                 height="45">
+
+                        </td>
+
+                        <td>
+
+                            <strong>Juan Dela Cruz</strong>
+
+                            <br>
+
+                            <small class="text-muted">
+                                juan@email.com
+                            </small>
+
+                        </td>
+
+                        <td>Grade 11</td>
+
+                        <td>ICT-A</td>
+
+                        <td>Male</td>
+
+                        <td>
+
+                            <span class="badge bg-success">
+
+                                Active
+
+                            </span>
+
+                        </td>
+
+                        <td class="text-center">
+
+                            <button class="btn btn-info btn-sm text-white">
+
+                                <i class="bi bi-eye"></i>
+
+                            </button>
+
+                            <button class="btn btn-warning btn-sm">
+
+                                <i class="bi bi-pencil"></i>
+
+                            </button>
+
+                            <button class="btn btn-danger btn-sm">
+
+                                <i class="bi bi-trash"></i>
+
+                            </button>
+
+                        </td>
+
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+</div>
