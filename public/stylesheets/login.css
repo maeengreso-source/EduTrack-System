@@ -383,3 +383,88 @@ body{
     }
 
 }
+/* ===========================
+   Flash Alerts
+=========================== */
+
+.flash-container {
+    margin-bottom: 20px;
+}
+
+.flash-container .alert {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+
+    border: none;
+    border-radius: 12px;
+    padding: 14px 18px;
+
+    font-size: .95rem;
+    font-weight: 500;
+    line-height: 1.5;
+
+    box-shadow: 0 8px 20px rgba(0, 0, 0, .08);
+
+    animation: slideDown .35s ease;
+}
+
+.flash-container .alert i {
+    font-size: 1rem;
+    margin-top: 3px;
+    flex-shrink: 0;
+}
+
+.flash-container .flex-grow-1 {
+    flex: 1;
+    word-break: break-word;
+}
+
+.flash-container .btn-close {
+    margin-left: auto;
+    margin-top: 2px;
+    flex-shrink: 0;
+}
+
+/* Success */
+.alert-success {
+    background: #e8f8ef;
+    color: #146c43;
+    border-left: 5px solid #198754;
+}
+
+/* Error */
+.alert-danger {
+    background: #fdecec;
+    color: #842029;
+    border-left: 5px solid #dc3545;
+}
+
+/* Warning */
+.alert-warning {
+    background: #fff8e6;
+    color: #8a6d3b;
+    border-left: 5px solid #ffc107;
+}
+
+/* Info */
+.alert-info {
+    background: #e8f4ff;
+    color: #055160;
+    border-left: 5px solid #0dcaf0;
+}
+
+/* Animation */
+@keyframes slideDown {
+
+    from {
+        opacity: 0;
+        transform: translateY(-15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}

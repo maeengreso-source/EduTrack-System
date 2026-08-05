@@ -1,0 +1,109 @@
+<div class="toast-container">
+    <!-- Success -->
+    <% if (success && success.length > 0) { %>
+    <div class="toast align-items-center text-bg-success border-0 shadow-lg"
+         role="alert"
+         aria-live="assertive"
+         aria-atomic="true">
+
+        <div class="d-flex">
+
+            <div class="toast-body">
+                <i class="bi bi-check-circle-fill me-2"></i>
+                <%= success[0] %>
+            </div>
+
+            <button
+                type="button"
+                class="btn-close btn-close-white me-2 m-auto"
+                data-bs-dismiss="toast"
+                aria-label="Close">
+            </button>
+
+        </div>
+
+    </div>
+    <% } %>
+
+
+    <!-- Error -->
+    <% if (error && error.length > 0) { %>
+    <div class="toast align-items-center text-bg-danger border-0 shadow-lg"
+         role="alert"
+         aria-live="assertive"
+         aria-atomic="true">
+
+        <div class="d-flex">
+
+            <div class="toast-body">
+                <i class="bi bi-x-circle-fill me-2"></i>
+                <%= error[0] %>
+            </div>
+
+            <button
+                type="button"
+                class="btn-close btn-close-white me-2 m-auto"
+                data-bs-dismiss="toast"
+                aria-label="Close">
+            </button>
+
+        </div>
+
+    </div>
+    <% } %>
+
+
+    <!-- Warning -->
+    <% if (warning && warning.length > 0) { %>
+    <div class="toast align-items-center text-dark bg-warning border-0 shadow-lg"
+         role="alert"
+         aria-live="assertive"
+         aria-atomic="true">
+
+        <div class="d-flex">
+
+            <div class="toast-body">
+                <i class="bi bi-exclamation-triangle-fill me-2"></i>
+                <%= warning[0] %>
+            </div>
+
+            <button
+                type="button"
+                class="btn-close me-2 m-auto"
+                data-bs-dismiss="toast"
+                aria-label="Close">
+            </button>
+
+        </div>
+
+    </div>
+    <% } %>
+
+
+    <!-- Info -->
+    <% if (info && info.length > 0) { %>
+    <div class="toast align-items-center text-bg-info border-0 shadow-lg"
+         role="alert"
+         aria-live="assertive"
+         aria-atomic="true">
+
+        <div class="d-flex">
+
+            <div class="toast-body">
+                <i class="bi bi-info-circle-fill me-2"></i>
+                <%= info[0] %>
+            </div>
+
+            <button
+                type="button"
+                class="btn-close btn-close-white me-2 m-auto"
+                data-bs-dismiss="toast"
+                aria-label="Close">
+            </button>
+
+        </div>
+
+    </div>
+    <% } %>
+
+</div>

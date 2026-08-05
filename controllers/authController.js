@@ -1,18 +1,21 @@
 const bcrypt = require("bcrypt");
 const User = require("../models/userModel");
 
+
+exports.testFlash = (req, res) => {
+    req.flash("success", "Flash message is working!");
+    res.redirect("/dashboard");
+};
+
 // ===============================
 // Login Page
 // ===============================
-
 exports.loginPage = (req, res) => {
   res.render("auth/login", {
     title: "Login",
     layout: false,
-    error: null,
   });
 };
-
 // ===============================
 // Login
 // ===============================
@@ -23,44 +26,46 @@ exports.login = async (req, res) => {
 
     // Validate input
     if (!username || !password) {
-      return res.render("auth/login", {
-        title: "Login",
-        layout: false,
-        error: "Username and password are required.",
-      });
+      req.flash("warning", "Username and password are required.");
+      return res.redirect("/login");
     }
 
     // Find user
     const user = await User.findByUsername(username);
 
     if (!user) {
-      return res.render("auth/login", {
-        title: "Login",
-        layout: false,
-        error: "Invalid username or password.",
-      });
+    req.flash("error", "Invalid username or password.");
+      return res.redirect("/login");
     }
 
     // Check status
     if (user.status !== "Active") {
-      return res.render("auth/login", {
-        title: "Login",
-        layout: false,
-        error: `Account is ${user.status}.`,
-      });
+      req.flash("warning", `Account is ${user.status}.`);
+      return res.redirect("/login");
     }
 
     // Check account lock
-    if (
-      user.locked_until &&
-      new Date(user.locked_until) > new Date()
-    ) {
-      return res.render("auth/login", {
-        title: "Login",
-        layout: false,
-        error: "Your account is temporarily locked.",
-      });
+  if (user.locked_until) {
+
+    const now = new Date();
+    const lockedUntil = new Date(user.locked_until);
+
+    // Still locked
+    if (lockedUntil > now) {
+
+        req.flash(
+            "warning",
+            "Your account is temporarily locked. Please try again later."
+        );
+
+        return res.redirect("/login");
+
     }
+
+    // Lock expired -> Automatically unlock account
+    await User.unlockAccount(user.id);
+
+}
 
     // Compare password
     const match = await bcrypt.compare(password, user.password);
@@ -76,13 +81,17 @@ exports.login = async (req, res) => {
         lockTime.setMinutes(lockTime.getMinutes() + 15);
 
         await User.lockAccount(user.id, lockTime);
+
+        req.flash(
+          "error",
+          "Your account has been locked for 15 minutes due to multiple failed login attempts."
+        );
+
+        return res.redirect("/login");
       }
 
-      return res.render("auth/login", {
-        title: "Login",
-        layout: false,
-        error: "Invalid username or password.",
-      });
+      req.flash("error", "Invalid username or password.");
+      return res.redirect("/login");
     }
 
     // Reset failed attempts
@@ -101,33 +110,28 @@ exports.login = async (req, res) => {
       profile_image: user.profile_image,
     };
 
-    res.redirect("/dashboard");
+    req.flash("success", `Welcome back, ${user.first_name}!`);
+
+    return res.redirect("/dashboard");
 
   } catch (err) {
 
     console.error(err);
 
-    res.render("auth/login", {
-      title: "Login",
-      layout: false,
-      error: "Server Error",
-    });
+    req.flash("error", "An unexpected server error occurred.");
 
+    return res.redirect("/login");
   }
 };
-
 // ===============================
 // Logout
 // ===============================
 
 exports.logout = (req, res) => {
-
   req.session.destroy((err) => {
-
     if (err) {
       console.log(err);
     }
-
     res.redirect("/login");
 
   });

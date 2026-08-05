@@ -7,6 +7,8 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const expressLayouts = require("express-ejs-layouts");
 
+const flash = require("connect-flash");
+
 // ===============================
 // DATABASE
 // ===============================
@@ -47,6 +49,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+
 //Session
 app.use(
   session({
@@ -62,6 +65,17 @@ app.use(
     },
   })
 );
+
+//notification flash messages
+app.use(flash());
+
+app.use((req, res, next) => {
+    res.locals.success = req.flash("success");
+    res.locals.error = req.flash("error");
+    res.locals.warning = req.flash("warning");
+    res.locals.info = req.flash("info");
+    next();
+});
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
