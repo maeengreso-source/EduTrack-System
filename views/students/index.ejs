@@ -1,364 +1,1101 @@
+<style>
+
+/* =====================================
+   STUDENT MANAGEMENT
+===================================== */
+
+.page-header{
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:25px;
+
+}
+
+
+.page-title{
+
+    font-size:24px;
+    font-weight:700;
+    color:#0f172a;
+
+}
+
+
+.page-subtitle{
+
+    font-size:14px;
+    color:#64748b;
+
+}
+
+
+/* BUTTON */
+
+.add-btn{
+
+    background:#0f7970;
+    color:#fff;
+    border:none;
+
+    padding:8px 14px;
+
+    font-size:14px;
+
+    border-radius:6px;
+
+}
+
+
+.add-btn:hover{
+
+    background:#0b625b;
+    color:#fff;
+
+}
+
+
+
+/* CARD */
+
+.student-card{
+
+    background:#fff;
+
+    border:1px solid #e5e7eb;
+
+}
+
+
+
+
+
+/* SEARCH */
+
+.card-header{
+
+    padding:15px;
+
+    background:#fff;
+
+    border-bottom:1px solid #e5e7eb;
+
+}
+
+
+.search-box{
+
+    position:relative;
+
+}
+
+
+
+.search-box i{
+
+    position:absolute;
+
+    left:12px;
+
+    top:50%;
+
+    transform:translateY(-50%);
+
+    color:#94a3b8;
+
+}
+
+
+
+.search-box input{
+
+    height:38px;
+
+    padding-left:35px;
+
+}
+
+
+
+/* TABLE */
+
+
+.student-table{
+
+    margin:0;
+
+}
+
+
+.student-table thead th{
+
+    background:#f8fafc;
+
+    color:#64748b;
+
+    font-size:12px;
+
+    text-transform:uppercase;
+
+    font-weight:600;
+
+    padding:12px;
+
+}
+
+
+
+.student-table tbody td{
+
+    padding:12px;
+
+    font-size:14px;
+
+    color:#334155;
+
+    vertical-align:middle;
+
+}
+
+
+
+.student-table tbody tr:hover{
+
+    background:#f8fafc;
+
+}
+
+
+
+/* STUDENT PROFILE */
+
+
+.student-info{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+}
+
+
+.avatar{
+
+    width:38px;
+
+    height:38px;
+
+    border-radius:50%;
+
+    background:#0f7970;
+
+    color:#fff;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-weight:600;
+
+}
+
+
+
+.student-name{
+
+    font-weight:600;
+
+    color:#0f172a;
+
+}
+
+
+.student-id{
+
+    font-size:12px;
+
+    color:#64748b;
+
+}
+
+
+
+
+/* BADGE */
+
+
+.grade-badge{
+
+    background:#e0f2fe;
+
+    color:#0369a1;
+
+    padding:4px 8px;
+
+    font-size:12px;
+
+}
+
+
+.status-active{
+
+    background:#dcfce7;
+
+    color:#15803d;
+
+    padding:4px 8px;
+
+    font-size:12px;
+
+}
+
+
+.status-inactive{
+
+    background:#fee2e2;
+
+    color:#dc2626;
+
+    padding:4px 8px;
+
+    font-size:12px;
+
+}
+
+
+
+/* ACTION */
+
+
+.action-btn{
+
+    width:32px;
+
+    height:32px;
+
+    border:none;
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    margin:2px;
+
+}
+
+
+
+.view{
+
+    background:#eff6ff;
+
+    color:#2563eb;
+
+}
+
+
+.edit{
+
+    background:#fffbeb;
+
+    color:#d97706;
+
+}
+
+
+.delete{
+
+    background:#fef2f2;
+
+    color:#dc2626;
+
+}
+
+/* =====================================
+   STUDENT SUMMARY CARDS
+===================================== */
+
+.student-summary{
+
+    background:#fff;
+
+    border:1px solid #e5e7eb;
+
+    padding:18px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+    height:100px;
+
+}
+
+
+.summary-icon{
+
+    width:45px;
+
+    height:45px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    background:#e6fffb;
+
+    color:#0f7970;
+
+    font-size:20px;
+
+}
+
+
+.summary-label{
+
+    font-size:12px;
+
+    text-transform:uppercase;
+
+    color:#64748b;
+
+    font-weight:600;
+
+}
+
+
+.summary-number{
+
+    font-size:26px;
+
+    font-weight:700;
+
+    color:#0f172a;
+
+}
+/* =====================================
+   STUDENT SUMMARY CARDS
+===================================== */
+
+.student-summary-card{
+
+    background:#ffffff;
+
+    border:1px solid #e5e7eb;
+
+    padding:20px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+    min-height:110px;
+
+    transition:.25s ease;
+
+}
+
+
+.student-summary-card:hover{
+
+    box-shadow:0 6px 18px rgba(0,0,0,.08);
+
+}
+
+
+
+.summary-icon{
+
+    width:50px;
+
+    height:50px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    background:#e6fffb;
+
+    color:#0f7970;
+
+    font-size:22px;
+
+}
+
+
+
+.summary-info{
+
+    display:flex;
+
+    flex-direction:column;
+
+}
+
+
+
+.summary-title{
+
+    font-size:12px;
+
+    text-transform:uppercase;
+
+    color:#64748b;
+
+    font-weight:600;
+
+    letter-spacing:.5px;
+
+}
+
+
+
+.summary-count{
+
+    font-size:28px;
+
+    font-weight:700;
+
+    color:#0f172a;
+
+    line-height:1.2;
+
+}
+
+
+
+.summary-description{
+
+    font-size:12px;
+
+    color:#94a3b8;
+
+}
+
+
+</style>
+
+
+
+
+
 <div class="container-fluid">
 
-    <!-- =========================
-        HEADER
-    ========================== -->
 
-    <div class="d-flex justify-content-between align-items-center mb-4">
+<!-- HEADER -->
 
-        <div>
-            <h2 class="fw-bold mb-1">
-                <i class="bi bi-mortarboard-fill text-success me-2"></i>
-                Student Management
-            </h2>
+<div class="page-header">
 
-            <p class="text-muted mb-0">
-                Manage all registered students in the system.
-            </p>
-        </div>
 
-        <a href="/students/create" class="btn btn-success px-4">
-            <i class="bi bi-plus-circle me-2"></i>
-            Add Student
-        </a>
+<div>
 
-    </div>
+<h2 class="page-title mb-1">
 
-    <!-- =========================
-        STATISTICS
-    ========================== -->
+Student Management
 
-    <div class="row g-4 mb-4">
+</h2>
 
-        <div class="col-xl-3 col-md-6">
 
-            <div class="card stats-card shadow-sm">
+<p class="page-subtitle mb-0">
 
-                <div class="card-body">
+Manage student records and enrollment information.
 
-                    <div class="d-flex justify-content-between align-items-center">
+</p>
 
-                        <div>
 
-                            <small class="text-muted">
-                                Total Students
-                            </small>
+</div>
 
-                            <h2 class="fw-bold mb-1">
-                                250
-                            </h2>
 
-                            <small class="text-success">
-                                ↑ +15 this month
-                            </small>
 
-                        </div>
 
-                        <div class="icon-box bg-success text-white">
+<a href="/students/create"
+class="btn add-btn">
 
-                            <i class="bi bi-people-fill"></i>
+<i class="bi bi-person-plus me-2"></i>
 
-                        </div>
+Add Student
 
-                    </div>
+</a>
 
-                </div>
 
-            </div>
+</div>
 
-        </div>
 
-        <div class="col-xl-3 col-md-6">
 
-            <div class="card stats-card shadow-sm">
 
-                <div class="card-body">
 
-                    <div class="d-flex justify-content-between align-items-center">
 
-                        <div>
 
-                            <small class="text-muted">
-                                Active
-                            </small>
+<!-- CARD -->
+</div>
 
-                            <h2 class="fw-bold text-success">
-                                240
-                            </h2>
 
-                            <small class="text-success">
-                                96% Active
-                            </small>
+<!-- ==============================
+     STUDENT SUMMARY CARDS
+================================ -->
 
-                        </div>
 
-                        <div class="icon-box bg-success text-white">
+<div class="row mb-4">
 
-                            <i class="bi bi-check-circle-fill"></i>
 
-                        </div>
+<div class="col-md-3">
 
-                    </div>
 
-                </div>
+<div class="student-summary-card">
 
-            </div>
 
-        </div>
+<div class="summary-icon">
 
-        <div class="col-xl-3 col-md-6">
+<i class="bi bi-people-fill"></i>
 
-            <div class="card stats-card shadow-sm">
+</div>
 
-                <div class="card-body">
 
-                    <div class="d-flex justify-content-between align-items-center">
+<div class="summary-info">
 
-                        <div>
 
-                            <small class="text-muted">
-                                Male
-                            </small>
+<span class="summary-title">
 
-                            <h2 class="fw-bold text-primary">
-                                120
-                            </h2>
+Total Students
 
-                            <small class="text-muted">
-                                48%
-                            </small>
+</span>
 
-                        </div>
 
-                        <div class="icon-box bg-primary text-white">
+<span class="summary-count">
 
-                            <i class="bi bi-gender-male"></i>
+<%= students.length %>
 
-                        </div>
+</span>
 
-                    </div>
 
-                </div>
+<span class="summary-description">
 
-            </div>
+Registered students
 
-        </div>
+</span>
 
-        <div class="col-xl-3 col-md-6">
 
-            <div class="card stats-card shadow-sm">
+</div>
 
-                <div class="card-body">
 
-                    <div class="d-flex justify-content-between align-items-center">
+</div>
 
-                        <div>
 
-                            <small class="text-muted">
-                                Female
-                            </small>
+</div>
 
-                            <h2 class="fw-bold text-danger">
-                                130
-                            </h2>
 
-                            <small class="text-muted">
-                                52%
-                            </small>
 
-                        </div>
 
-                        <div class="icon-box bg-danger text-white">
 
-                            <i class="bi bi-gender-female"></i>
 
-                        </div>
 
-                    </div>
+<div class="col-md-3">
 
-                </div>
 
-            </div>
+<div class="student-summary-card">
 
-        </div>
 
-    </div>
+<div class="summary-icon">
 
-    <!-- =========================
-        SEARCH
-    ========================== -->
+<i class="bi bi-person-check-fill"></i>
 
-    <div class="card shadow-sm mb-4">
+</div>
 
-        <div class="card-body">
 
-            <div class="row g-3 align-items-center">
+<div class="summary-info">
 
-                <div class="col-lg-5">
 
-                    <div class="input-group">
+<span class="summary-title">
 
-                        <span class="input-group-text">
+Active Students
 
-                            <i class="bi bi-search"></i>
+</span>
 
-                        </span>
 
-                        <input
-                            type="text"
-                            class="form-control"
-                            placeholder="Search student by ID or Name">
+<span class="summary-count text-success">
 
-                    </div>
+<%= students.filter(s=>s.status==="Active").length %>
 
-                </div>
+</span>
 
-                <div class="col-lg-2">
 
-                    <select class="form-select">
+<span class="summary-description">
 
-                        <option>Grade</option>
+Currently enrolled
 
-                    </select>
+</span>
 
-                </div>
 
-                <div class="col-lg-2">
+</div>
 
-                    <select class="form-select">
 
-                        <option>Section</option>
+</div>
 
-                    </select>
 
-                </div>
+</div>
 
-                <div class="col-lg-2">
 
-                    <select class="form-select">
 
-                        <option>Status</option>
 
-                    </select>
 
-                </div>
 
-                <div class="col-lg-1 d-grid">
 
-                    <button class="btn btn-outline-secondary">
+<div class="col-md-3">
 
-                        <i class="bi bi-arrow-clockwise"></i>
 
-                    </button>
+<div class="student-summary-card">
 
-                </div>
 
-            </div>
+<div class="summary-icon">
 
-        </div>
+<i class="bi bi-gender-male"></i>
 
-    </div>
+</div>
 
-    <!-- =========================
-        TABLE
-    ========================== -->
 
-    <div class="card shadow-sm">
+<div class="summary-info">
 
-        <div class="table-responsive">
 
-            <table class="table table-hover align-middle mb-0">
+<span class="summary-title">
 
-                <thead>
+Male Students
 
-                    <tr>
+</span>
 
-                        <th>ID</th>
-                        <th>Photo</th>
-                        <th>Student Name</th>
-                        <th>Grade</th>
-                        <th>Section</th>
-                        <th>Gender</th>
-                        <th>Status</th>
-                        <th class="text-center">Actions</th>
 
-                    </tr>
+<span class="summary-count">
 
-                </thead>
+<%= students.filter(s=>s.gender==="Male").length %>
 
-                <tbody>
+</span>
 
-                    <tr>
 
-                        <td>2026-0001</td>
+<span class="summary-description">
 
-                        <td>
+Male population
 
-                            <img src="/images/default-avatar.png"
-                                 class="rounded-circle"
-                                 width="45"
-                                 height="45">
+</span>
 
-                        </td>
 
-                        <td>
+</div>
 
-                            <strong>Juan Dela Cruz</strong>
 
-                            <br>
+</div>
 
-                            <small class="text-muted">
-                                juan@email.com
-                            </small>
 
-                        </td>
+</div>
 
-                        <td>Grade 11</td>
 
-                        <td>ICT-A</td>
 
-                        <td>Male</td>
 
-                        <td>
 
-                            <span class="badge bg-success">
 
-                                Active
 
-                            </span>
 
-                        </td>
+<div class="col-md-3">
 
-                        <td class="text-center">
 
-                            <button class="btn btn-info btn-sm text-white">
+<div class="student-summary-card">
 
-                                <i class="bi bi-eye"></i>
 
-                            </button>
+<div class="summary-icon">
 
-                            <button class="btn btn-warning btn-sm">
+<i class="bi bi-gender-female"></i>
 
-                                <i class="bi bi-pencil"></i>
+</div>
 
-                            </button>
 
-                            <button class="btn btn-danger btn-sm">
+<div class="summary-info">
 
-                                <i class="bi bi-trash"></i>
 
-                            </button>
+<span class="summary-title">
 
-                        </td>
+Female Students
 
-                    </tr>
+</span>
 
-                </tbody>
 
-            </table>
+<span class="summary-count">
 
-        </div>
+<%= students.filter(s=>s.gender==="Female").length %>
 
-    </div>
+</span>
+
+
+<span class="summary-description">
+
+Female population
+
+</span>
+
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+
+</div>
+
+<div class="student-card">
+
+
+<div class="card-header">
+
+
+<div class="search-box col-md-4">
+
+
+<i class="bi bi-search"></i>
+
+
+<input
+type="text"
+class="form-control"
+placeholder="Search student...">
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+
+<div class="table-responsive">
+
+
+<table class="table table-hover student-table">
+
+
+<thead>
+
+<tr>
+
+
+<th width="50">
+
+#
+
+</th>
+
+
+<th>
+
+Student
+
+</th>
+
+
+<th>
+
+Gender
+
+</th>
+
+
+<th>
+
+Grade Level
+
+</th>
+
+
+<th>
+
+Section
+
+</th>
+
+
+<th>
+
+Status
+
+</th>
+
+
+<th>
+
+Enrollment Date
+
+</th>
+
+
+<th width="150" class="text-center">
+
+Action
+
+</th>
+
+
+</tr>
+
+
+</thead>
+
+
+
+
+<tbody>
+
+
+
+<% if(students && students.length > 0){ %>
+
+
+
+<% students.forEach((s,index)=>{ %>
+
+
+
+<tr>
+
+
+<td>
+
+<%= index + 1 %>
+
+</td>
+
+
+
+
+
+<td>
+
+
+<div class="student-info">
+
+
+<div class="avatar">
+
+<%= s.first_name.charAt(0) %>
+
+</div>
+
+
+<div>
+
+
+<div class="student-name">
+
+<%= s.first_name %>
+
+<%= s.last_name %>
+
+</div>
+
+
+<div class="student-id">
+
+ID: <%= s.student_id %>
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+</td>
+
+
+
+
+
+<td>
+
+<%= s.gender %>
+
+</td>
+
+
+
+
+
+<td>
+
+<span class="grade-badge">
+
+<%= s.grade_level %>
+
+</span>
+
+</td>
+
+
+
+
+
+<td>
+
+<%= s.section_name %>
+
+</td>
+
+
+
+
+
+<td>
+
+
+<% if(s.status==="Active"){ %>
+
+
+<span class="status-active">
+
+Active
+
+</span>
+
+
+<% }else{ %>
+
+
+<span class="status-inactive">
+
+Inactive
+
+</span>
+
+
+<% } %>
+
+
+</td>
+
+
+
+
+
+<td>
+
+<%= s.enrollment_date %>
+
+</td>
+
+
+
+
+
+<td class="text-center">
+
+
+<a href="/students/<%=s.id%>"
+class="action-btn view">
+
+<i class="bi bi-eye"></i>
+
+</a>
+
+
+
+<a href="/students/<%=s.id%>/edit"
+class="action-btn edit">
+
+<i class="bi bi-pencil"></i>
+
+</a>
+
+
+
+
+<form action="/students/<%=s.id%>/delete"
+method="POST"
+style="display:inline;">
+
+
+<button
+class="action-btn delete"
+onclick="return confirm('Delete student?')">
+
+
+<i class="bi bi-trash"></i>
+
+
+</button>
+
+
+</form>
+
+
+</td>
+
+
+</tr>
+
+
+
+<% }) %>
+
+
+
+<% }else{ %>
+
+
+
+<tr>
+
+<td colspan="8"
+class="text-center py-5">
+
+<i class="bi bi-mortarboard fs-1 text-muted"></i>
+
+<p class="mt-2 mb-0">
+
+No students found.
+
+</p>
+
+</td>
+
+</tr>
+
+
+
+<% } %>
+
+
+
+</tbody>
+
+
+
+</table>
+
+
+</div>
+
+
+</div>
+
 
 </div>

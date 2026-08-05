@@ -1,70 +1,401 @@
+<style>
+/* =====================================
+   DASHBOARD STATISTICS CARD
+===================================== */
+
+.dashboard-card{
+
+    background:#ffffff;
+
+    border:1px solid #e5e7eb;
+
+    min-height:120px;
+
+    padding:20px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    transition:.25s ease;
+
+}
+
+
+
+.dashboard-card:hover{
+
+    box-shadow:0 6px 18px rgba(0,0,0,.08);
+
+}
+
+
+
+/* INFO */
+
+.card-info{
+
+    display:flex;
+
+    flex-direction:column;
+
+}
+
+
+
+.card-info small{
+
+    font-size:12px;
+
+    text-transform:uppercase;
+
+    color:#64748b;
+
+    font-weight:600;
+
+}
+
+
+
+.card-info h2{
+
+    margin:6px 0;
+
+    font-size:32px;
+
+    font-weight:700;
+
+    color:#0f172a;
+
+}
+
+
+
+.card-info span{
+
+    font-size:12px;
+
+}
+
+
+
+
+
+/* ICON */
+
+.card-icon{
+
+    width:55px;
+
+    height:55px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    background:#e6fffb;
+
+    color:#0f7970;
+
+    font-size:25px;
+
+}
+
+
+
+
+
+/* TEXT COLOR */
+
+.success-text{
+
+    color:#16a34a;
+
+}
+
+
+.primary-text{
+
+    color:#2563eb;
+
+}
+
+
+.secondary-text{
+
+    color:#64748b;
+
+}
+
+
+
+
+
+/* RESPONSIVE */
+
+@media(max-width:1200px){
+
+    .dashboard-card{
+
+        padding:18px;
+
+    }
+
+
+    .card-info h2{
+
+        font-size:28px;
+
+    }
+
+}
+
+
+
+@media(max-width:768px){
+
+    .dashboard-card{
+
+        min-height:100px;
+
+        padding:15px;
+
+    }
+
+
+    .card-info h2{
+
+        font-size:24px;
+
+    }
+
+
+    .card-icon{
+
+        width:45px;
+
+        height:45px;
+
+        font-size:20px;
+
+    }
+
+}
+
+
+
+@media(max-width:576px){
+
+    .dashboard-card{
+
+        padding:14px;
+
+    }
+
+
+    .card-info h2{
+
+        font-size:22px;
+
+    }
+
+
+    .card-icon{
+
+        width:40px;
+
+        height:40px;
+
+        font-size:18px;
+
+    }
+
+}
+</style>
+
 <!-- Statistics -->
+
 <div class="row g-4">
 
+
+    <!-- STUDENTS -->
+
     <div class="col-12 col-sm-6 col-xl-3">
-        <div class="dashboard-card students">
+
+        <div class="dashboard-card">
+
+
             <div class="card-info">
+
                 <small>Total Students</small>
+
                 <h2>350</h2>
-                <span class="text-success">
-                    <i class="bi bi-arrow-up"></i> +15 this month
+
+                <span class="success-text">
+                    <i class="bi bi-arrow-up"></i>
+                    +15 this month
                 </span>
+
+
             </div>
 
+
+
             <div class="card-icon">
+
                 <i class="bi bi-people-fill"></i>
+
             </div>
+
+
         </div>
+
     </div>
 
+
+
+
+
+    <!-- TEACHERS -->
+
     <div class="col-12 col-sm-6 col-xl-3">
-        <div class="dashboard-card teachers">
+
+
+        <div class="dashboard-card">
+
+
             <div class="card-info">
+
+
                 <small>Total Teachers</small>
+
                 <h2>28</h2>
-                <span class="text-primary">
+
+
+                <span class="primary-text">
+
                     Active Faculty
+
                 </span>
+
+
             </div>
 
+
+
             <div class="card-icon">
+
                 <i class="bi bi-person-badge-fill"></i>
+
             </div>
+
+
         </div>
+
+
     </div>
 
+
+
+
+
+
+    <!-- ATTENDANCE -->
+
+
     <div class="col-12 col-sm-6 col-xl-3">
-        <div class="dashboard-card attendance">
+
+
+        <div class="dashboard-card">
+
+
             <div class="card-info">
+
+
                 <small>Attendance Today</small>
+
+
                 <h2>312</h2>
-                <span class="text-success">
+
+
+
+                <span class="success-text">
+
                     89% Present
+
                 </span>
+
+
             </div>
 
+
+
             <div class="card-icon">
+
                 <i class="bi bi-calendar-check-fill"></i>
+
             </div>
+
+
+
         </div>
+
+
     </div>
+
+
+
+
+
+
+
+    <!-- USERS -->
+
 
     <div class="col-12 col-sm-6 col-xl-3">
-        <div class="dashboard-card users">
+
+
+        <div class="dashboard-card">
+
+
             <div class="card-info">
+
+
                 <small>System Users</small>
+
+
                 <h2>10</h2>
-                <span class="text-secondary">
+
+
+
+                <span class="secondary-text">
+
                     Admin & Staff
+
                 </span>
+
+
             </div>
 
+
+
             <div class="card-icon">
+
                 <i class="bi bi-person-workspace"></i>
+
             </div>
+
+
+
         </div>
+
+
     </div>
+
+
 
 </div>
-
-

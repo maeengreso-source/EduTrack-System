@@ -1,198 +1,824 @@
-<div class="container-fluid">
+<style>
+    /* =====================================
+   USER SUMMARY CARDS
+===================================== */
 
-    <!-- Page Header -->
-    <div class="d-flex justify-content-between align-items-center mb-4">
+.user-summary-card{
 
-        <div>
-            <h2 class="fw-bold mb-1">User Management</h2>
-            <p class="text-muted mb-0">
-                Manage system users and permissions.
-            </p>
-        </div>
+    background:#ffffff;
 
-        <a href="/users/create" class="btn btn-success">
-            <i class="bi bi-plus-circle me-2"></i>
-            Add User
-        </a>
+    border:1px solid #e5e7eb;
 
-    </div>
+    min-height:110px;
 
-    <!-- Flash Messages -->
-    <% if (success && success.length) { %>
+    padding:18px;
 
-        <div class="alert alert-success">
-            <%= success %>
-        </div>
+    display:flex;
 
-    <% } %>
+    align-items:center;
 
-    <% if (error && error.length) { %>
+    gap:15px;
 
-        <div class="alert alert-danger">
-            <%= error %>
-        </div>
+    transition:.25s ease;
 
-    <% } %>
+}
 
-    <!-- Card -->
-    <div class="card shadow-sm border-0 rounded-4">
 
-        <div class="card-header bg-white py-3">
+.user-summary-card:hover{
 
-            <div class="row">
+    box-shadow:0 6px 18px rgba(0,0,0,.06);
 
-                <div class="col-md-4">
+}
 
-                    <input
-                        type="text"
-                        class="form-control"
-                        placeholder="Search user...">
 
-                </div>
 
-            </div>
+.user-summary-icon{
 
-        </div>
+    width:48px;
 
-        <div class="card-body p-0">
+    height:48px;
 
-            <div class="table-responsive">
+    display:flex;
 
-                <table class="table table-hover align-middle mb-0">
+    align-items:center;
 
-                    <thead class="table-light">
+    justify-content:center;
 
-                        <tr>
+    background:#e6fffb;
 
-                            <th width="70">#</th>
-                            <th>Full Name</th>
-                            <th>Username</th>
-                            <th>Email</th>
-                            <th>Role</th>
-                            <th>Status</th>
-                            <th width="180" class="text-center">Actions</th>
+    color:#0f7970;
 
-                        </tr>
+    font-size:22px;
 
-                    </thead>
+}
 
-                    <tbody>
 
-                        <% if(users.length > 0){ %>
 
-                            <% users.forEach((u,index)=>{ %>
+.user-summary-content{
 
-                            <tr>
+    display:flex;
 
-                                <td><%= index + 1 %></td>
+    flex-direction:column;
 
-                                <td>
-                                    <strong>
-                                        <%= u.first_name %>
-                                        <%= u.middle_name || "" %>
-                                        <%= u.last_name %>
-                                    </strong>
-                                </td>
+}
 
-                                <td>
-                                    <%= u.username %>
-                                </td>
 
-                                <td>
-                                    <%= u.email %>
-                                </td>
 
-                                <td>
+.user-summary-title{
 
-                                    <span class="badge bg-primary">
+    font-size:12px;
 
-                                        <%= u.role_name %>
+    font-weight:600;
 
-                                    </span>
+    color:#64748b;
 
-                                </td>
+    text-transform:uppercase;
 
-                                <td>
+    letter-spacing:.5px;
 
-                                    <% if(u.status==="Active"){ %>
+}
 
-                                        <span class="badge bg-success">
-                                            Active
-                                        </span>
 
-                                    <% }else{ %>
 
-                                        <span class="badge bg-danger">
-                                            Inactive
-                                        </span>
+.user-summary-number{
 
-                                    <% } %>
+    font-size:28px;
 
-                                </td>
+    font-weight:700;
 
-                                <td class="text-center">
+    color:#0f172a;
 
-                                    <a href="/users/<%= u.id %>"
-                                        class="btn btn-sm btn-info">
+    line-height:1.2;
 
-                                        <i class="bi bi-eye"></i>
+}
 
-                                    </a>
 
-                                    <a href="/users/<%= u.id %>/edit"
-                                        class="btn btn-sm btn-warning">
 
-                                        <i class="bi bi-pencil-square"></i>
+.user-summary-text{
 
-                                    </a>
+    font-size:12px;
 
-                                    <form
-                                        action="/users/<%= u.id %>/delete"
-                                        method="POST"
-                                        class="d-inline">
+    color:#94a3b8;
 
-                                        <button
-                                            class="btn btn-sm btn-danger"
-                                            onclick="return confirm('Delete this user?')">
+}
 
-                                            <i class="bi bi-trash"></i>
+/* =====================================
+   USER TABLE
+===================================== */
 
-                                        </button>
 
-                                    </form>
+.user-panel{
 
-                                </td>
+    background:#fff;
 
-                            </tr>
+    border:1px solid #e5e7eb;
 
-                            <% }) %>
+}
 
-                        <% }else{ %>
 
-                            <tr>
+/* HEADER / SEARCH */
 
-                                <td colspan="7" class="text-center py-5">
+.user-panel-header{
 
-                                    <i class="bi bi-people display-5 text-muted"></i>
+    padding:15px;
 
-                                    <p class="mt-3 mb-0">
-                                        No users found.
-                                    </p>
+    border-bottom:1px solid #e5e7eb;
 
-                                </td>
+}
 
-                            </tr>
 
-                        <% } %>
+.user-search{
 
-                    </tbody>
+    position:relative;
 
-                </table>
+}
 
-            </div>
 
-        </div>
+.user-search i{
 
-    </div>
+    position:absolute;
+
+    left:12px;
+
+    top:50%;
+
+    transform:translateY(-50%);
+
+    color:#94a3b8;
+
+}
+
+
+.user-search input{
+
+    height:38px;
+
+    padding-left:35px;
+
+    border:1px solid #d1d5db;
+
+}
+
+
+
+
+
+/* TABLE */
+
+.user-table{
+
+    margin:0;
+
+}
+
+
+
+.user-table thead th{
+
+    background:#f8fafc;
+
+    color:#64748b;
+
+    font-size:12px;
+
+    font-weight:600;
+
+    text-transform:uppercase;
+
+    padding:12px;
+
+    border-bottom:1px solid #e5e7eb;
+
+}
+
+
+
+.user-table tbody td{
+
+    padding:12px;
+
+    font-size:14px;
+
+    color:#334155;
+
+    vertical-align:middle;
+
+}
+
+
+
+.user-table tbody tr:hover{
+
+    background:#f8fafc;
+
+}
+
+
+
+
+
+/* USER PROFILE */
+
+
+.user-info{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+}
+
+
+
+.user-avatar{
+
+    width:38px;
+
+    height:38px;
+
+    border-radius:50%;
+
+    background:#0f7970;
+
+    color:#fff;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-weight:700;
+
+    font-size:14px;
+
+}
+
+
+
+.user-name{
+
+    font-weight:600;
+
+    color:#0f172a;
+
+}
+
+
+
+.user-email{
+
+    font-size:12px;
+
+    color:#64748b;
+
+}
+
+
+
+
+
+/* ROLE */
+
+.role-badge{
+
+    background:#e0f2fe;
+
+    color:#0369a1;
+
+    padding:4px 8px;
+
+    font-size:12px;
+
+}
+
+
+
+
+
+/* STATUS */
+
+
+.status-active{
+
+    background:#dcfce7;
+
+    color:#15803d;
+
+    padding:4px 8px;
+
+    font-size:12px;
+
+}
+
+
+.status-inactive{
+
+    background:#fee2e2;
+
+    color:#dc2626;
+
+    padding:4px 8px;
+
+    font-size:12px;
+
+}
+
+
+
+
+
+/* ACTION BUTTON */
+
+
+.user-action{
+
+    width:32px;
+
+    height:32px;
+
+    border:none;
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    margin:2px;
+
+}
+
+
+
+.user-view{
+
+    background:#eff6ff;
+
+    color:#2563eb;
+
+}
+
+
+
+.user-edit{
+
+    background:#fffbeb;
+
+    color:#d97706;
+
+}
+
+
+
+.user-delete{
+
+    background:#fef2f2;
+
+    color:#dc2626;
+
+}
+
+</style>
+
+<!-- USER SUMMARY CARDS -->
+
+<div class="row mb-4">
+
+
+<div class="col-md-3">
+
+<div class="user-summary-card">
+
+
+<div class="user-summary-icon">
+
+<i class="bi bi-people-fill"></i>
+
+</div>
+
+
+<div class="user-summary-content">
+
+<span class="user-summary-title">
+Total Users
+</span>
+
+
+<span class="user-summary-number">
+<%= users.length %>
+</span>
+
+
+<span class="user-summary-text">
+Registered accounts
+</span>
+
+
+</div>
+
+
+</div>
+
+</div>
+
+
+
+
+
+
+<div class="col-md-3">
+
+<div class="user-summary-card">
+
+
+<div class="user-summary-icon">
+
+<i class="bi bi-person-check-fill"></i>
+
+</div>
+
+
+<div class="user-summary-content">
+
+<span class="user-summary-title">
+Active Users
+</span>
+
+
+<span class="user-summary-number text-success">
+<%= users.filter(u=>u.status==="Active").length %>
+</span>
+
+
+<span class="user-summary-text">
+Currently active
+</span>
+
+
+</div>
+
+
+</div>
+
+</div>
+
+
+
+
+
+
+
+<div class="col-md-3">
+
+<div class="user-summary-card">
+
+
+<div class="user-summary-icon">
+
+<i class="bi bi-shield-lock-fill"></i>
+
+</div>
+
+
+<div class="user-summary-content">
+
+<span class="user-summary-title">
+Administrators
+</span>
+
+
+<span class="user-summary-number">
+<%= users.filter(u=>u.role_name.includes("Admin")).length %>
+</span>
+
+
+<span class="user-summary-text">
+System admins
+</span>
+
+
+</div>
+
+
+</div>
+
+</div>
+
+
+
+
+
+
+
+<div class="col-md-3">
+
+<div class="user-summary-card">
+
+
+<div class="user-summary-icon">
+
+<i class="bi bi-person-badge-fill"></i>
+
+</div>
+
+
+<div class="user-summary-content">
+
+<span class="user-summary-title">
+Staff
+</span>
+
+
+<span class="user-summary-number">
+<%= users.filter(u=>u.role_name==="Staff").length %>
+</span>
+
+
+<span class="user-summary-text">
+System staff
+</span>
+
+
+</div>
+
+
+</div>
+
+</div>
+
+
+</div>
+<!-- USER TABLE -->
+
+<div class="user-panel">
+
+
+<div class="user-panel-header">
+
+
+<div class="user-search col-md-4">
+
+
+<i class="bi bi-search"></i>
+
+
+<input 
+type="text"
+class="form-control"
+placeholder="Search users...">
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+<div class="table-responsive">
+
+
+<table class="table table-hover user-table">
+
+
+<thead>
+
+<tr>
+
+<th width="50">#</th>
+
+<th>User</th>
+
+<th>Username</th>
+
+<th>Email</th>
+
+<th>Role</th>
+
+<th>Status</th>
+
+<th>Last Login</th>
+
+<th>Created</th>
+
+<th width="130" class="text-center">
+Action
+</th>
+
+
+</tr>
+
+</thead>
+
+
+
+<tbody>
+
+
+<% users.forEach((u,index)=>{ %>
+
+
+<tr>
+
+
+<td>
+
+<%= index + 1 %>
+
+</td>
+
+
+
+
+<td>
+
+
+<div class="user-info">
+
+
+<div class="user-avatar">
+
+<%= u.first_name.charAt(0) %>
+
+</div>
+
+
+
+<div>
+
+
+<div class="user-name">
+
+<%= u.first_name %>
+<%= u.last_name %>
+
+</div>
+
+
+<div class="user-email">
+
+<%= u.email %>
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+</td>
+
+
+
+
+<td>
+
+<%= u.username %>
+
+</td>
+
+
+
+
+<td>
+
+<%= u.email %>
+
+</td>
+
+
+
+
+<td>
+
+
+<span class="role-badge">
+
+<%= u.role_name %>
+
+</span>
+
+
+</td>
+
+
+
+
+<td>
+
+
+<% if(u.status==="Active"){ %>
+
+
+<span class="status-active">
+
+Active
+
+</span>
+
+
+<% }else{ %>
+
+
+<span class="status-inactive">
+
+Inactive
+
+</span>
+
+
+<% } %>
+
+
+</td>
+
+
+
+
+
+<td>
+
+<%= u.last_login || "Never" %>
+
+</td>
+
+
+
+
+<td>
+
+<%= u.created_at %>
+
+</td>
+
+
+
+
+
+<td class="text-center">
+
+
+<a href="/users/<%=u.id%>"
+class="user-action user-view">
+
+<i class="bi bi-eye"></i>
+
+</a>
+
+
+
+<a href="/users/<%=u.id%>/edit"
+class="user-action user-edit">
+
+<i class="bi bi-pencil"></i>
+
+</a>
+
+
+
+
+<form action="/users/<%=u.id%>/delete"
+method="POST"
+style="display:inline">
+
+
+<button
+class="user-action user-delete"
+onclick="return confirm('Delete this user?')">
+
+
+<i class="bi bi-trash"></i>
+
+
+</button>
+
+
+</form>
+
+
+</td>
+
+
+</tr>
+
+
+<% }) %>
+
+
+</tbody>
+
+
+</table>
+
+
+</div>
+
 
 </div>

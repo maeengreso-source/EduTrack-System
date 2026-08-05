@@ -127,14 +127,22 @@ exports.login = async (req, res) => {
 // ===============================
 // Logout
 // ===============================
-
 exports.logout = (req, res) => {
-  req.session.destroy((err) => {
-    if (err) {
-      console.log(err);
-    }
-    res.redirect("/login");
 
-  });
+    req.session.destroy((err)=>{
+
+        if(err){
+
+            console.log(err);
+
+            return res.redirect("/dashboard");
+
+        }
+
+        res.clearCookie("connect.sid");
+
+        res.redirect("/login");
+
+    });
 
 };

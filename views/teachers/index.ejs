@@ -1,1 +1,671 @@
-<h1>Teachers Page</h1>
+<style>
+/* =====================================
+   TEACHER TABLE
+===================================== */
+
+
+.teacher-table{
+
+    background:#fff;
+
+    border:1px solid #e5e7eb;
+
+}
+
+
+
+.teacher-table thead th{
+
+    background:#f8fafc;
+
+    color:#64748b;
+
+    font-size:12px;
+
+    text-transform:uppercase;
+
+    font-weight:600;
+
+    padding:12px;
+
+}
+
+
+
+.teacher-table tbody td{
+
+    padding:12px;
+
+    font-size:14px;
+
+    color:#334155;
+
+    vertical-align:middle;
+
+}
+
+
+
+
+.teacher-profile{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+}
+
+
+
+.teacher-avatar{
+
+    width:38px;
+
+    height:38px;
+
+    border-radius:50%;
+
+    background:#0f7970;
+
+    color:white;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-weight:600;
+
+}
+
+
+
+.teacher-name{
+
+    font-weight:600;
+
+    color:#0f172a;
+
+}
+
+
+
+.teacher-id{
+
+    font-size:12px;
+
+    color:#64748b;
+
+}
+
+
+
+/* ACTION */
+
+.action{
+
+    width:32px;
+
+    height:32px;
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border:none;
+
+    margin:2px;
+
+}
+
+
+.view{
+
+    background:#eff6ff;
+
+    color:#2563eb;
+
+}
+
+
+.edit{
+
+    background:#fffbeb;
+
+    color:#d97706;
+
+}
+
+
+.delete{
+
+    background:#fef2f2;
+
+    color:#dc2626;
+
+}
+    /* =====================================
+   TEACHER SUMMARY CARDS
+===================================== */
+
+.teacher-summary-card{
+
+    background:#fff;
+
+    border:1px solid #e5e7eb;
+
+    padding:20px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+    min-height:110px;
+
+}
+
+
+.teacher-summary-card:hover{
+
+    box-shadow:0 6px 18px rgba(0,0,0,.08);
+
+}
+
+
+.teacher-summary-icon{
+
+    width:50px;
+
+    height:50px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    background:#e6fffb;
+
+    color:#0f7970;
+
+    font-size:22px;
+
+}
+
+
+.teacher-summary-title{
+
+    font-size:12px;
+
+    text-transform:uppercase;
+
+    color:#64748b;
+
+    font-weight:600;
+
+}
+
+
+.teacher-summary-number{
+
+    font-size:28px;
+
+    font-weight:700;
+
+    color:#0f172a;
+
+}
+
+
+.teacher-summary-text{
+
+    font-size:12px;
+
+    color:#94a3b8;
+
+}
+</style>
+
+<div class="row mb-4">
+
+
+<div class="col-md-3">
+
+<div class="teacher-summary-card">
+
+<div class="teacher-summary-icon">
+
+<i class="bi bi-person-workspace"></i>
+
+</div>
+
+
+<div>
+
+<div class="teacher-summary-title">
+
+Total Teachers
+
+</div>
+
+
+<div class="teacher-summary-number">
+
+<%= teachers.length %>
+
+</div>
+
+
+<div class="teacher-summary-text">
+
+Registered faculty
+
+</div>
+
+
+</div>
+
+
+</div>
+
+</div>
+
+
+
+
+
+<div class="col-md-3">
+
+<div class="teacher-summary-card">
+
+
+<div class="teacher-summary-icon">
+
+<i class="bi bi-person-check"></i>
+
+</div>
+
+
+<div>
+
+<div class="teacher-summary-title">
+
+Active Teachers
+
+</div>
+
+
+<div class="teacher-summary-number text-success">
+
+<%= teachers.filter(t=>t.status==="Active").length %>
+
+</div>
+
+
+<div class="teacher-summary-text">
+
+Currently teaching
+
+</div>
+
+
+</div>
+
+
+</div>
+
+</div>
+
+
+
+
+
+
+
+<div class="col-md-3">
+
+<div class="teacher-summary-card">
+
+
+<div class="teacher-summary-icon">
+
+<i class="bi bi-book"></i>
+
+</div>
+
+
+<div>
+
+<div class="teacher-summary-title">
+
+Subjects
+
+</div>
+
+
+<div class="teacher-summary-number">
+
+25
+
+</div>
+
+
+<div class="teacher-summary-text">
+
+Assigned subjects
+
+</div>
+
+
+</div>
+
+
+</div>
+
+</div>
+
+
+
+
+
+
+
+
+<div class="col-md-3">
+
+<div class="teacher-summary-card">
+
+
+<div class="teacher-summary-icon">
+
+<i class="bi bi-building"></i>
+
+</div>
+
+
+<div>
+
+<div class="teacher-summary-title">
+
+Departments
+
+</div>
+
+
+<div class="teacher-summary-number">
+
+8
+
+</div>
+
+
+<div class="teacher-summary-text">
+
+School departments
+
+</div>
+
+
+</div>
+
+
+</div>
+
+</div>
+
+
+
+</div>
+
+<!-- TEACHER TABLE -->
+
+<div class="teacher-table">
+
+
+<div class="table-responsive">
+
+
+<table class="table table-hover mb-0">
+
+
+<thead>
+
+<tr>
+
+<th width="50">#</th>
+
+<th>Teacher</th>
+
+<th>Email</th>
+
+<th>Gender</th>
+
+<th>Department</th>
+
+<th>Subject</th>
+
+<th>Status</th>
+
+<th>Date Joined</th>
+
+<th width="140" class="text-center">
+Action
+</th>
+
+
+</tr>
+
+</thead>
+
+
+
+
+<tbody>
+
+
+<% teachers.forEach((t,index)=>{ %>
+
+
+<tr>
+
+
+<td>
+
+<%= index + 1 %>
+
+</td>
+
+
+
+
+<td>
+
+
+<div class="teacher-profile">
+
+
+<div class="teacher-avatar">
+
+<%= t.first_name.charAt(0) %>
+
+</div>
+
+
+
+<div>
+
+
+<div class="teacher-name">
+
+<%= t.first_name %>
+<%= t.last_name %>
+
+</div>
+
+
+<div class="teacher-id">
+
+ID: <%= t.teacher_id %>
+
+</div>
+
+
+</div>
+
+
+
+</div>
+
+
+</td>
+
+
+
+
+
+
+<td>
+
+<%= t.email %>
+
+</td>
+
+
+
+
+
+<td>
+
+<%= t.gender %>
+
+</td>
+
+
+
+
+
+<td>
+
+<%= t.department %>
+
+</td>
+
+
+
+
+
+<td>
+
+<%= t.subject %>
+
+</td>
+
+
+
+
+
+<td>
+
+
+<% if(t.status==="Active"){ %>
+
+
+<span class="status-active">
+
+Active
+
+</span>
+
+
+<% }else{ %>
+
+
+<span class="status-inactive">
+
+Inactive
+
+</span>
+
+
+<% } %>
+
+
+</td>
+
+
+
+
+
+
+<td>
+
+<%= t.date_joined %>
+
+</td>
+
+
+
+
+
+
+
+<td class="text-center">
+
+
+<a href="#"
+class="action view">
+
+<i class="bi bi-eye"></i>
+
+</a>
+
+
+
+<a href="#"
+class="action edit">
+
+<i class="bi bi-pencil"></i>
+
+</a>
+
+
+
+
+<button
+class="action delete">
+
+<i class="bi bi-trash"></i>
+
+</button>
+
+
+</td>
+
+
+
+</tr>
+
+
+
+<% }) %>
+
+
+
+
+</tbody>
+
+
+</table>
+
+
+</div>
+
+
+</div>

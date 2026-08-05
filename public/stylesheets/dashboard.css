@@ -1,7 +1,6 @@
 /* ==========================
    DASHBOARD CARDS
 ========================== */
-
 .dashboard-card{
     background:#fff;
     border-radius:18px;
@@ -10,10 +9,11 @@
     justify-content:space-between;
     align-items:center;
     box-shadow:0 8px 20px rgba(0,0,0,.08);
-    transition:.3s;
+
+    transition:transform .3s ease;
+
     height:100%;
 }
-
 .dashboard-card:hover{
     transform:translateY(-5px);
 }
@@ -274,6 +274,7 @@
 
 .card{
     border-radius:18px;
+    transition:transform .3s ease;
 }
 
 /* Statistics */

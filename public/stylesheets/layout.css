@@ -250,35 +250,3 @@ img{
 
 }
 
-/* ===================================
-   DARK MODE - TOPBAR
-=================================== */
-
-body.dark .page-title h3{
-    color:#fff;
-}
-
-body.dark .page-title p{
-    color:#cbd5e1;
-}
-
-body.dark .profile strong{
-    color:#fff;
-}
-
-body.dark .profile small{
-    color:#cbd5e1;
-}
-
-body.dark .icon-btn{
-    background:#334155;
-    color:#fff;
-}
-
-body.dark .icon-btn:hover{
-    background:#475569;
-}
-
-body.dark .theme-icon{
-    color:#facc15;
-}

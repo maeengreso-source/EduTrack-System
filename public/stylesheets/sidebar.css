@@ -1,224 +1,8 @@
-/* ==========================================
-   LIGHT MODE
-========================================== */
-
-body:not(.dark) .sidebar{
-
-    background:#ffffff;
-    border-right:1px solid #e5e7eb;
-    color:#1e293b;
-
-}
-
-body:not(.dark) .sidebar-header{
-
-    border-bottom:1px solid #e5e7eb;
-
-}
-
-body:not(.dark) .logo{
-
-    background:linear-gradient(135deg,#14b8a6,#0f766e);
-    color:#fff;
-
-}
-
-body:not(.dark) .logo-text h4{
-
-    color:#0f172a;
-
-}
-
-body:not(.dark) .logo-text small{
-
-    color:#64748b;
-
-}
-
-body:not(.dark) .menu-title{
-
-    color:#94a3b8;
-
-}
-
-body:not(.dark) .sidebar-menu a,
-body:not(.dark) .sidebar-footer a{
-
-    color:#475569;
-    border-radius:12px;
-    margin:4px 12px;
-    border-left:none;
-
-}
-
-body:not(.dark) .sidebar-menu a i,
-body:not(.dark) .sidebar-footer a i{
-
-    color:#64748b;
-
-}
-
-body:not(.dark) .sidebar-menu a:hover,
-body:not(.dark) .sidebar-footer a:hover{
-
-    background:#f1f5f9;
-    color:#0f172a;
-
-}
-
-body:not(.dark) .sidebar-menu a:hover i{
-
-    color:#14b8a6;
-
-}
-
-body:not(.dark) .sidebar-menu a.active{
-
-    background:linear-gradient(135deg,#14b8a6,#0f766e);
-    color:#ffffff;
-
-    box-shadow:
-        0 8px 18px rgba(20,184,166,.25);
-
-}
-
-body:not(.dark) .sidebar-menu a.active i{
-
-    color:#ffffff;
-
-}
-
-body:not(.dark) .sidebar-footer{
-
-    border-top:1px solid #e5e7eb;
-
-}
-
-body:not(.dark) .logout{
-
-    color:#ef4444 !important;
-
-}
-
-body:not(.dark) .logout:hover{
-
-    background:#fef2f2;
-
-}
-
-
-/* ==========================================
-   DARK MODE
-========================================== */
-
-body.dark .sidebar{
-
-    background:#0f172a;
-    border-right:1px solid #1e293b;
-
-}
-
-body.dark .sidebar-header{
-
-    border-bottom:1px solid rgba(255,255,255,.08);
-
-}
-
-body.dark .logo{
-
-    background:linear-gradient(135deg,#14b8a6,#0f766e);
-    color:#ffffff;
-
-}
-
-body.dark .logo-text h4{
-
-    color:#ffffff;
-
-}
-
-body.dark .logo-text small{
-
-    color:#94a3b8;
-
-}
-
-body.dark .menu-title{
-
-    color:#64748b;
-
-}
-
-body.dark .sidebar-menu a,
-body.dark .sidebar-footer a{
-
-    color:#cbd5e1;
-    border-radius:12px;
-    margin:4px 12px;
-    border-left:none;
-
-}
-
-body.dark .sidebar-menu a i,
-body.dark .sidebar-footer a i{
-
-    color:#94a3b8;
-
-}
-
-body.dark .sidebar-menu a:hover,
-body.dark .sidebar-footer a:hover{
-
-    background:#1e293b;
-    color:#ffffff;
-
-}
-
-body.dark .sidebar-menu a:hover i{
-
-    color:#14b8a6;
-
-}
-
-body.dark .sidebar-menu a.active{
-
-    background:linear-gradient(135deg,#14b8a6,#0f766e);
-    color:#ffffff;
-
-    box-shadow:
-        0 8px 18px rgba(20,184,166,.20);
-
-}
-
-body.dark .sidebar-menu a.active i{
-
-    color:#ffffff;
-
-}
-
-body.dark .sidebar-footer{
-
-    border-top:1px solid rgba(255,255,255,.08);
-
-}
-
-body.dark .logout{
-
-    color:#f87171 !important;
-
-}
-
-body.dark .logout:hover{
-
-    background:rgba(239,68,68,.15);
-
-}
 
 
 /* ==========================================
    SIDEBAR
 ========================================== */
-
 
 
 .sidebar{
@@ -227,7 +11,7 @@ body.dark .logout:hover{
     left:0;
     width:260px;
     height:100vh;
-    background:var(--sidebar-bg);
+    background:#0f172a;
     color:#fff;
     display:flex;
     flex-direction:column;
@@ -260,6 +44,7 @@ body.dark .logout:hover{
     transform:translateX(4px);
 
 }
+
 /* ==========================================
    HEADER
 ========================================== */
@@ -299,67 +84,159 @@ body.dark .logout:hover{
    MENU
 ========================================== */
 
+
 .sidebar-menu{
+
     flex:1;
-    padding:6px 0;
+    padding:10px 0;
+
 }
+
+
+
+/* ==========================================
+   MENU TITLE
+========================================== */
+
 
 .menu-title{
+
     display:block;
-    margin:12px 18px 4px;
-    padding:0;
-
-    font-size:11px;
+    margin:16px 16px 8px;
+    font-size:10px;
     font-weight:700;
-    letter-spacing:1px;
+    letter-spacing:1.4px;
     text-transform:uppercase;
+    color:#64748b;
 
-    color:var(--sidebar-muted);
 }
+
+
+
+/* ==========================================
+   MENU LINKS
+========================================== */
+
 
 .sidebar-menu a,
 .sidebar-footer a{
 
+    position:relative;
     display:flex;
     align-items:center;
     gap:12px;
-
-    padding:10px 18px;
-    margin:2px 10px;
-
-    color:var(--sidebar-text);
+    padding:11px 16px;
+    margin:4px 10px;
+    border-radius:12px;
+    color:#cbd5e1;
     text-decoration:none;
-
-    border-left:none;
-    border-radius:10px;
-
-    transition:all .25s ease;
+    font-size:14px;
+    font-weight:500;
+    transition:
+        background .25s ease,
+        color .25s ease,
+        transform .25s ease;
 
 }
+
+
+/* ==========================================
+   ICON
+========================================== */
+
 
 .sidebar-menu a i,
 .sidebar-footer a i{
 
     width:22px;
+
     text-align:center;
-    font-size:18px;
+
+    font-size:17px;
+
+    color:#94a3b8;
+
     flex-shrink:0;
 
+    transition:.25s ease;
+
 }
+
+
+
+/* ==========================================
+   HOVER
+========================================== */
 
 .sidebar-menu a:hover,
 .sidebar-footer a:hover{
 
-    background:var(--sidebar-hover);
-    color:#fff;
+    background:rgba(255,255,255,.06);
+
+    color:#ffffff;
+
+    transform:translateX(4px);
 
 }
 
+.sidebar-menu a:hover i,
+.sidebar-footer a:hover i{
+
+    color:#14b8a6;
+
+}
+
+/* ==========================================
+   ACTIVE MENU
+========================================== */
+
+
 .sidebar-menu a.active{
 
-    background:rgba(34,197,94,.15);
-    color:var(--sidebar-active);
-    border-left-color:var(--sidebar-active);
+    background:linear-gradient(
+        135deg,
+        #14b8a6,
+        #0f766e
+    );
+
+    color:#ffffff;
+
+    font-weight:600;
+
+    box-shadow:
+        0 8px 20px rgba(20,184,166,.25);
+
+}
+
+
+
+.sidebar-menu a.active i{
+
+    color:#ffffff;
+
+}
+
+
+
+/* Active indicator */
+
+.sidebar-menu a.active::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+
+    top:10px;
+
+    width:3px;
+
+    height:60%;
+
+    border-radius:0 4px 4px 0;
+
+    background:#ffffff;
 
 }
 

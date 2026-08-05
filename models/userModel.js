@@ -206,16 +206,39 @@ async function remove(id) {
   );
 
 }
+
+// Unlock Account
+async function unlockAccount(id) {
+
+  await db.query(
+    `
+    UPDATE tbl_users
+    SET
+      failed_login_attempts = 0,
+      locked_until = NULL
+    WHERE id = ?
+    `,
+    [id]
+  );
+
+}
+
 module.exports = {
+
   findByUsername,
   findById,
+
   updateLastLogin,
   incrementFailedAttempts,
   lockAccount,
   resetFailedAttempts,
+  unlockAccount,
 
   getAll,
   create,
   update,
   remove
+
 };
+
+
