@@ -1,5 +1,6 @@
 const bcrypt = require("bcrypt");
 const User = require("../models/userModel");
+const guestMiddleware = require("../middleware/guestMiddleware");
 
 
 exports.testFlash = (req, res) => {

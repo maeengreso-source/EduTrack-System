@@ -90,7 +90,122 @@ async function resetFailedAttempts(id) {
     [id]
   );
 }
+// Get All Users
+async function getAll() {
+  const [rows] = await db.query(`
+    SELECT
+      u.id,
+      u.first_name,
+      u.middle_name,
+      u.last_name,
+      u.username,
+      u.email,
+      u.status,
+      u.created_at,
+      r.role_name
+    FROM tbl_users u
+    INNER JOIN tbl_roles r
+      ON u.role_id = r.id
+    ORDER BY u.id DESC
+  `);
 
+  return rows;
+}
+
+// Create User
+async function create(user) {
+
+  const {
+    first_name,
+    middle_name,
+    last_name,
+    username,
+    email,
+    password,
+    role_id
+  } = user;
+
+  await db.query(
+    `
+    INSERT INTO tbl_users
+    (
+      first_name,
+      middle_name,
+      last_name,
+      username,
+      email,
+      password,
+      role_id
+    )
+    VALUES (?, ?, ?, ?, ?, ?, ?)
+    `,
+    [
+      first_name,
+      middle_name,
+      last_name,
+      username,
+      email,
+      password,
+      role_id
+    ]
+  );
+
+}
+
+//Update User
+
+async function update(id, user) {
+
+  const {
+    first_name,
+    middle_name,
+    last_name,
+    username,
+    email,
+    role_id,
+    status
+  } = user;
+
+  await db.query(
+    `
+    UPDATE tbl_users
+    SET
+      first_name=?,
+      middle_name=?,
+      last_name=?,
+      username=?,
+      email=?,
+      role_id=?,
+      status=?
+    WHERE id=?
+    `,
+    [
+      first_name,
+      middle_name,
+      last_name,
+      username,
+      email,
+      role_id,
+      status,
+      id
+    ]
+  );
+
+}
+
+// Delete User
+
+async function remove(id) {
+
+  await db.query(
+    `
+    DELETE FROM tbl_users
+    WHERE id=?
+    `,
+    [id]
+  );
+
+}
 module.exports = {
   findByUsername,
   findById,
@@ -98,4 +213,9 @@ module.exports = {
   incrementFailedAttempts,
   lockAccount,
   resetFailedAttempts,
+
+  getAll,
+  create,
+  update,
+  remove
 };

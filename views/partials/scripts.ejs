@@ -39,25 +39,33 @@ document.addEventListener("DOMContentLoaded", () => {
     // ==========================================
     // Dark Mode
     // ==========================================
+
     const themeToggle = document.getElementById("themeToggle");
+    const savedTheme = localStorage.getItem("theme");
+
+    if (savedTheme === "dark") {
+        document.body.classList.add("dark");
+
+        if (themeToggle) {
+            themeToggle.checked = true;
+        }
+    }
 
     if (themeToggle) {
 
-        const savedTheme = localStorage.getItem("theme");
-
-        if (savedTheme === "dark") {
-            document.body.classList.add("dark");
-            themeToggle.checked = true;
-        }
-
         themeToggle.addEventListener("change", () => {
 
-            document.body.classList.toggle("dark", themeToggle.checked);
+            if (themeToggle.checked) {
 
-            localStorage.setItem(
-                "theme",
-                themeToggle.checked ? "dark" : "light"
-            );
+                document.body.classList.add("dark");
+                localStorage.setItem("theme", "dark");
+
+            } else {
+
+                document.body.classList.remove("dark");
+                localStorage.setItem("theme", "light");
+
+            }
 
         });
 
@@ -67,9 +75,8 @@ document.addEventListener("DOMContentLoaded", () => {
     // ==========================================
     // Bootstrap Toast
     // ==========================================
-    const toastList = document.querySelectorAll(".toast");
 
-    toastList.forEach((toastElement) => {
+    document.querySelectorAll(".toast").forEach((toastElement) => {
 
         const toast = new bootstrap.Toast(toastElement, {
             autohide: true,
@@ -80,12 +87,61 @@ document.addEventListener("DOMContentLoaded", () => {
 
     });
 
+
+    // ==========================================
+    // Sidebar Dropdown
+    // ==========================================
+
+    document.querySelectorAll(".menu-toggle").forEach(toggle => {
+
+        const target = document.querySelector(
+            toggle.getAttribute("href")
+        );
+
+        if (!target) return;
+
+        target.addEventListener("shown.bs.collapse", () => {
+
+            toggle.setAttribute("aria-expanded", "true");
+
+        });
+
+        target.addEventListener("hidden.bs.collapse", () => {
+
+            toggle.setAttribute("aria-expanded", "false");
+
+        });
+
+    });
+
+
+    // ==========================================
+    // Sidebar Scroll Top
+    // ==========================================
+
+    document.querySelectorAll(".sidebar a").forEach(link => {
+
+        link.addEventListener("click", () => {
+
+            const sidebar = document.getElementById("sidebar");
+
+            if (sidebar) {
+
+                sidebar.scrollTop = 0;
+
+            }
+
+        });
+
+    });
+
 });
 
 
 // ==========================================
 // Sidebar Toggle
 // ==========================================
+
 function toggleSidebar() {
 
     const sidebar = document.getElementById("sidebar");
@@ -110,6 +166,7 @@ function toggleSidebar() {
 // ==========================================
 // Window Resize
 // ==========================================
+
 window.addEventListener("resize", () => {
 
     const sidebar = document.getElementById("sidebar");
@@ -121,20 +178,6 @@ window.addEventListener("resize", () => {
         sidebar.classList.remove("show");
 
     }
-
-});
-
-// ==========================================
-// Bootstrap Toast
-// ==========================================
-document.querySelectorAll(".toast").forEach((toastElement) => {
-
-    const toast = new bootstrap.Toast(toastElement, {
-        delay: 3000,
-        autohide: true
-    });
-
-    toast.show();
 
 });
 </script>

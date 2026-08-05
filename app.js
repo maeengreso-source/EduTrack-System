@@ -9,6 +9,7 @@ const expressLayouts = require("express-ejs-layouts");
 
 const flash = require("connect-flash");
 
+
 // ===============================
 // DATABASE
 // ===============================
@@ -28,13 +29,21 @@ const pool = require("./config/db");
 
 
 const indexRouter = require('./routes/index');
-const usersRouter = require('./routes/users');
+const usersRouter = require('./routes/userRoutes');
 const authRoutes = require('./routes/authRoutes');
 const dashboardRoutes = require('./routes/dashboardRoutes');
 const studentRoutes = require('./routes/studentRoutes');
 const teacherRoutes = require('./routes/teacherRoutes');
 
 const app = express();
+
+// ===============================
+// Middleware
+// ===============================
+
+const cacheMiddleware = require("./middleware/cacheMiddleware");
+app.use(cacheMiddleware);
+
 app.use(expressLayouts);
 
 app.set("layout", "layouts/layout");
@@ -83,6 +92,7 @@ app.use('/', authRoutes);
 app.use('/dashboard', dashboardRoutes)
 app.use('/students', studentRoutes);
 app.use('/teachers', teacherRoutes);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

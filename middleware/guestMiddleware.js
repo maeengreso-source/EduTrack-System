@@ -1,7 +1,9 @@
-exports.isGuest = (req, res, next) => {
+module.exports = (req, res, next) => {
+
     if (req.session.user) {
         return res.redirect("/dashboard");
     }
 
     next();
+
 };

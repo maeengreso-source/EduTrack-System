@@ -5,12 +5,12 @@ const authMiddleware = require("../middleware/authMiddleware");
 const roleMiddleware = require("../middleware/roleMiddleware");
 
 router.get(
-    "/",
+    "/dashboard",
     authMiddleware,
-    roleMiddleware("Super Admin", "Admin"),
+    roleMiddleware("Teacher"),
     (req, res) => {
-        res.render("teachers/index", {
-            title: "Teachers",
+        res.render("teacher/dashboard", {
+            title: "Teacher Dashboard",
             user: req.session.user
         });
     }

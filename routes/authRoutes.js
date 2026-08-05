@@ -2,14 +2,26 @@ const express = require("express");
 const router = express.Router();
 
 const authController = require("../controllers/authController");
-const { isGuest } = require("../middleware/guestMiddleware");
+const guestMiddleware = require("../middleware/guestMiddleware");
 
-router.get("/login", isGuest, authController.loginPage);
+// Login Page
+router.get(
+    "/login",
+    guestMiddleware,
+    authController.loginPage
+);
 
-router.post("/login", authController.login);
+// Login Process
+router.post(
+    "/login",
+    guestMiddleware,
+    authController.login
+);
 
-router.get("/logout", authController.logout);
-
-
+// Logout
+router.get(
+    "/logout",
+    authController.logout
+);
 
 module.exports = router;
