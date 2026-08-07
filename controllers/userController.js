@@ -102,12 +102,16 @@ exports.store = async (req, res) => {
             first_name,
             middle_name,
             last_name,
+            suffix,
+            gender,
+            birthdate,
+            contact_number,
             username,
             email,
             password,
             role_id
         } = req.body;
-        
+
         // ===============================
         // Profile Image
         // ===============================
@@ -147,19 +151,22 @@ exports.store = async (req, res) => {
 
             employee_id,
             student_id,
+            profile_image,
 
             first_name,
             middle_name,
             last_name,
 
+            suffix,
+            gender,
+            birthdate,
+            contact_number,
+
             username,
             email,
-
             password: hashedPassword,
 
-            role_id,
-
-            profile_image
+            role_id
 
         });
 
@@ -178,7 +185,6 @@ exports.store = async (req, res) => {
     }
 
 };
-
 // ===============================
 // View User
 // ===============================
@@ -305,6 +311,34 @@ exports.destroy = async (req, res) => {
         req.flash("error", "Unable to delete user.");
 
         res.redirect("/users");
+
+    }
+
+};
+
+exports.getUser = async (req, res) => {
+
+    try {
+
+        const user = await userModel.findById(req.params.id);
+
+        if (!user) {
+
+            return res.status(404).json({
+                message: "User not found"
+            });
+
+        }
+
+        return res.json(user);
+
+    } catch (err) {
+
+        console.error(err);
+
+        return res.status(500).json({
+            message: err.message
+        });
 
     }
 

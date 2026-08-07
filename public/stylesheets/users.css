@@ -407,17 +407,19 @@
     height:40px;
     padding-left:38px;
     border:1px solid #ced4da;
+    border-radius:0;
 }
 
 .user-panel-header .form-select{
     height:40px;
     border:1px solid #ced4da;
+    border-radius:0;
 }
 
 .user-panel-header .btn{
     height:40px;
+    border-radius:0;
 }
-
 /* ==========================================
    TABLE
 ========================================== */
@@ -547,26 +549,105 @@
 ========================================== */
 
 .pagination{
-    gap:4px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:6px;
+
+    margin-top:20px;
+
+}
+
+.page-item{
+
+    display:flex;
+
 }
 
 .page-link{
-    border:1px solid #dee2e6;
-    color:#198754;
-    min-width:36px;
-    height:36px;
+
+    min-width:40px;
+
+    height:40px;
+
+    padding:0 15px;
 
     display:flex;
+
     align-items:center;
+
     justify-content:center;
+
+    background:#ffffff;
+
+    color:#495057;
+
+    border:1px solid #ced4da;
+
+    border-radius:0;
+
+    font-size:14px;
+
+    font-weight:600;
+
+    text-decoration:none;
+
+    box-shadow:none;
+
+    transition:all .2s ease;
+
+}
+
+.page-link:hover{
+
+    background:#198754;
+
+    border-color:#198754;
+
+    color:#ffffff;
+
+}
+
+.page-link:focus{
+
+    outline:none;
+
+    box-shadow:none;
+
 }
 
 .page-item.active .page-link{
+
     background:#198754;
+
     border-color:#198754;
-    color:#fff;
+
+    color:#ffffff;
+
 }
 
+.page-item.disabled .page-link{
+
+    background:#f8f9fa;
+
+    color:#adb5bd;
+
+    border-color:#dee2e6;
+
+    pointer-events:none;
+
+}
+
+.page-item:first-child .page-link,
+.page-item:last-child .page-link{
+
+    padding:0 18px;
+
+}
 /* ==================================================
    ADD USER MODAL
 ================================================== */
@@ -577,11 +658,13 @@
 
 #addUserModal .modal-content{
     border:none;
-    border-radius:10px;
+    border-radius:0;
     box-shadow:0 10px 25px rgba(0,0,0,.08);
 }
 
-/* Header */
+/* ==========================================
+   HEADER
+========================================== */
 
 #addUserModal .modal-header{
     padding:15px 20px;
@@ -596,13 +679,17 @@
     color:#198754;
 }
 
-/* Body */
+/* ==========================================
+   BODY
+========================================== */
 
 #addUserModal .modal-body{
     padding:20px;
 }
 
-/* Section */
+/* ==========================================
+   SECTION TITLE
+========================================== */
 
 .section-title{
     font-size:14px;
@@ -612,7 +699,9 @@
     border-bottom:1px solid #e9ecef;
 }
 
-/* Profile */
+/* ==========================================
+   PROFILE
+========================================== */
 
 .profile-upload{
     display:flex;
@@ -623,12 +712,14 @@
 .profile-upload img{
     width:140px;
     height:140px;
-    border-radius:50%;
     object-fit:cover;
     border:2px solid #dee2e6;
+    border-radius:0;
 }
 
-/* Form */
+/* ==========================================
+   LABEL
+========================================== */
 
 #addUserModal label{
     font-size:12px;
@@ -638,11 +729,16 @@
     text-transform:uppercase;
 }
 
+/* ==========================================
+   FORM
+========================================== */
+
 #addUserModal .form-control,
 #addUserModal .form-select{
     height:40px;
-    border-radius:6px;
     font-size:13px;
+    border:1px solid #ced4da;
+    border-radius:0;
     box-shadow:none;
 }
 
@@ -652,7 +748,9 @@
     box-shadow:none;
 }
 
-/* Footer */
+/* ==========================================
+   FOOTER
+========================================== */
 
 #addUserModal .modal-footer{
     padding:15px 20px;
@@ -662,10 +760,12 @@
 #addUserModal .btn{
     min-width:100px;
     height:40px;
-    border-radius:6px;
+    border-radius:0;
 }
 
-/* Compact spacing */
+/* ==========================================
+   COMPACT SPACING
+========================================== */
 
 #addUserModal .row{
     --bs-gutter-y:.75rem;
@@ -687,7 +787,7 @@
     min-width:50px;
     min-height:50px;
 
-    border-radius:50%;
+    border-radius:0;
 
     overflow:hidden;
 
@@ -713,17 +813,15 @@
     height:100%;
 
     object-fit:cover;
-
     object-position:center;
 
     display:block;
 
-    border-radius:50%;
+    border-radius:0;
 
     background:transparent;
 
 }
-
 /* ==========================================
    PROFILE (TOPBAR)
 ========================================== */
@@ -796,6 +894,186 @@
     background:#f8f9fa;
     border-color:#ced4da;
     color:#6c757d;
+}
+
+/* ==========================================
+   VIEW USER MODAL
+========================================== */
+
+#viewUserModal .modal-content{
+
+    border:none;
+
+    border-radius:0;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.15);
+
+}
+
+/* ==========================================
+   HEADER
+========================================== */
+
+#viewUserModal .modal-header{
+
+    background:#ffffff;
+
+    border-bottom:2px solid #198754;
+
+    padding:18px 25px;
+
+}
+
+#viewUserModal .modal-title{
+
+    font-size:22px;
+
+    font-weight:700;
+
+    color:#212529;
+
+}
+
+/* ==========================================
+   BODY
+========================================== */
+
+#viewUserModal .modal-body{
+
+    background:#fff;
+
+    padding:30px;
+
+}
+
+/* ==========================================
+   PROFILE IMAGE
+========================================== */
+
+#viewUserModal .profile-upload{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:flex-start;
+
+}
+
+#viewUserModal .profile-upload img{
+
+    width:170px;
+
+    height:170px;
+
+    object-fit:cover;
+
+    border:3px solid #dee2e6;
+
+    border-radius:0;
+
+}
+
+/* ==========================================
+   SECTION TITLE
+========================================== */
+
+#viewUserModal .section-title{
+
+    color:#198754;
+
+    font-weight:700;
+
+    text-transform:uppercase;
+
+    border-bottom:2px solid #198754;
+
+    padding-bottom:8px;
+
+    margin-bottom:20px;
+
+}
+
+/* ==========================================
+   LABEL
+========================================== */
+
+#viewUserModal label{
+
+    font-size:13px;
+
+    font-weight:700;
+
+    color:#495057;
+
+    text-transform:uppercase;
+
+    margin-bottom:6px;
+
+}
+
+/* ==========================================
+   INPUT
+========================================== */
+
+#viewUserModal input{
+
+    background:#f8f9fa;
+
+    border:1px solid #ced4da;
+
+    border-radius:0;
+
+    height:45px;
+
+    color:#212529;
+
+    font-weight:500;
+
+    box-shadow:none;
+
+    cursor:default;
+
+}
+
+#viewUserModal input:focus{
+
+    border-color:#198754;
+
+    box-shadow:none;
+
+}
+
+/* ==========================================
+   HR
+========================================== */
+
+#viewUserModal hr{
+
+    border-color:#dee2e6;
+
+    margin:30px 0;
+
+}
+
+/* ==========================================
+   FOOTER
+========================================== */
+
+#viewUserModal .modal-footer{
+
+    border-top:1px solid #dee2e6;
+
+    padding:15px 25px;
+
+}
+
+#viewUserModal .btn{
+
+    border-radius:0;
+
+    min-width:120px;
+
 }
 /* ==================================================
    RESPONSIVE

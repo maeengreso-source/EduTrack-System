@@ -2,6 +2,7 @@
 <%- include("partials/addModal") %>
 <%- include("partials/editModal") %>
 <%- include("partials/deleteModal") %>
+<%- include("partials/viewModal") %>
 
 
 
@@ -519,14 +520,16 @@
                     <div class="d-flex justify-content-center align-items-center gap-1">
 
                         <!-- View -->
-                        <a
-                            href="/users/<%= u.id %>"
-                            class="user-action user-view"
-                            title="View">
+                        <button
+                            type="button"
+                            class="btn user-action user-view btn-view"
+                            data-id="<%= u.id %>"
+                            data-bs-toggle="modal"
+                            data-bs-target="#viewUserModal">
 
                             <i class="bi bi-eye"></i>
 
-                        </a>
+                        </button>
 
                         <!-- Edit -->
                         <a

@@ -261,6 +261,7 @@ async function countAll(
 // ===============================
 async function create(user) {
 
+
     const {
 
         employee_id,
@@ -271,6 +272,11 @@ async function create(user) {
         middle_name,
         last_name,
 
+        suffix,
+        gender,
+        birthdate,
+        contact_number,
+
         username,
         email,
         password,
@@ -279,7 +285,11 @@ async function create(user) {
 
     } = user;
 
-    await db.query(
+    // ===============================
+    // INSERT USER
+    // ===============================
+
+    const [result] = await db.query(
         `
         INSERT INTO tbl_users
         (
@@ -291,13 +301,18 @@ async function create(user) {
             middle_name,
             last_name,
 
+            suffix,
+            gender,
+            birthdate,
+            contact_number,
+
             username,
             email,
             password,
 
             role_id
         )
-        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
         `,
         [
             employee_id,
@@ -308,6 +323,11 @@ async function create(user) {
             middle_name,
             last_name,
 
+            suffix,
+            gender,
+            birthdate,
+            contact_number,
+
             username,
             email,
             password,
@@ -316,8 +336,11 @@ async function create(user) {
         ]
     );
 
-}
+    console.log("INSERT RESULT:", result);
 
+    return result;
+
+}
 //Update User
 
 async function update(id, user) {
@@ -491,6 +514,46 @@ async function generateStudentId() {
 }
 
 
+async function findById(id){
+
+    const [rows] = await db.query(
+        `
+      SELECT
+          u.id,
+          u.employee_id,
+          u.student_id,
+          u.profile_image,
+
+          u.first_name,
+          u.middle_name,
+          u.last_name,
+          u.suffix,
+          u.gender,
+          u.birthdate,
+
+          u.username,
+          u.email,
+          u.contact_number,
+
+          u.status,
+          u.last_login,
+
+          r.role_name
+
+      FROM tbl_users u
+      INNER JOIN tbl_roles r
+          ON u.role_id = r.id
+      WHERE u.id = ?
+
+        `,
+        [id]
+    );
+
+    return rows[0];
+
+}
+
+
 module.exports = {
 
     findByUsername,
@@ -511,6 +574,7 @@ module.exports = {
     remove,
 
     generateEmployeeId,
-    generateStudentId
+    generateStudentId,
+    findById
 
 };

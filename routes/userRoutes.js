@@ -42,12 +42,11 @@ router.post(
 // View User
 // ===============================
 router.get(
-    "/:id",
+    "/api/:id",
     authMiddleware,
     roleMiddleware("Super Administrator"),
-    userController.show
+    userController.getUser
 );
-
 // ===============================
 // Edit User Page
 // ===============================

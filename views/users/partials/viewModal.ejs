@@ -1,0 +1,323 @@
+<!-- ==================================================
+VIEW USER MODAL
+================================================== -->
+
+<div
+    class="modal fade"
+    id="viewUserModal"
+    tabindex="-1"
+    aria-hidden="true">
+
+    <div class="modal-dialog modal-xl modal-dialog-centered">
+
+    <div class="modal-content">
+
+        <!-- =========================================
+        HEADER
+        ========================================= -->
+
+        <div class="modal-header">
+
+            <h5 class="modal-title">
+                <i class="bi bi-person-vcard-fill me-2"></i>
+                VIEW USER ACCOUNT
+            </h5>
+
+            <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal">
+            </button>
+
+        </div>
+
+        <!-- =========================================
+        BODY
+        ========================================= -->
+
+        <div class="modal-body">
+
+            <!-- =========================================
+            PERSONAL INFORMATION
+            ========================================= -->
+
+            <h6 class="section-title">
+                Personal Information
+            </h6>
+
+            <div class="row g-3">
+
+                <!-- Profile -->
+
+                <div class="col-lg-3">
+
+                    <div class="profile-upload">
+
+                        <img
+                            id="viewProfileImage"
+                            src="/images/default-avatar-1.png"
+                            alt="Profile">
+
+                    </div>
+
+                </div>
+
+                <!-- Information -->
+
+                <div class="col-lg-9">
+
+                    <div class="row g-3">
+
+                        <div class="col-md-6">
+
+                            <label id="viewIdLabel">
+                                Employee ID
+                            </label>
+
+                            <input
+                                type="text"
+                                id="view_employee_student_id"
+                                class="form-control"
+                                placeholder="-"
+                                readonly>
+
+                        </div>
+
+                        <div class="col-md-6">
+
+                            <label>
+                                Role
+                            </label>
+
+                            <input
+                                type="text"
+                                id="view_role"
+                                class="form-control"
+                                placeholder="-"
+                                readonly>
+
+                        </div>
+
+                        <div class="col-md-4">
+
+                            <label>
+                                First Name
+                            </label>
+
+                            <input
+                                type="text"
+                                id="view_first_name"
+                                class="form-control"
+                                placeholder="-"
+                                readonly>
+
+                        </div>
+
+                        <div class="col-md-4">
+
+                            <label>
+                                Middle Name
+                            </label>
+
+                            <input
+                                type="text"
+                                id="view_middle_name"
+                                class="form-control"
+                                placeholder="-"
+                                readonly>
+
+                        </div>
+
+                        <div class="col-md-4">
+
+                            <label>
+                                Last Name
+                            </label>
+
+                            <input
+                                type="text"
+                                id="view_last_name"
+                                class="form-control"
+                                placeholder="-"
+                                readonly>
+
+                        </div>
+
+                        <div class="col-md-4">
+
+                            <label>
+                                Suffix
+                            </label>
+
+                            <input
+                                type="text"
+                                id="view_suffix"
+                                class="form-control"
+                                placeholder="-"
+                                readonly>
+
+                        </div>
+
+                        <div class="col-md-4">
+
+                            <label>
+                                Gender
+                            </label>
+
+                            <input
+                                type="text"
+                                id="view_gender"
+                                class="form-control"
+                                placeholder="-"
+                                readonly>
+
+                        </div>
+
+                        <div class="col-md-4">
+
+                            <label>
+                                Birthdate
+                            </label>
+
+                            <input
+                                type="text"
+                                id="view_birthdate"
+                                class="form-control"
+                                placeholder="-"
+                                readonly>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <hr>
+
+            <!-- =========================================
+            CONTACT INFORMATION
+            ========================================= -->
+
+            <h6 class="section-title">
+                Contact Information
+            </h6>
+
+            <div class="row g-3">
+
+                <div class="col-md-6">
+
+                    <label>
+                        Email Address
+                    </label>
+
+                    <input
+                        type="text"
+                        id="view_email"
+                        class="form-control"
+                        placeholder="-"
+                        readonly>
+
+                </div>
+
+                <div class="col-md-6">
+
+                    <label>
+                        Contact Number
+                    </label>
+
+                    <input
+                        type="text"
+                        id="view_contact"
+                        class="form-control"
+                        placeholder="-"
+                        readonly>
+
+                </div>
+
+            </div>
+
+            <hr>
+
+            <!-- =========================================
+            ACCOUNT INFORMATION
+            ========================================= -->
+
+            <h6 class="section-title">
+                Account Information
+            </h6>
+
+            <div class="row g-3">
+
+                <div class="col-md-4">
+
+                    <label>
+                        Username
+                    </label>
+
+                    <input
+                        type="text"
+                        id="view_username"
+                        class="form-control"
+                        placeholder="-"
+                        readonly>
+
+                </div>
+
+                <div class="col-md-4">
+
+                    <label>
+                        Status
+                    </label>
+
+                    <input
+                        type="text"
+                        id="view_status"
+                        class="form-control"
+                        placeholder="-"
+                        readonly>
+
+                </div>
+
+                <div class="col-md-4">
+
+                    <label>
+                        Last Login
+                    </label>
+
+                    <input
+                        type="text"
+                        id="view_last_login"
+                        class="form-control"
+                        placeholder="Never"
+                        readonly>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- =========================================
+        FOOTER
+        ========================================= -->
+
+        <div class="modal-footer">
+
+            <button
+                type="button"
+                class="btn btn-outline-secondary"
+                data-bs-dismiss="modal">
+
+                Close
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+</div>
