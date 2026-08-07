@@ -34,18 +34,20 @@
             <span class="badge">3</span>
         </button>
 
-        <div class="profile">
+<div class="profile">
 
-            <img
-                src="https://ui-avatars.com/api/?name=<%= user.first_name %>+<%= user.last_name %>&background=0F7970&color=fff"
-                alt="Profile">
+    <img
+        src="<%= (!user.profile_image || user.profile_image === 'default-avatar-1.png')
+            ? '/images/default-avatar-1.png'
+            : '/uploads/profiles/' + user.profile_image %>"
+        alt="Profile">
 
-            <div class="profile-info">
-                <strong><%= user.first_name %> <%= user.last_name %></strong>
-                <small><%= user.role %></small>
-            </div>
+    <div class="profile-info">
+        <strong><%= user.first_name %> <%= user.last_name %></strong>
+        <small><%= user.role_name %></small>
+    </div>
 
-        </div>
+</div>
 
     </div>
 

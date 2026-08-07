@@ -413,7 +413,6 @@ body.dark .toast{
 
     background:#1f2937;
     color:#f8fafc;
-
     box-shadow:
         0 12px 35px rgba(0,0,0,.45),
         0 2px 10px rgba(0,0,0,.25);
@@ -421,7 +420,6 @@ body.dark .toast{
 }
 
 body.dark .text-bg-success{
-
     background:#1f2937 !important;
     color:#86efac !important;
     border-left:5px solid #22c55e;
@@ -429,14 +427,12 @@ body.dark .text-bg-success{
 }
 
 body.dark .text-bg-success i{
-
     background:rgba(34,197,94,.15);
     color:#4ade80;
 
 }
 
 body.dark .text-bg-danger{
-
     background:#1f2937 !important;
     color:#fca5a5 !important;
     border-left:5px solid #ef4444;
@@ -444,14 +440,12 @@ body.dark .text-bg-danger{
 }
 
 body.dark .text-bg-danger i{
-
     background:rgba(239,68,68,.15);
     color:#f87171;
 
 }
 
 body.dark .bg-warning{
-
     background:#1f2937 !important;
     color:#fde68a !important;
     border-left:5px solid #f59e0b;
@@ -459,14 +453,12 @@ body.dark .bg-warning{
 }
 
 body.dark .bg-warning i{
-
     background:rgba(245,158,11,.15);
     color:#fbbf24;
 
 }
 
 body.dark .text-bg-info{
-
     background:#1f2937 !important;
     color:#93c5fd !important;
     border-left:5px solid #3b82f6;
@@ -474,14 +466,12 @@ body.dark .text-bg-info{
 }
 
 body.dark .text-bg-info i{
-
     background:rgba(59,130,246,.15);
     color:#60a5fa;
 
 }
 
 body.dark .toast .btn-close{
-
     filter:invert(1);
     opacity:.75;
 
@@ -495,16 +485,13 @@ body.dark .toast .btn-close{
 /* Tablet */
 
 @media (max-width: 992px){
-
     .toast-container{
-
         right:16px;
         bottom:16px;
 
     }
 
     .toast{
-
         width:330px;
 
     }
@@ -517,7 +504,6 @@ body.dark .toast .btn-close{
 @media (max-width: 576px){
 
     .toast-container{
-
         left:16px;
         right:16px;
         bottom:16px;
@@ -525,21 +511,18 @@ body.dark .toast .btn-close{
     }
 
     .toast{
-
         width:100%;
         max-width:100%;
 
     }
 
     .toast-body{
-
         font-size:.90rem;
         padding:14px 16px;
 
     }
 
     .toast i{
-
         width:34px;
         height:34px;
         font-size:.9rem;
@@ -552,9 +535,7 @@ body.dark .toast .btn-close{
 /* Small Phones */
 
 @media (max-width:380px){
-
     .toast-body{
-
         font-size:.85rem;
 
     }
@@ -567,16 +548,13 @@ body.dark .toast .btn-close{
 ========================================== */
 
 @keyframes toastSlide{
-
     from{
-
         opacity:0;
         transform:translateY(20px) translateX(20px) scale(.95);
 
     }
 
     to{
-
         opacity:1;
         transform:translateY(0) translateX(0) scale(1);
 

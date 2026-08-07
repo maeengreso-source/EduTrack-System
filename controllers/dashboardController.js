@@ -1,4 +1,3 @@
-// controllers/dashboardController.js
 
 exports.index = (req, res) => {
 

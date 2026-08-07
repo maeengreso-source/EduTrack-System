@@ -1,7 +1,6 @@
 const bcrypt = require("bcrypt");
 const userModel = require("../models/userModel");
-
-
+const roleModel = require("../models/roleModel");
 // ===============================
 // User List
 // ===============================
@@ -9,30 +8,72 @@ exports.index = async (req, res) => {
 
     try {
 
-        const users = await userModel.getAll();
+        // Pagination
+        const page = parseInt(req.query.page) || 1;
+        const limit = 5;
+        const offset = (page - 1) * limit;
 
-        res.render("users/index", {
-            title: "User Management",
-            user: req.session.user,
-            users,
+        // Search & Filters
+        const search = req.query.search || "";
+        const role = req.query.role || "";
+        const status = req.query.status || "";
 
-            success: req.flash("success"),
-            error: req.flash("error"),
-            warning: req.flash("warning")
-        });
+        // Users (Filtered)
+        const users = await userModel.getAll(
+            search,
+            role,
+            status,
+            limit,
+            offset
+        );
 
-    } catch (err) {
+        // Total Records (Filtered)
+        const totalUsers = await userModel.countAll(
+            search,
+            role,
+            status
+        );
 
-        console.error(err);
+        // Dashboard Statistics (Not Filtered)
+        const statistics = await userModel.getStatistics();
 
-        req.flash("error", "Unable to load users.");
+        // Roles
+        const roles = await roleModel.getAll();
+        
+        const totalPages = Math.ceil(totalUsers / limit);
 
-        res.redirect("/dashboard");
+            res.render("users/index", {
 
-    }
+                title: "User Management",
+                user: req.session.user,
+
+                users,
+                roles,
+                statistics,
+
+                search,
+                role,
+                status,
+
+                currentPage: page,
+                totalPages,
+                totalUsers,
+                limit,
+
+                success: req.flash("success"),
+                error: req.flash("error"),
+                warning: req.flash("warning")
+
+            });
+            } catch (err) {
+
+                console.error(err);
+
+                return res.status(500).send(err);
+
+            }
 
 };
-
 
 // ===============================
 // Create Page
@@ -49,6 +90,7 @@ exports.create = async (req, res) => {
     });
 
 };
+
 // ===============================
 // Store User
 // ===============================
@@ -65,35 +107,77 @@ exports.store = async (req, res) => {
             password,
             role_id
         } = req.body;
+        
+        // ===============================
+        // Profile Image
+        // ===============================
+
+        const profile_image = req.file
+            ? req.file.filename
+            : "default-avatar-1.png";
+
+        // ===============================
+        // Generate Employee / Student ID
+        // ===============================
+
+        let employee_id = null;
+        let student_id = null;
+
+        if (Number(role_id) === 6) {
+
+            student_id = await userModel.generateStudentId();
+
+        } else {
+
+            employee_id = await userModel.generateEmployeeId();
+
+        }
+
+        // ===============================
+        // Hash Password
+        // ===============================
 
         const hashedPassword = await bcrypt.hash(password, 10);
 
+        // ===============================
+        // Save User
+        // ===============================
+
         await userModel.create({
+
+            employee_id,
+            student_id,
+
             first_name,
             middle_name,
             last_name,
+
             username,
             email,
+
             password: hashedPassword,
-            role_id
+
+            role_id,
+
+            profile_image
+
         });
 
         req.flash("success", "User created successfully.");
 
-        res.redirect("/users");
+        return res.redirect("/users");
 
     } catch (err) {
 
         console.error(err);
 
-        req.flash("error", "Unable to create user.");
+        req.flash("error", err.message);
 
-        res.redirect("/users/create");
+        return res.redirect("/users");
 
     }
 
 };
-
 
 // ===============================
 // View User
@@ -180,13 +264,34 @@ exports.update = async (req, res) => {
 };
 
 
+
+
 // ===============================
-// Delete User
+// Destroy User
 // ===============================
 exports.destroy = async (req, res) => {
 
     try {
 
+        // Kunin ang user na ide-delete
+        const targetUser = await userModel.findById(req.params.id);
+
+        if (!targetUser) {
+
+            req.flash("error", "User not found.");
+            return res.redirect("/users");
+
+        }
+
+        // Bawal i-delete ang Super Administrator
+        if (targetUser.role_name === "Super Administrator") {
+
+            req.flash("error", "Super Administrator account cannot be deleted.");
+            return res.redirect("/users");
+
+        }
+
+        // Delete user
         await userModel.remove(req.params.id);
 
         req.flash("success", "User deleted successfully.");

@@ -1,0 +1,1073 @@
+/* ==========================================
+   USER SUMMARY CARD
+========================================== */
+
+.user-summary-card{
+
+    position:relative;
+
+    display:flex;
+    align-items:center;
+    gap:16px;
+
+    height:120px;
+
+    padding:18px 20px;
+
+    background:#fff;
+
+    border:1px solid #dee2e6;
+
+    overflow:hidden;
+
+    transition:all .25s ease;
+
+}
+
+/* Hover */
+
+.user-summary-card:hover{
+
+    border-color:#198754;
+
+    background:#fcfcfc;
+
+    box-shadow:0 4px 12px rgba(0,0,0,.06);
+
+}
+
+/* Left Accent */
+
+.user-summary-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+    top:0;
+
+    width:4px;
+    height:100%;
+
+    background:#198754;
+
+}
+
+/* ==========================================
+   ICON
+========================================== */
+
+.user-summary-icon{
+
+    width:50px;
+    height:50px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    flex-shrink:0;
+
+    background:#198754;
+
+    color:#fff;
+
+    font-size:20px;
+
+}
+
+/* ==========================================
+   CONTENT
+========================================== */
+
+.user-summary-content{
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    flex:1;
+
+    min-width:0;
+
+}
+
+.user-summary-title{
+
+    height:28px;
+
+    display:flex;
+
+    align-items:flex-start;
+
+    margin:0;
+
+    font-size:11px;
+
+    font-weight:600;
+
+    letter-spacing:1px;
+
+    text-transform:uppercase;
+
+    color:#6c757d;
+
+    line-height:14px;
+
+}
+
+.user-summary-number{
+
+    margin:4px 0;
+
+    font-size:34px;
+
+    font-weight:700;
+
+    line-height:1;
+
+    color:#212529;
+
+}
+
+.user-summary-text{
+
+    height:18px;
+
+    display:flex;
+
+    align-items:center;
+
+    margin:0;
+
+    font-size:12px;
+
+    color:#868e96;
+
+}
+
+/* ==========================================
+   CARD COLORS
+========================================== */
+
+/* Total Users */
+
+.card-total::before,
+.card-total .user-summary-icon{
+    background:#0d6efd;
+}
+
+/* Active Users */
+
+.card-active::before,
+.card-active .user-summary-icon{
+    background:#198754;
+}
+
+/* Inactive Users */
+
+.card-inactive::before,
+.card-inactive .user-summary-icon{
+    background:#dc3545;
+}
+
+/* Teachers */
+
+.card-teacher::before,
+.card-teacher .user-summary-icon{
+    background:#fd7e14;
+}
+
+/* Students */
+
+.card-student::before,
+.card-student .user-summary-icon{
+    background:#6f42c1;
+}
+
+/* School Staff */
+
+.card-staff::before,
+.card-staff .user-summary-icon{
+    background:#20c997;
+}
+/* ==========================================
+   CONTENT
+========================================== */
+
+.user-summary-content{
+
+    flex:1;
+
+}
+
+.user-summary-title{
+
+    display:block;
+
+    margin-bottom:6px;
+
+    font-size:11px;
+
+    font-weight:600;
+
+    text-transform:uppercase;
+
+    letter-spacing:1px;
+
+    color:#6c757d;
+
+}
+
+.user-summary-number{
+
+    display:block;
+
+    font-size:32px;
+
+    font-weight:700;
+
+    line-height:1;
+
+    color:#212529;
+
+}
+
+.user-summary-text{
+
+    display:block;
+
+    margin-top:6px;
+
+    font-size:12px;
+
+    color:#868e96;
+
+}
+
+/* ==========================================
+   CARD COLORS
+========================================== */
+
+/* Total Users */
+.card-total::before,
+.card-total .user-summary-icon{
+    background:#0d6efd;
+}
+
+/* Active Users */
+.card-active::before,
+.card-active .user-summary-icon{
+    background:#198754;
+}
+
+/* Inactive Users */
+.card-inactive::before,
+.card-inactive .user-summary-icon{
+    background:#dc3545;
+}
+
+/* Teachers */
+.card-teacher::before,
+.card-teacher .user-summary-icon{
+    background:#fd7e14;
+}
+
+/* Students */
+.card-student::before,
+.card-student .user-summary-icon{
+    background:#6f42c1;
+}
+
+/* School Staff */
+.card-staff::before,
+.card-staff .user-summary-icon{
+    background:#20c997;
+}
+/* ==========================================
+   CONTENT
+========================================== */
+
+.user-summary-content{
+
+    flex:1;
+
+}
+
+.user-summary-title{
+
+    display:block;
+
+    font-size:11px;
+
+    font-weight:600;
+
+    text-transform:uppercase;
+
+    letter-spacing:1px;
+
+    color:#6c757d;
+
+    margin-bottom:6px;
+
+}
+
+.user-summary-number{
+
+    display:block;
+
+    font-size:30px;
+
+    font-weight:700;
+
+    color:#212529;
+
+    line-height:1;
+
+}
+
+.user-summary-text{
+
+    display:block;
+
+    margin-top:6px;
+
+    font-size:12px;
+
+    color:#868e96;
+
+}
+
+/* ==========================================
+   CARD COLORS
+========================================== */
+
+/* Total Users */
+.card-total::before,
+.card-total .user-summary-icon{
+    background:#0d6efd;
+}
+
+/* Active */
+.card-active::before,
+.card-active .user-summary-icon{
+    background:#198754;
+}
+
+/* Inactive */
+.card-inactive::before,
+.card-inactive .user-summary-icon{
+    background:#dc3545;
+}
+
+/* Teachers */
+.card-teacher::before,
+.card-teacher .user-summary-icon{
+    background:#fd7e14;
+}
+
+/* Students */
+.card-student::before,
+.card-student .user-summary-icon{
+    background:#6f42c1;
+}
+
+/* School Staff */
+.card-staff::before,
+.card-staff .user-summary-icon{
+    background:#0dcaf0;
+}
+
+/* ==========================================
+   HEADER
+========================================== */
+
+.user-panel-header{
+    padding:16px;
+    border-bottom:1px solid #dee2e6;
+    background:#fff;
+}
+
+.user-search{
+    position:relative;
+}
+
+.user-search i{
+    position:absolute;
+    left:12px;
+    top:50%;
+    transform:translateY(-50%);
+    color:#6c757d;
+}
+
+.user-search input{
+    height:40px;
+    padding-left:38px;
+    border:1px solid #ced4da;
+}
+
+.user-panel-header .form-select{
+    height:40px;
+    border:1px solid #ced4da;
+}
+
+.user-panel-header .btn{
+    height:40px;
+}
+
+/* ==========================================
+   TABLE
+========================================== */
+
+.user-table{
+    margin:0;
+}
+
+.user-table thead th{
+    background:#f8f9fa;
+    color:#495057;
+    font-size:12px;
+    font-weight:600;
+    text-transform:uppercase;
+    padding:14px;
+    border-bottom:1px solid #dee2e6;
+}
+
+.user-table tbody td{
+    padding:15px;
+    vertical-align:middle;
+}
+
+.user-table tbody tr:hover{
+    background:#f8f9fa;
+}
+
+/* ==========================================
+   USER
+========================================== */
+
+.user-info{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.user-avatar{
+    width:42px;
+    height:42px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    background:#198754;
+    color:#fff;
+
+    font-weight:600;
+}
+
+.user-name{
+    font-weight:600;
+    color:#212529;
+}
+
+.user-email{
+    font-size:12px;
+    color:#6c757d;
+}
+
+/* ==========================================
+   BADGES
+========================================== */
+
+.role-badge{
+    background:#e9ecef;
+    color:#212529;
+    padding:5px 10px;
+    font-size:12px;
+}
+
+.status-active{
+    background:#d1e7dd;
+    color:#146c43;
+    padding:5px 10px;
+    font-size:12px;
+}
+
+.status-inactive{
+    background:#f8d7da;
+    color:#b02a37;
+    padding:5px 10px;
+    font-size:12px;
+}
+
+/* ==========================================
+   ACTION BUTTONS
+========================================== */
+
+.user-action{
+    width:34px;
+    height:34px;
+
+    border:none;
+
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+
+    margin:0 2px;
+
+    transition:.2s;
+}
+
+.user-view{
+    background:#e7f1ff;
+    color:#0d6efd;
+}
+
+.user-edit{
+    background:#fff3cd;
+    color:#fd7e14;
+}
+
+.user-delete{
+    background:#f8d7da;
+    color:#dc3545;
+}
+
+.user-action:hover{
+    opacity:.85;
+}
+
+/* ==========================================
+   PAGINATION
+========================================== */
+
+.pagination{
+    gap:4px;
+}
+
+.page-link{
+    border:1px solid #dee2e6;
+    color:#198754;
+    min-width:36px;
+    height:36px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.page-item.active .page-link{
+    background:#198754;
+    border-color:#198754;
+    color:#fff;
+}
+
+/* ==================================================
+   ADD USER MODAL
+================================================== */
+
+#addUserModal .modal-dialog{
+    max-width:950px;
+}
+
+#addUserModal .modal-content{
+    border:none;
+    border-radius:10px;
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+}
+
+/* Header */
+
+#addUserModal .modal-header{
+    padding:15px 20px;
+    border-bottom:1px solid #e9ecef;
+}
+
+#addUserModal .modal-title{
+    width:100%;
+    text-align:center;
+    font-size:18px;
+    font-weight:700;
+    color:#198754;
+}
+
+/* Body */
+
+#addUserModal .modal-body{
+    padding:20px;
+}
+
+/* Section */
+
+.section-title{
+    font-size:14px;
+    font-weight:700;
+    margin:0 0 12px;
+    padding-bottom:8px;
+    border-bottom:1px solid #e9ecef;
+}
+
+/* Profile */
+
+.profile-upload{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+}
+
+.profile-upload img{
+    width:140px;
+    height:140px;
+    border-radius:50%;
+    object-fit:cover;
+    border:2px solid #dee2e6;
+}
+
+/* Form */
+
+#addUserModal label{
+    font-size:12px;
+    font-weight:600;
+    color:#6c757d;
+    margin-bottom:4px;
+    text-transform:uppercase;
+}
+
+#addUserModal .form-control,
+#addUserModal .form-select{
+    height:40px;
+    border-radius:6px;
+    font-size:13px;
+    box-shadow:none;
+}
+
+#addUserModal .form-control:focus,
+#addUserModal .form-select:focus{
+    border-color:#198754;
+    box-shadow:none;
+}
+
+/* Footer */
+
+#addUserModal .modal-footer{
+    padding:15px 20px;
+    border-top:1px solid #e9ecef;
+}
+
+#addUserModal .btn{
+    min-width:100px;
+    height:40px;
+    border-radius:6px;
+}
+
+/* Compact spacing */
+
+#addUserModal .row{
+    --bs-gutter-y:.75rem;
+}
+
+#addUserModal hr{
+    margin:18px 0;
+}
+
+/* ==========================================
+   USER AVATAR
+========================================== */
+
+.user-avatar{
+
+    width:50px;
+    height:50px;
+
+    min-width:50px;
+    min-height:50px;
+
+    border-radius:50%;
+
+    overflow:hidden;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    background:#fff;
+
+    border:2px solid #e5e7eb;
+
+    flex-shrink:0;
+
+}
+
+/* ==========================================
+   AVATAR IMAGE
+========================================== */
+
+.user-avatar img{
+
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+
+    object-position:center;
+
+    display:block;
+
+    border-radius:50%;
+
+    background:transparent;
+
+}
+
+/* ==========================================
+   PROFILE (TOPBAR)
+========================================== */
+
+.profile{
+
+    display:flex;
+    align-items:center;
+    gap:15px;
+
+}
+
+.profile img{
+
+    width:50px;
+    height:50px;
+
+    min-width:50px;
+    min-height:50px;
+
+    border-radius:50%;
+
+    object-fit:cover;
+
+    object-position:center;
+
+    display:block;
+
+    border:2px solid #e5e7eb;
+
+    background:#fff;
+
+}
+
+.profile-info{
+
+    display:flex;
+    flex-direction:column;
+
+}
+
+.profile-info strong{
+
+    font-size:16px;
+    font-weight:600;
+    color:#212529;
+
+}
+
+.profile-info small{
+
+    color:#6c757d;
+    font-size:13px;
+
+}
+
+#employee_student_id{
+    background:#f8f9fa;
+    cursor:not-allowed;
+    color:#6c757d;
+    font-style:italic;
+}
+
+#employee_student_id:focus{
+    box-shadow:none;
+    border-color:#ced4da;
+}
+
+#addUserModal .input-group-text{
+    background:#f8f9fa;
+    border-color:#ced4da;
+    color:#6c757d;
+}
+/* ==================================================
+   RESPONSIVE
+================================================== */
+
+@media(max-width:992px){
+
+    .profile-upload{
+
+        margin-bottom:25px;
+
+    }
+
+}
+
+@media(max-width:768px){
+
+    #addUserModal .modal-body{
+
+        padding:20px;
+
+    }
+
+    #addUserModal .modal-title{
+
+        font-size:18px;
+
+    }
+
+    .profile-upload img{
+
+        width:120px;
+
+        height:120px;
+
+    }
+
+}
+
+/* ==================================================
+   EXTRA RESPONSIVE
+================================================== */
+
+/* Large Desktop */
+@media (min-width:1400px){
+
+    #addUserModal .modal-dialog{
+        max-width:1100px;
+    }
+
+}
+
+/* Laptop */
+@media (max-width:1200px){
+
+    #addUserModal .modal-dialog{
+        max-width:95%;
+    }
+
+}
+
+/* Tablet */
+@media (max-width:992px){
+
+    #addUserModal .modal-dialog{
+        max-width:95%;
+    }
+
+    #addUserModal .modal-body{
+        padding:25px;
+    }
+
+    .profile-upload{
+        margin-bottom:25px;
+    }
+
+    .profile-avatar{
+        width:150px;
+        height:150px;
+    }
+
+    .camera-icon{
+
+        width:48px;
+        height:48px;
+
+    }
+
+    .camera-icon i{
+
+        font-size:18px;
+
+    }
+
+}
+
+/* Mobile Landscape */
+@media (max-width:768px){
+
+    #addUserModal .modal-dialog{
+        margin:10px;
+    }
+
+    #addUserModal .modal-body{
+        padding:20px;
+    }
+
+    #addUserModal .modal-title{
+
+        font-size:18px;
+
+    }
+
+    .section-title{
+
+        font-size:15px;
+
+    }
+
+    .profile-avatar{
+
+        width:130px;
+        height:130px;
+
+        margin:auto;
+
+    }
+
+    .camera-icon{
+
+        width:42px;
+        height:42px;
+
+    }
+
+    .camera-icon i{
+
+        font-size:16px;
+
+    }
+
+    #addUserModal .btn{
+
+        width:100%;
+
+        margin-bottom:10px;
+
+    }
+
+    #addUserModal .modal-footer{
+
+        display:flex;
+
+        flex-direction:column-reverse;
+
+    }
+
+}
+
+/* Mobile Portrait */
+@media (max-width:576px){
+
+    #addUserModal .modal-dialog{
+
+        margin:8px;
+
+    }
+
+    #addUserModal .modal-content{
+
+        border-radius:12px;
+
+    }
+
+    #addUserModal .modal-header{
+
+        padding:15px;
+
+    }
+
+    #addUserModal .modal-body{
+
+        padding:15px;
+
+    }
+
+    #addUserModal .modal-footer{
+
+        padding:15px;
+
+    }
+
+    #addUserModal .modal-title{
+
+        font-size:16px;
+
+    }
+
+    .section-title{
+
+        font-size:14px;
+
+        margin-bottom:15px;
+
+    }
+
+    #addUserModal label{
+
+        font-size:12px;
+
+    }
+
+    #addUserModal .form-control,
+    #addUserModal .form-select{
+
+        height:42px;
+
+        font-size:13px;
+
+    }
+
+    .profile-avatar{
+
+        width:120px;
+        height:120px;
+
+    }
+
+    .camera-icon{
+
+        width:38px;
+        height:38px;
+
+        border-width:3px;
+
+    }
+
+    .camera-icon i{
+
+        font-size:15px;
+
+    }
+
+}
+
+/* Small Phones */
+@media (max-width:375px){
+
+    .profile-avatar{
+
+        width:100px;
+        height:100px;
+
+    }
+
+    .camera-icon{
+
+        width:34px;
+        height:34px;
+
+    }
+
+    .camera-icon i{
+
+        font-size:14px;
+
+    }
+
+    #addUserModal .modal-title{
+
+        font-size:15px;
+
+    }
+
+}

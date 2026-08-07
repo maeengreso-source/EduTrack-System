@@ -5,6 +5,7 @@ const authMiddleware = require("../middleware/authMiddleware");
 const roleMiddleware = require("../middleware/roleMiddleware");
 
 const userController = require("../controllers/userController");
+const upload = require("../config/upload");
 
 // ===============================
 // User List
@@ -12,24 +13,28 @@ const userController = require("../controllers/userController");
 router.get(
     "/",
     authMiddleware,
-    roleMiddleware("Super Admin"),
+    roleMiddleware("Super Administrator"),
     userController.index
 );
 
 // ===============================
-// Create User
+// Create User Page
 // ===============================
 router.get(
     "/create",
     authMiddleware,
-    roleMiddleware("Super Admin"),
+    roleMiddleware("Super Administrator"),
     userController.create
 );
 
+// ===============================
+// Store User
+// ===============================
 router.post(
     "/create",
     authMiddleware,
-    roleMiddleware("Super Admin"),
+    roleMiddleware("Super Administrator"),
+    upload.single("profile_image"),
     userController.store
 );
 
@@ -39,24 +44,28 @@ router.post(
 router.get(
     "/:id",
     authMiddleware,
-    roleMiddleware("Super Admin"),
+    roleMiddleware("Super Administrator"),
     userController.show
 );
 
 // ===============================
-// Edit User
+// Edit User Page
 // ===============================
 router.get(
     "/:id/edit",
     authMiddleware,
-    roleMiddleware("Super Admin"),
+    roleMiddleware("Super Administrator"),
     userController.edit
 );
 
+// ===============================
+// Update User
+// ===============================
 router.post(
     "/:id/edit",
     authMiddleware,
-    roleMiddleware("Super Admin"),
+    roleMiddleware("Super Administrator"),
+    upload.single("profile_image"),
     userController.update
 );
 
@@ -66,7 +75,7 @@ router.post(
 router.post(
     "/:id/delete",
     authMiddleware,
-    roleMiddleware("Super Admin"),
+    roleMiddleware("Super Administrator"),
     userController.destroy
 );
 

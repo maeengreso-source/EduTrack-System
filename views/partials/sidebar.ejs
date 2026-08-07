@@ -27,7 +27,7 @@
         </a>
 
         <!-- USER MANAGEMENT -->
-        <% if (user && user.role === "Super Admin") { %>
+        <% if (user && user.role === "Super Administrator") { %>
 
         <small class="menu-title">USER MANAGEMENT</small>
 
@@ -46,21 +46,21 @@
         <!-- ACADEMIC -->
         <small class="menu-title">ACADEMIC</small>
 
-        <% if (["Super Admin","Admin","Registrar","Staff","Teacher"].includes(user.role)) { %>
+        <% if (["Super Administrator","Administrator","Registrar","Staff","Teacher"].includes(user.role)) { %>
         <a href="/students">
             <i class="bi bi-people-fill"></i>
             <span>Students</span>
         </a>
         <% } %>
 
-        <% if (["Super Admin","Admin"].includes(user.role)) { %>
+        <% if (["Super Administrator","Administrator"].includes(user.role)) { %>
         <a href="/teachers">
             <i class="bi bi-person-workspace"></i>
             <span>Teachers</span>
         </a>
         <% } %>
 
-        <% if (["Super Admin","Admin","Registrar"].includes(user.role)) { %>
+        <% if (["Super Administrator","Admin","Registrar"].includes(user.role)) { %>
         <a href="/sections">
             <i class="bi bi-building"></i>
             <span>Sections</span>
@@ -74,7 +74,7 @@
         </a>
         <% } %>
 
-        <% if (["Super Admin","Admin","Registrar"].includes(user.role)) { %>
+        <% if (["Super Administrator","Administrator","Registrar"].includes(user.role)) { %>
         <a href="/school-years">
             <i class="bi bi-calendar-range-fill"></i>
             <span>School Year</span>
@@ -105,7 +105,7 @@
         </a>
 
         <!-- REPORTS -->
-        <% if (["Super Admin","Admin","Registrar"].includes(user.role)) { %>
+        <% if (["Super Administrator","Administrator","Registrar"].includes(user.role)) { %>
 
         <small class="menu-title">REPORTS</small>
 
@@ -129,7 +129,7 @@
             <span>My Profile</span>
         </a>
 
-        <% if (user.role === "Super Admin") { %>
+        <% if (user.role === "Super Administrator") { %>
         <a href="/settings">
             <i class="bi bi-gear-fill"></i>
             <span>Settings</span>

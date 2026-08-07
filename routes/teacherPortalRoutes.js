@@ -5,7 +5,7 @@ const authMiddleware = require("../middleware/authMiddleware");
 const roleMiddleware = require("../middleware/roleMiddleware");
 
 router.get(
-    "/dashboard",
+    "/",
     authMiddleware,
     roleMiddleware("Teacher"),
     (req, res) => {

@@ -8,7 +8,7 @@ const roleMiddleware = require("../middleware/roleMiddleware");
 router.get(
     "/",
     authMiddleware,
-    roleMiddleware("Super Admin", "Admin", "Registrar", "Staff", "Teacher"),
+    roleMiddleware("Super Administrator ", "Administrator", "Registrar", "Staff", "Teacher"),
 
     (req, res) => {
 

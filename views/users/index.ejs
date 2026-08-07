@@ -1,824 +1,616 @@
-<style>
-    /* =====================================
-   USER SUMMARY CARDS
-===================================== */
 
-.user-summary-card{
+<%- include("partials/addModal") %>
+<%- include("partials/editModal") %>
+<%- include("partials/deleteModal") %>
 
-    background:#ffffff;
 
-    border:1px solid #e5e7eb;
 
-    min-height:110px;
+<div class="row g-3 mb-4">
+    <!-- Total Users -->
+    <div class="col-xl-2 col-lg-4 col-md-6">
+        <div class="user-summary-card">
 
-    padding:18px;
+            <div class="user-summary-icon">
+                <i class="bi bi-people-fill"></i>
+            </div>
 
-    display:flex;
+            <div class="user-summary-content">
 
-    align-items:center;
+                <span class="user-summary-title">
+                    Total Users
+                </span>
 
-    gap:15px;
+                <span class="user-summary-number">
+                    <%= statistics.totalUsers %>
+                </span>
 
-    transition:.25s ease;
+                <span class="user-summary-text">
+                    All Registered Users
+                </span>
 
-}
+            </div>
 
+        </div>
+    </div>
 
-.user-summary-card:hover{
+    <!-- Active Accounts -->
+    <div class="col-xl-2 col-lg-4 col-md-6">
+        <div class="user-summary-card">
 
-    box-shadow:0 6px 18px rgba(0,0,0,.06);
+            <div class="user-summary-icon">
+                <i class="bi bi-person-check-fill"></i>
+            </div>
 
-}
+            <div class="user-summary-content">
 
+                <span class="user-summary-title">
+                    Active Accounts
+                </span>
 
+                <span class="user-summary-number text-success">
+                    <%= statistics.activeUsers %>
+                </span>
 
-.user-summary-icon{
+                <span class="user-summary-text">
+                    Users With Access
+                </span>
 
-    width:48px;
+            </div>
 
-    height:48px;
+        </div>
+    </div>
 
-    display:flex;
+    <!-- Inactive Accounts -->
+    <div class="col-xl-2 col-lg-4 col-md-6">
+        <div class="user-summary-card">
 
-    align-items:center;
+            <div class="user-summary-icon">
+                <i class="bi bi-person-x-fill"></i>
+            </div>
 
-    justify-content:center;
+            <div class="user-summary-content">
 
-    background:#e6fffb;
+                <span class="user-summary-title">
+                    Inactive Accounts
+                </span>
 
-    color:#0f7970;
+                <span class="user-summary-number text-danger">
+                    <%= statistics.inactiveUsers %>
+                </span>
 
-    font-size:22px;
+                <span class="user-summary-text">
+                    Disabled Users
+                </span>
 
-}
+            </div>
 
+        </div>
+    </div>
 
+    <!-- Teachers -->
+    <div class="col-xl-2 col-lg-4 col-md-6">
+        <div class="user-summary-card">
 
-.user-summary-content{
+            <div class="user-summary-icon">
+                <i class="bi bi-mortarboard-fill"></i>
+            </div>
 
-    display:flex;
+            <div class="user-summary-content">
 
-    flex-direction:column;
+                <span class="user-summary-title">
+                    Teachers
+                </span>
 
-}
+                <span class="user-summary-number">
+                    <%= statistics.teachers %>
+                </span>
 
+                <span class="user-summary-text">
+                    Faculty Members
+                </span>
 
+            </div>
 
-.user-summary-title{
+        </div>
+    </div>
 
-    font-size:12px;
+    <!-- Students -->
+    <div class="col-xl-2 col-lg-4 col-md-6">
+        <div class="user-summary-card">
 
-    font-weight:600;
+            <div class="user-summary-icon">
+                <i class="bi bi-backpack-fill"></i>
+            </div>
 
-    color:#64748b;
+            <div class="user-summary-content">
 
-    text-transform:uppercase;
+                <span class="user-summary-title">
+                    Students
+                </span>
 
-    letter-spacing:.5px;
+                <span class="user-summary-number">
+                    <%= statistics.students %>
+                </span>
 
-}
+                <span class="user-summary-text">
+                    Student Accounts
+                </span>
 
+            </div>
 
+        </div>
+    </div>
 
-.user-summary-number{
+    <!-- School Staff -->
+    <div class="col-xl-2 col-lg-4 col-md-6">
+        <div class="user-summary-card">
 
-    font-size:28px;
+            <div class="user-summary-icon">
+                <i class="bi bi-building-fill"></i>
+            </div>
 
-    font-weight:700;
+            <div class="user-summary-content">
 
-    color:#0f172a;
+                <span class="user-summary-title">
+                    School Staff
+                </span>
 
-    line-height:1.2;
+                <span class="user-summary-number">
+                    <%= statistics.schoolStaff %>
+                </span>
 
-}
+                <span class="user-summary-text">
+                    Administrative Staff
+                </span>
 
+            </div>
 
-
-.user-summary-text{
-
-    font-size:12px;
-
-    color:#94a3b8;
-
-}
-
-/* =====================================
-   USER TABLE
-===================================== */
-
-
-.user-panel{
-
-    background:#fff;
-
-    border:1px solid #e5e7eb;
-
-}
-
-
-/* HEADER / SEARCH */
-
-.user-panel-header{
-
-    padding:15px;
-
-    border-bottom:1px solid #e5e7eb;
-
-}
-
-
-.user-search{
-
-    position:relative;
-
-}
-
-
-.user-search i{
-
-    position:absolute;
-
-    left:12px;
-
-    top:50%;
-
-    transform:translateY(-50%);
-
-    color:#94a3b8;
-
-}
-
-
-.user-search input{
-
-    height:38px;
-
-    padding-left:35px;
-
-    border:1px solid #d1d5db;
-
-}
-
-
-
-
-
-/* TABLE */
-
-.user-table{
-
-    margin:0;
-
-}
-
-
-
-.user-table thead th{
-
-    background:#f8fafc;
-
-    color:#64748b;
-
-    font-size:12px;
-
-    font-weight:600;
-
-    text-transform:uppercase;
-
-    padding:12px;
-
-    border-bottom:1px solid #e5e7eb;
-
-}
-
-
-
-.user-table tbody td{
-
-    padding:12px;
-
-    font-size:14px;
-
-    color:#334155;
-
-    vertical-align:middle;
-
-}
-
-
-
-.user-table tbody tr:hover{
-
-    background:#f8fafc;
-
-}
-
-
-
-
-
-/* USER PROFILE */
-
-
-.user-info{
-
-    display:flex;
-
-    align-items:center;
-
-    gap:10px;
-
-}
-
-
-
-.user-avatar{
-
-    width:38px;
-
-    height:38px;
-
-    border-radius:50%;
-
-    background:#0f7970;
-
-    color:#fff;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    font-weight:700;
-
-    font-size:14px;
-
-}
-
-
-
-.user-name{
-
-    font-weight:600;
-
-    color:#0f172a;
-
-}
-
-
-
-.user-email{
-
-    font-size:12px;
-
-    color:#64748b;
-
-}
-
-
-
-
-
-/* ROLE */
-
-.role-badge{
-
-    background:#e0f2fe;
-
-    color:#0369a1;
-
-    padding:4px 8px;
-
-    font-size:12px;
-
-}
-
-
-
-
-
-/* STATUS */
-
-
-.status-active{
-
-    background:#dcfce7;
-
-    color:#15803d;
-
-    padding:4px 8px;
-
-    font-size:12px;
-
-}
-
-
-.status-inactive{
-
-    background:#fee2e2;
-
-    color:#dc2626;
-
-    padding:4px 8px;
-
-    font-size:12px;
-
-}
-
-
-
-
-
-/* ACTION BUTTON */
-
-
-.user-action{
-
-    width:32px;
-
-    height:32px;
-
-    border:none;
-
-    display:inline-flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    margin:2px;
-
-}
-
-
-
-.user-view{
-
-    background:#eff6ff;
-
-    color:#2563eb;
-
-}
-
-
-
-.user-edit{
-
-    background:#fffbeb;
-
-    color:#d97706;
-
-}
-
-
-
-.user-delete{
-
-    background:#fef2f2;
-
-    color:#dc2626;
-
-}
-
-</style>
-
-<!-- USER SUMMARY CARDS -->
-
-<div class="row mb-4">
-
-
-<div class="col-md-3">
-
-<div class="user-summary-card">
-
-
-<div class="user-summary-icon">
-
-<i class="bi bi-people-fill"></i>
+        </div>
+    </div>
 
 </div>
-
-
-<div class="user-summary-content">
-
-<span class="user-summary-title">
-Total Users
-</span>
-
-
-<span class="user-summary-number">
-<%= users.length %>
-</span>
-
-
-<span class="user-summary-text">
-Registered accounts
-</span>
-
-
-</div>
-
-
-</div>
-
-</div>
-
-
-
-
-
-
-<div class="col-md-3">
-
-<div class="user-summary-card">
-
-
-<div class="user-summary-icon">
-
-<i class="bi bi-person-check-fill"></i>
-
-</div>
-
-
-<div class="user-summary-content">
-
-<span class="user-summary-title">
-Active Users
-</span>
-
-
-<span class="user-summary-number text-success">
-<%= users.filter(u=>u.status==="Active").length %>
-</span>
-
-
-<span class="user-summary-text">
-Currently active
-</span>
-
-
-</div>
-
-
-</div>
-
-</div>
-
-
-
-
-
-
-
-<div class="col-md-3">
-
-<div class="user-summary-card">
-
-
-<div class="user-summary-icon">
-
-<i class="bi bi-shield-lock-fill"></i>
-
-</div>
-
-
-<div class="user-summary-content">
-
-<span class="user-summary-title">
-Administrators
-</span>
-
-
-<span class="user-summary-number">
-<%= users.filter(u=>u.role_name.includes("Admin")).length %>
-</span>
-
-
-<span class="user-summary-text">
-System admins
-</span>
-
-
-</div>
-
-
-</div>
-
-</div>
-
-
-
-
-
-
-
-<div class="col-md-3">
-
-<div class="user-summary-card">
-
-
-<div class="user-summary-icon">
-
-<i class="bi bi-person-badge-fill"></i>
-
-</div>
-
-
-<div class="user-summary-content">
-
-<span class="user-summary-title">
-Staff
-</span>
-
-
-<span class="user-summary-number">
-<%= users.filter(u=>u.role_name==="Staff").length %>
-</span>
-
-
-<span class="user-summary-text">
-System staff
-</span>
-
-
-</div>
-
-
-</div>
-
-</div>
-
-
-</div>
-<!-- USER TABLE -->
-
-<div class="user-panel">
-
-
 <div class="user-panel-header">
 
+    <div class="d-flex justify-content-between align-items-center mb-3">
 
-<div class="user-search col-md-4">
+        <h5 class="mb-0 fw-semibold">
+            User Management
+        </h5>
 
+        <button
+            type="button"
+            class="btn btn-success"
+            data-bs-toggle="modal"
+            data-bs-target="#addUserModal">
 
-<i class="bi bi-search"></i>
+            <i class="bi bi-plus-lg"></i>
+            Add User
 
+        </button>
 
-<input 
-type="text"
-class="form-control"
-placeholder="Search users...">
+    </div>
 
+    <form method="GET" action="/users">
+
+        <div class="row g-2">
+
+            <!-- Search -->
+            <div class="col-md-4">
+
+                <div class="user-search">
+
+                    <i class="bi bi-search"></i>
+
+                    <input
+                        type="text"
+                        name="search"
+                        class="form-control"
+                        placeholder="Search users..."
+                        value="<%= search %>">
+
+                </div>
+
+            </div>
+
+            <!-- Role -->
+            <div class="col-md-3">
+
+                <select
+                    name="role"
+                    class="form-select">
+
+                    <option value="">All Roles</option>
+
+                    <option value="Super Administrator"
+                        <%= role === "Super Administrator" ? "selected" : "" %>>
+                        Super Administrator
+                    </option>
+
+                    <option value="Administrator"
+                        <%= role === "Administrator" ? "selected" : "" %>>
+                        Administrator
+                    </option>
+
+                    <option value="Registrar"
+                        <%= role === "Registrar" ? "selected" : "" %>>
+                        Registrar
+                    </option>
+
+                    <option value="Staff"
+                        <%= role === "Staff" ? "selected" : "" %>>
+                        Staff
+                    </option>
+
+                    <option value="Teacher"
+                        <%= role === "Teacher" ? "selected" : "" %>>
+                        Teacher
+                    </option>
+
+                    <option value="Student"
+                        <%= role === "Student" ? "selected" : "" %>>
+                        Student
+                    </option>
+
+                </select>
+
+            </div>
+
+            <!-- Status -->
+            <div class="col-md-3">
+
+                <select
+                    name="status"
+                    class="form-select">
+
+                    <option value="">All Status</option>
+
+                    <option value="Active"
+                        <%= status === "Active" ? "selected" : "" %>>
+                        Active
+                    </option>
+
+                    <option value="Inactive"
+                        <%= status === "Inactive" ? "selected" : "" %>>
+                        Inactive
+                    </option>
+
+                </select>
+
+            </div>
+
+            <!-- Search & Reset -->
+            <div class="col-md-2 d-flex gap-2">
+
+                <button
+                    type="submit"
+                    class="btn btn-success flex-fill">
+
+                    <i class="bi bi-search"></i>
+
+                </button>
+
+                <a
+                    href="/users"
+                    class="btn btn-outline-secondary">
+
+                    <i class="bi bi-arrow-clockwise"></i>
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </form>
 
 </div>
 
-
-</div>
-
-
-
-
-
+<!-- Add User Modal -->
+<%- include("partials/addModal") %>
 <div class="table-responsive">
 
+    <table class="table table-hover user-table">
 
-<table class="table table-hover user-table">
+        <thead>
 
+            <tr>
 
-<thead>
+                <th width="60">#</th>
+                <th>User</th>
+                <th>Username</th>
+                <th>Email</th>
+                <th>Role</th>
+                <th>Status</th>
+                <th>Last Login</th>
+                <th>Created</th>
+                <th width="150" class="text-center">
+                    Actions
+                </th>
 
-<tr>
+            </tr>
 
-<th width="50">#</th>
+        </thead>
 
-<th>User</th>
+        <tbody>
 
-<th>Username</th>
+            <% if(users.length === 0){ %>
+                <tr>
+                    <td colspan="9" class="text-center text-muted py-5">
+                        <i class="bi bi-people fs-1 d-block mb-2"></i>
+                        No users found.
+                    </td>
+                </tr>
+            <% } %>
 
-<th>Email</th>
+            <% users.forEach((u,index)=>{ %>
 
-<th>Role</th>
+            <tr>
 
-<th>Status</th>
+                <!-- Number -->
+                <td>
 
-<th>Last Login</th>
+                    <%= ((currentPage - 1) * limit) + index + 1 %>
 
-<th>Created</th>
+                </td>
 
-<th width="130" class="text-center">
-Action
-</th>
+                <!-- User -->
+                <td>
 
+                    <div class="user-info">
 
-</tr>
+                        <div class="user-avatar">
 
-</thead>
+                        <img
+                            src="<%= (!u.profile_image || u.profile_image === 'default.png' || u.profile_image === 'default-avatar-01.png')
+                                ? '/images/default-avatar-02.png'
+                                : '/uploads/profiles/' + u.profile_image %>"
+                            alt="Profile"
+                            class="user-avatar-img">
 
+                        </div>
 
+                        <div>
 
-<tbody>
+                            <div class="user-name">
 
+                                <%= u.first_name %>
+                                <%= u.last_name %>
 
-<% users.forEach((u,index)=>{ %>
+                            </div>
 
+                            <div class="user-email">
 
-<tr>
+                    
+                    <% if (u.role_name === "Student") { %>
 
+                        <i class="bi bi-mortarboard-fill me-1 text-primary"></i>
+                        Student ID:
+                        <strong><%= u.student_id %></strong>
 
-<td>
+                    <% } else { %>
 
-<%= index + 1 %>
+                        <i class="bi bi-person-badge-fill me-1 text-success"></i>
+                        Employee ID:
+                        <strong><%= u.employee_id %></strong>
 
-</td>
+                    <% } %>
+                                            
+                </div>
 
+                        </div>
 
+                    </div>
 
+                </td>
 
-<td>
+                <!-- Username -->
+                <td>
 
+                    <%= u.username %>
 
-<div class="user-info">
+                </td>
 
+                <!-- Email -->
+                <td>
 
-<div class="user-avatar">
+                    <%= u.email %>
 
-<%= u.first_name.charAt(0) %>
+                </td>
+
+                <!-- Role -->
+                <td>
+
+                    <span class="role-badge">
+
+                        <%= u.role_name %>
+
+                    </span>
+
+                </td>
+
+                <!-- Status -->
+                <td>
+
+                    <% if(u.status === "Active"){ %>
+
+                        <span class="status-active">
+
+                            Active
+
+                        </span>
+
+                    <% }else{ %>
+
+                        <span class="status-inactive">
+
+                            Inactive
+
+                        </span>
+
+                    <% } %>
+
+                </td>
+
+                <!-- Last Login -->
+                <td>
+
+                    <% if(u.last_login){ %>
+
+                        <div class="fw-semibold">
+
+                            <%= new Date(u.last_login).toLocaleDateString("en-PH",{
+                                year:"numeric",
+                                month:"short",
+                                day:"2-digit"
+                            }) %>
+
+                        </div>
+
+                        <small class="text-muted">
+
+                            <%= new Date(u.last_login).toLocaleTimeString("en-PH",{
+                                hour:"2-digit",
+                                minute:"2-digit",
+                                hour12:true
+                            }) %>
+
+                        </small>
+
+                    <% }else{ %>
+
+                        <span class="text-muted">
+
+                            Never
+
+                        </span>
+
+                    <% } %>
+
+                </td>
+
+                <!-- Created -->
+                <td>
+
+                    <div class="fw-semibold">
+
+                        <%= new Date(u.created_at).toLocaleDateString("en-PH",{
+                            year:"numeric",
+                            month:"short",
+                            day:"2-digit"
+                        }) %>
+
+                    </div>
+
+                    <small class="text-muted">
+
+                        <%= new Date(u.created_at).toLocaleTimeString("en-PH",{
+                            hour:"2-digit",
+                            minute:"2-digit",
+                            hour12:true
+                        }) %>
+
+                    </small>
+
+                </td>
+
+                <!-- Actions -->
+                <td class="text-center">
+
+                    <div class="d-flex justify-content-center align-items-center gap-1">
+
+                        <!-- View -->
+                        <a
+                            href="/users/<%= u.id %>"
+                            class="user-action user-view"
+                            title="View">
+
+                            <i class="bi bi-eye"></i>
+
+                        </a>
+
+                        <!-- Edit -->
+                        <a
+                            href="/users/<%= u.id %>/edit"
+                            class="user-action user-edit"
+                            title="Edit">
+
+                            <i class="bi bi-pencil"></i>
+
+                        </a>
+
+                        <!-- Delete -->
+                        <% if(u.role_name !== "Super Administrator"){ %>
+
+                        <form
+                            action="/users/<%= u.id %>/delete"
+                            method="POST"
+                            class="d-inline">
+
+                            <button
+                                type="submit"
+                                class="btn user-action user-delete"
+                                title="Delete"
+                                onclick="return confirm('Are you sure you want to delete this user?')">
+
+                                <i class="bi bi-trash"></i>
+
+                            </button>
+
+                        </form>
+
+                        <% } %>
+
+                    </div>
+
+                </td>
+
+            </tr>
+
+            <% }) %>
+
+        </tbody>
+
+    </table>
 
 </div>
-
-
-
-<div>
-
-
-<div class="user-name">
-
-<%= u.first_name %>
-<%= u.last_name %>
-
-</div>
-
-
-<div class="user-email">
-
-<%= u.email %>
-
-</div>
-
-
-</div>
-
-
-</div>
-
-
-</td>
-
-
-
-
-<td>
-
-<%= u.username %>
-
-</td>
-
-
-
-
-<td>
-
-<%= u.email %>
-
-</td>
-
-
-
-
-<td>
-
-
-<span class="role-badge">
-
-<%= u.role_name %>
-
-</span>
-
-
-</td>
-
-
-
-
-<td>
-
-
-<% if(u.status==="Active"){ %>
-
-
-<span class="status-active">
-
-Active
-
-</span>
-
-
-<% }else{ %>
-
-
-<span class="status-inactive">
-
-Inactive
-
-</span>
-
-
-<% } %>
-
-
-</td>
-
-
-
-
-
-<td>
-
-<%= u.last_login || "Never" %>
-
-</td>
-
-
-
-
-<td>
-
-<%= u.created_at %>
-
-</td>
-
-
-
-
-
-<td class="text-center">
-
-
-<a href="/users/<%=u.id%>"
-class="user-action user-view">
-
-<i class="bi bi-eye"></i>
-
-</a>
-
-
-
-<a href="/users/<%=u.id%>/edit"
-class="user-action user-edit">
-
-<i class="bi bi-pencil"></i>
-
-</a>
-
-
-
-
-<form action="/users/<%=u.id%>/delete"
-method="POST"
-style="display:inline">
-
-
-<button
-class="user-action user-delete"
-onclick="return confirm('Delete this user?')">
-
-
-<i class="bi bi-trash"></i>
-
-
-</button>
-
-
-</form>
-
-
-</td>
-
-
-</tr>
-
-
-<% }) %>
-
-
-</tbody>
-
-
-</table>
-
-
-</div>
-
+    <div class="d-flex justify-content-between align-items-center mt-4">
+        <small class="text-muted">
+            Showing
+            <%= ((currentPage - 1) * limit) + 1 %>
+            -
+            <%= Math.min(currentPage * limit, totalUsers) %>
+            of
+            <%= totalUsers %>
+            users
+        </small>
+        <nav>
+            <ul class="pagination mb-0">
+                <% if(currentPage > 1){ %>
+                <li class="page-item">
+                    <a class="page-link"
+                        href="?page=<%= currentPage-1 %>&search=<%= search %>&role=<%= role %>&status=<%= status %>">
+                        <i class="bi bi-chevron-left"></i>
+                    </a>
+                </li>
+                <% } %>
+                <% for(let i=1;i<=totalPages;i++){ %>
+                <li class="page-item <%= currentPage===i ? 'active' : '' %>">
+                    <a class="page-link"
+                        href="?page=<%= i %>&search=<%= search %>&role=<%= role %>&status=<%= status %>">
+                        <%= i %>
+                    </a>
+                </li>
+                <% } %>
+                <% if(currentPage < totalPages){ %>
+                <li class="page-item">
+                    <a class="page-link"
+                        href="?page=<%= currentPage+1 %>&search=<%= search %>&role=<%= role %>&status=<%= status %>">
+                        <i class="bi bi-chevron-right"></i>
+                    </a>
+                </li>
+                <% } %>
+            </ul>
+        </nav>
+    </div>
 
 </div>

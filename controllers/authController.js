@@ -101,6 +101,9 @@ exports.login = async (req, res) => {
     // Update last login
     await User.updateLastLogin(user.id);
 
+    console.log("Database Role:", user.role_name);
+
+
     // Create Session
     req.session.user = {
       id: user.id,
@@ -112,15 +115,11 @@ exports.login = async (req, res) => {
     };
 
     req.flash("success", `Welcome back, ${user.first_name}!`);
-
     return res.redirect("/dashboard");
 
   } catch (err) {
-
     console.error(err);
-
     req.flash("error", "An unexpected server error occurred.");
-
     return res.redirect("/login");
   }
 };
@@ -130,17 +129,14 @@ exports.login = async (req, res) => {
 exports.logout = (req, res) => {
 
     req.session.destroy((err)=>{
-
         if(err){
 
             console.log(err);
-
             return res.redirect("/dashboard");
 
         }
 
         res.clearCookie("connect.sid");
-
         res.redirect("/login");
 
     });
