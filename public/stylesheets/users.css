@@ -380,73 +380,615 @@
 .card-staff .user-summary-icon{
     background:#0dcaf0;
 }
-
 /* ==========================================
-   HEADER
+   USER PANEL HEADER
 ========================================== */
 
-.user-panel-header{
-    padding:16px;
-    border-bottom:1px solid #dee2e6;
-    background:#fff;
+.user-panel-header {
+    padding: 14px 16px;
+    background: #ffffff;
+    border-bottom: 1px solid #dee2e6;
 }
 
-.user-search{
-    position:relative;
+.user-panel-header .row {
+    align-items: center;
 }
 
-.user-search i{
-    position:absolute;
-    left:12px;
-    top:50%;
-    transform:translateY(-50%);
-    color:#6c757d;
+
+/* ==========================================
+   SEARCH
+========================================== */
+
+/* SEARCH */
+
+.user-search {
+    position: relative;
 }
 
-.user-search input{
-    height:40px;
-    padding-left:38px;
-    border:1px solid #ced4da;
-    border-radius:0;
+.user-search i {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+
+    color: #6c757d;
+    font-size: 15px;
+
+    pointer-events: none;
 }
 
-.user-panel-header .form-select{
-    height:40px;
-    border:1px solid #ced4da;
-    border-radius:0;
+.user-search input {
+    width: 100%;
+    height: 40px;
+
+    padding: 0 12px 0 37px;
+
+    border: 1px solid #ced4da;
+    border-radius: 0;
+
+    font-size: 13px;
+    color: #212529;
+
+    background: #fff;
 }
 
-.user-panel-header .btn{
-    height:40px;
-    border-radius:0;
+.user-search input::placeholder {
+    color: #6c757d;
 }
+
+.user-search input:focus {
+    border-color: #198754;
+    box-shadow: 0 0 0 2px rgba(25, 135, 84, .08);
+}
+
+
+/* SELECT */
+
+.user-panel-header .form-select {
+    width: 100%;
+    height: 40px;
+
+    border: 1px solid #ced4da;
+    border-radius: 0;
+
+    font-size: 13px;
+
+    color: #343a40;
+    background-color: #fff;
+}
+
+.user-panel-header .form-select:focus {
+    border-color: #198754;
+    box-shadow: 0 0 0 2px rgba(25, 135, 84, .08);
+}
+
+
+/* BUTTON */
+
+.user-panel-header .btn {
+    height: 40px;
+
+    border-radius: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 7px;
+
+    font-size: 13px;
+ 
+    font-weight: 500;
+}
+
+/* ==========================================
+   USER TABLE
+========================================== */
+
+.user-table-wrapper {
+    width: 100%;
+    max-width: 100%;
+
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    background: #ffffff;
+
+    border: 1px solid #d6dbe1;
+}
+
+
 /* ==========================================
    TABLE
 ========================================== */
 
-.user-table{
-    margin:0;
+.user-table {
+    width: 100%;
+    min-width: 1050px;
+
+    margin: 0;
+
+    border-collapse: collapse;
+
+    background: #ffffff;
 }
 
-.user-table thead th{
-    background:#f8f9fa;
-    color:#495057;
-    font-size:12px;
-    font-weight:600;
-    text-transform:uppercase;
-    padding:14px;
-    border-bottom:1px solid #dee2e6;
+
+/* ==========================================
+   TABLE HEADER
+========================================== */
+
+.user-table thead th {
+    height: 44px;
+
+    padding: 0 14px;
+
+    background: #f1f3f5;
+
+    color: #343a40;
+
+    font-size: 11px;
+    font-weight: 600;
+
+    text-transform: uppercase;
+    letter-spacing: .25px;
+
+    white-space: nowrap;
+
+    border-right: 1px solid #dfe3e7;
+    border-bottom: 1px solid #cfd4da;
+
+    vertical-align: middle;
 }
 
-.user-table tbody td{
-    padding:15px;
-    vertical-align:middle;
+
+/* remove last header vertical border */
+
+.user-table thead th:last-child {
+    border-right: none;
 }
 
-.user-table tbody tr:hover{
-    background:#f8f9fa;
+
+/* ==========================================
+   TABLE BODY
+========================================== */
+
+.user-table tbody td {
+    height: 68px;
+
+    padding: 10px 14px;
+
+    vertical-align: middle;
+
+    color: #212529;
+
+    font-size: 13px;
+
+    white-space: nowrap;
+
+    border-right: 1px solid #edf0f2;
+    border-bottom: 1px solid #dee2e6;
 }
 
+
+/* remove last column vertical border */
+
+.user-table tbody td:last-child {
+    border-right: none;
+}
+
+
+/* remove last row bottom border */
+
+.user-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+
+/* ==========================================
+   HOVER
+========================================== */
+
+.user-table tbody tr:hover {
+    background: #f8faf9;
+}
+
+
+/* ==========================================
+   COLUMN WIDTH
+========================================== */
+
+.user-table th:nth-child(1),
+.user-table td:nth-child(1) {
+    width: 45px;
+}
+
+.user-table th:nth-child(2),
+.user-table td:nth-child(2) {
+    min-width: 230px;
+}
+
+.user-table th:nth-child(3),
+.user-table td:nth-child(3) {
+    min-width: 170px;
+}
+
+.user-table th:nth-child(4),
+.user-table td:nth-child(4) {
+    min-width: 240px;
+}
+
+.user-table th:nth-child(5),
+.user-table td:nth-child(5) {
+    min-width: 160px;
+}
+
+.user-table th:nth-child(6),
+.user-table td:nth-child(6) {
+    min-width: 100px;
+}
+
+.user-table th:nth-child(7),
+.user-table td:nth-child(7) {
+    min-width: 135px;
+}
+
+.user-table th:nth-child(8),
+.user-table td:nth-child(8) {
+    min-width: 135px;
+}
+
+.user-table th:nth-child(9),
+.user-table td:nth-child(9) {
+    min-width: 125px;
+
+    text-align: center;
+}
+
+
+/* ==========================================
+   USER INFO
+========================================== */
+
+.user-name {
+    font-size: 14px;
+    font-weight: 600;
+
+    color: #212529;
+}
+
+.user-email {
+    margin-top: 3px;
+
+    font-size: 11px;
+
+    color: #6c757d;
+}
+
+.user-email strong {
+    color: #495057;
+    font-weight: 500;
+}
+
+
+/* ==========================================
+   ROLE
+========================================== */
+
+.role-badge {
+    display: inline-block;
+
+    padding: 5px 8px;
+
+    background: #f1f3f5;
+
+    color: #495057;
+
+    font-size: 11px;
+    font-weight: 500;
+
+    white-space: nowrap;
+}
+
+
+/* ==========================================
+   STATUS
+========================================== */
+
+.status-active,
+.status-inactive {
+    display: inline-block;
+
+    padding: 5px 9px;
+
+    font-size: 11px;
+    font-weight: 500;
+
+    white-space: nowrap;
+}
+
+.status-active {
+    background: #dff3e8;
+    color: #157347;
+}
+
+.status-inactive {
+    background: #f8d7da;
+    color: #b02a37;
+}
+
+
+/* ==========================================
+   LAST LOGIN
+========================================== */
+
+.last-login {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.last-login-date {
+    font-size: 12px;
+    font-weight: 500;
+    color: #212529;
+}
+
+.last-login-time {
+    font-size: 11px;
+    color: #6c757d;
+}
+
+.never-login {
+    font-size: 12px;
+    color: #adb5bd;
+}
+
+
+/* ==========================================
+   CREATED
+========================================== */
+
+.created-date {
+    font-size: 12px;
+    font-weight: 500;
+    color: #212529;
+}
+
+.created-time {
+    margin-top: 2px;
+
+    font-size: 11px;
+    color: #6c757d;
+}
+
+
+/* ==========================================
+   ACTIONS
+========================================== */
+
+.user-actions {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 4px;
+
+    min-width: 110px;
+}
+
+.user-action {
+    width: 32px;
+    height: 32px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0;
+
+    border: none;
+    border-radius: 0;
+
+    font-size: 13px;
+
+    text-decoration: none;
+
+    cursor: pointer;
+
+    flex-shrink: 0;
+}
+
+
+/* VIEW */
+
+.user-view {
+    background: #198754;
+    color: #ffffff;
+}
+
+.user-view:hover {
+    background: #157347;
+    color: #ffffff;
+}
+
+
+/* EDIT */
+
+.user-edit {
+    background: #495057;
+    color: #ffffff;
+}
+
+.user-edit:hover {
+    background: #343a40;
+    color: #ffffff;
+}
+
+
+/* DELETE */
+
+.user-delete {
+    background: #dc3545;
+    color: #ffffff;
+}
+
+.user-delete:hover {
+    background: #bb2d3b;
+    color: #ffffff;
+}
+
+
+/* DELETE FORM */
+
+.user-delete-form {
+    display: inline-flex;
+    margin: 0;
+}
+
+
+/* KEEP ALIGNMENT */
+
+.user-action-placeholder {
+    width: 32px;
+    height: 32px;
+
+    display: inline-block;
+
+    flex-shrink: 0;
+}
+
+
+/* ==========================================
+   SCROLLBAR
+========================================== */
+
+.user-table-wrapper::-webkit-scrollbar {
+    height: 6px;
+}
+
+.user-table-wrapper::-webkit-scrollbar-track {
+    background: #f1f3f5;
+}
+
+.user-table-wrapper::-webkit-scrollbar-thumb {
+    background: #adb5bd;
+}
+
+
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media (max-width: 767px) {
+
+    .user-table {
+        min-width: 1050px;
+    }
+
+    .user-table thead th {
+        height: 42px;
+        padding: 0 11px;
+        font-size: 10px;
+    }
+
+    .user-table thead th {
+        height: 46px;
+        background: #f5f6f7;
+        color: #343a40;
+        font-size: 11px;
+        font-weight: 600;
+        letter-spacing: .3px;
+
+        border-right: 1px solid #dee2e6;
+        border-bottom: 1px solid #cfd4da;
+    }
+
+    .user-name {
+        font-size: 13px;
+    }
+
+    .user-email {
+        font-size: 10px;
+    }
+
+}
+
+
+/* ==========================================
+   SMALL MOBILE
+========================================== */
+
+@media (max-width: 480px) {
+
+    .user-table {
+        min-width: 1050px;
+    }
+
+}
+/* ==========================================
+   TABLET
+========================================== */
+
+@media (max-width: 991px) {
+
+    .user-table {
+        min-width: 800px;
+    }
+
+    .user-table thead th {
+        padding: 12px;
+        font-size: 11px;
+    }
+
+    .user-table tbody td {
+        padding: 13px 12px;
+    }
+
+}
+
+
+/* ==========================================
+   LAST LOGIN
+========================================== */
+
+.last-login {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.last-login-date {
+    font-size: 13px;
+    font-weight: 500;
+    color: #212529;
+}
+
+.last-login-time {
+    font-size: 11px;
+    color: #6c757d;
+}
+
+.never-login {
+    font-size: 12px;
+    color: #adb5bd;
+}
+/* ==========================================
+   CREATED
+========================================== */
+
+.created-date {
+    font-size: 13px;
+    font-weight: 500;
+    color: #212529;
+}
+
+.created-time {
+    margin-top: 2px;
+
+    font-size: 11px;
+    color: #6c757d;
+}
 /* ==========================================
    USER
 ========================================== */
@@ -505,45 +1047,115 @@
     padding:5px 10px;
     font-size:12px;
 }
-
 /* ==========================================
-   ACTION BUTTONS
+   ACTIONS
 ========================================== */
 
-.user-action{
-    width:34px;
-    height:34px;
+.user-actions {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 
-    border:none;
+    gap: 4px;
 
-    display:inline-flex;
-    align-items:center;
-    justify-content:center;
-
-    margin:0 2px;
-
-    transition:.2s;
+    min-width: 124px;
 }
 
-.user-view{
-    background:#e7f1ff;
-    color:#0d6efd;
+
+/* ==========================================
+   ACTION BUTTON
+========================================== */
+
+.user-action {
+    width: 34px;
+    height: 34px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0;
+
+    border: none;
+    border-radius: 0;
+
+    font-size: 14px;
+
+    text-decoration: none;
+
+    cursor: pointer;
+
+    flex-shrink: 0;
 }
 
-.user-edit{
-    background:#fff3cd;
-    color:#fd7e14;
+
+/* ==========================================
+   VIEW
+========================================== */
+
+.user-view {
+    background: #198754;
+    color: #fff;
 }
 
-.user-delete{
-    background:#f8d7da;
-    color:#dc3545;
+.user-view:hover {
+    background: #157347;
+    color: #fff;
 }
 
-.user-action:hover{
-    opacity:.85;
+
+/* ==========================================
+   EDIT
+========================================== */
+
+.user-edit {
+    background: #495057;
+    color: #fff;
 }
 
+.user-edit:hover {
+    background: #343a40;
+    color: #fff;
+}
+
+
+/* ==========================================
+   DELETE
+========================================== */
+
+.user-delete {
+    background: #dc3545;
+    color: #fff;
+}
+
+.user-delete:hover {
+    background: #bb2d3b;
+    color: #fff;
+}
+
+
+/* ==========================================
+   DELETE FORM
+========================================== */
+
+.user-delete-form {
+    display: inline-flex;
+    margin: 0;
+}
+
+
+/* ==========================================
+   PLACEHOLDER
+========================================== */
+
+.user-action-placeholder {
+    width: 34px;
+    height: 34px;
+
+    display: inline-block;
+
+    flex-shrink: 0;
+}
 /* ==========================================
    PAGINATION
 ========================================== */
@@ -1243,7 +1855,6 @@
     }
 
     #addUserModal .modal-content{
-
         border-radius:12px;
 
     }
@@ -1349,3 +1960,4 @@
     }
 
 }
+

@@ -1,271 +1,156 @@
-<div
-    class="modal fade"
-    id="addUserModal"
-    tabindex="-1"
-    aria-labelledby="addUserModalLabel"
-    aria-hidden="true">
+<div class="modal fade" id="addUserModal" tabindex="-1" aria-labelledby="addUserModalLabel" aria-hidden="true">
 
     <div class="modal-dialog modal-xl modal-dialog-centered">
-
         <div class="modal-content">
-
             <!-- Modal Header -->
             <div class="modal-header">
-
-                <h5
-                    class="modal-title"
-                    id="addUserModalLabel">
-
+                <h5 class="modal-title" id="addUserModalLabel">
                     ADD NEW USER ACCOUNT
-
                 </h5>
-
-                <button
-                    type="button"
-                    class="btn-close"
-                    data-bs-dismiss="modal">
+                <button type="button" class="btn-close" data-bs-dismiss="modal">
                 </button>
-
             </div>
 
-<form
-    action="/users/create"
-    method="POST" enctype="multipart/form-data">
-
+            <form action="/users/create" method="POST" enctype="multipart/form-data">
 
                 <div class="modal-body">
-
-         <!-- ========================================= -->
-<!-- PERSONAL INFORMATION -->
-<!-- ========================================= -->
-
-<div class="section-title">
-    Personal Information
-</div>
-
-<div class="row">
-
-    <!-- Profile -->
-    <div class="col-lg-3">
-
-        <div class="profile-upload">
-
-            <label for="profile_image" class="profile-label">
-
-                <img
-                    src="/images/default-avatar-02.png"
-                    id="previewImage"
-                    class="profile-preview"
-                    alt="Profile">
-
-                <span class="camera-badge">
-                    <i class="bi bi-camera-fill"></i>
-                </span>
-
-            </label>
-
-            <input
-                type="file"
-                id="profile_image"
-                name="profile_image"
-                accept="image/*"
-                hidden>
-
-        </div>
-
-    </div>
-
-    <!-- Form -->
-    <div class="col-lg-9">
-
-        <div class="row g-3">
-
-        <!-- =========================================
-        ROLE
-        ========================================= -->
-
-        <div class="col-md-6">
-
-            <label>
-                Role
-                <span class="text-danger">*</span>
-            </label>
-
-            <select
-                id="role_id"
-                name="role_id"
-                class="form-select"
-                required>
-
-                <option value="">
-                    Select Role
-                </option>
-
-                <% if (roles) { %>
-
-                    <% roles.forEach(role => { %>
-
-                        <option
-                            value="<%= role.id %>"
-                            data-role="<%= role.role_name %>">
-
-                            <%= role.role_name %>
-
-                        </option>
-
-                    <% }) %>
-
-                <% } %>
-
-            </select>
-
-        </div>
-
-        <!-- =========================================
-        EMPLOYEE / STUDENT ID
-        ========================================= -->
-            <!-- =========================================
-            AUTO GENERATED ID
-            ========================================= -->
-
-<div class="col-md-6">
-
-    <label id="idLabel">
-        Employee ID
-    </label>
-
-    <div class="input-group">
-
-        <span class="input-group-text">
-             <i class="bi bi-lock-fill"></i>
-        </span>
-
-        <input
-            type="text"
-            id="employee_student_id"
-            class="form-control"
-            value="Generated after saving"
-            readonly>
-
-    </div>
-
-</div>
-            <!-- First Name -->
-            <div class="col-md-4">
-
-                <label>
-                    First Name <span class="text-danger">*</span>
-                </label>
-
-                <input
-                    type="text"
-                    name="first_name"
-                    class="form-control"
-                    required>
-
-            </div>
-
-            <!-- Middle Name -->
-            <div class="col-md-4">
-
-                <label>
-                    Middle Name
-                </label>
-
-                <input
-                    type="text"
-                    name="middle_name"
-                    class="form-control">
-
-            </div>
-
-            <!-- Last Name -->
-            <div class="col-md-4">
-
-                <label>
-                    Last Name <span class="text-danger">*</span>
-                </label>
-
-                <input
-                    type="text"
-                    name="last_name"
-                    class="form-control"
-                    required>
-
-            </div>
-
-            <!-- Suffix -->
-            <div class="col-md-4">
-
-                <label>
-                    Suffix
-                </label>
-
-                <select
-                    name="suffix"
-                    class="form-select">
-
-                    <option value="">None</option>
-                    <option>Jr.</option>
-                    <option>Sr.</option>
-                    <option>II</option>
-                    <option>III</option>
-                    <option>IV</option>
-
-                </select>
-
-            </div>
-
-            <!-- Gender -->
-            <div class="col-md-4">
-
-                <label>
-                    Gender
-                </label>
-
-                <select
-                    name="gender"
-                    class="form-select">
-
-                    <option value="">
-                        Select
-                    </option>
-
-                    <option value="Male">
-                        Male
-                    </option>
-
-                    <option value="Female">
-                        Female
-                    </option>
-
-                    <option value="Other">
-                        Other
-                    </option>
-
-                </select>
-
-            </div>
-
-            <!-- Birthdate -->
-            <div class="col-md-4">
-
-                <label>
-                    Birthdate
-                </label>
-
-                <input
-                    type="date"
-                    name="birthdate"
-                    class="form-control">
-
-            </div>
-
-        </div>
-
-    </div>
-
-</div>
+                    <!-- ========================================= -->
+                    <!-- PERSONAL INFORMATION -->
+                    <!-- ========================================= -->
+
+                    <div class="section-title">
+                        Personal Information
+                    </div>
+
+                    <div class="row">
+                        <!-- Profile -->
+                        <div class="col-lg-3">
+                            <div class="profile-upload">
+                                <label for="profile_image" class="profile-label">
+                                    <img src="/images/default-avatar-02.png" id="previewImage" class="profile-preview"
+                                        alt="Profile">
+                                    <span class="camera-badge">
+                                        <i class="bi bi-camera-fill"></i>
+                                    </span>
+                                </label>
+                                <input type="file" id="profile_image" name="profile_image" accept="image/*" hidden>
+                            </div>
+                        </div>
+                        <!-- Form -->
+                        <div class="col-lg-9">
+                            <div class="row g-3">
+                                <!-- ROLE -->
+                                <div class="col-md-6">
+                                    <label>
+                                        Role
+                                        <span class="text-danger">*</span>
+                                    </label>
+                                    <select id="role_id" name="role_id" class="form-select" required>
+
+                                        <option value="">
+                                            Select Role
+                                        </option>
+                                        <% if (roles) { %>
+                                            <% roles.forEach(role=> { %>
+                                                <option value="<%= role.id %>" data-role="<%= role.role_name %>">
+                                                    <%= role.role_name %>
+                                                </option>
+                                                <% }) %>
+
+                                                    <% } %>
+
+                                    </select>
+                                </div>
+                             <!-- ========================================= -->
+                                <!-- EMPLOYEE / STUDENT ID  -->
+                                <!-- AUTO GENERATED ID -->
+                             <!-- ========================================= -->
+                                <div class="col-md-6">
+                                    <label id="idLabel">
+                                        Employee ID
+                                    </label>
+                                    <div class="input-group">
+                                        <span class="input-group-text">
+                                            <i class="bi bi-lock-fill"></i>
+                                        </span>
+                                        <input type="text" id="employee_student_id" class="form-control"
+                                            value="Generated after saving" readonly>
+                                    </div>
+                                </div>
+                                <!-- First Name -->
+                                <div class="col-md-4">
+                                    <label>
+                                        First Name <span class="text-danger">*</span>
+                                    </label>
+                                    <input type="text" name="first_name" class="form-control" required>
+
+                                </div>
+
+                                <!-- Middle Name -->
+                                <div class="col-md-4">
+                                    <label>
+                                        Middle Name
+                                    </label>
+                                    <input type="text" name="middle_name" class="form-control">
+
+                                </div>
+
+                                <!-- Last Name -->
+                                <div class="col-md-4">
+                                    <label>
+                                        Last Name <span class="text-danger">*</span>
+                                    </label>
+                                    <input type="text" name="last_name" class="form-control" required>
+
+                                </div>
+
+                                <!-- Suffix -->
+                                <div class="col-md-4">
+                                    <label>
+                                        Suffix
+                                    </label>
+
+                                    <select name="suffix" class="form-select">
+                                        <option value="">None</option>
+                                        <option>Jr.</option>
+                                        <option>Sr.</option>
+                                        <option>II</option>
+                                        <option>III</option>
+                                        <option>IV</option>
+                                    </select>
+                                </div>
+
+                                <!-- Gender -->
+                                <div class="col-md-4">
+                                    <label>
+                                        Gender
+                                    </label>
+                                    <select name="gender" class="form-select">
+                                        <option value="">
+                                            Select
+                                        </option>
+                                        <option value="Male">
+                                            Male
+                                        </option>
+                                        <option value="Female">
+                                            Female
+                                        </option>
+                                        <option value="Other">
+                                            Other
+                                        </option>
+                                    </select>
+                                </div>
+
+                                <!-- Birthdate -->
+                                <div class="col-md-4">
+                                    <label>
+                                        Birthdate
+                                    </label>
+                                    <input type="date" name="birthdate" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
                     <hr>
 
@@ -274,41 +159,22 @@
                     <!-- ========================================= -->
 
                     <div class="section-title">
-
                         Contact Information
-
                     </div>
 
                     <div class="row g-3">
-
                         <div class="col-md-6">
-
                             <label>
-
                                 Email Address
-
                             </label>
-
-                            <input
-                                type="email"
-                                name="email"
-                                class="form-control">
+                            <input type="email" name="email" class="form-control">
 
                         </div>
-                    <div class="col-md-6">
-
-                        <label>Contact Number</label>
-
-                        <input
-                            type="text"
-                            name="contact_number"
-                            class="form-control"
-                            required>
-
+                        <div class="col-md-6">
+                            <label>Contact Number</label>
+                            <input type="text" name="contact_number" class="form-control" required>
+                        </div>
                     </div>
-
-                    </div>
-
                     <hr>
 
                     <!-- ========================================= -->
@@ -331,14 +197,11 @@
 
                             </label>
 
-                            <input
-                                type="text"
-                                name="username"
-                                class="form-control">
+                            <input type="text" name="username" class="form-control">
 
                         </div>
 
-                                                <div class="col-md-6">
+                        <div class="col-md-6">
 
                             <label>
 
@@ -346,9 +209,7 @@
 
                             </label>
 
-                            <select
-                                name="status"
-                                class="form-select">
+                            <select name="status" class="form-select">
 
                                 <option value="Active">
                                     Active
@@ -362,7 +223,7 @@
 
                         </div>
 
-                
+
 
                         <div class="col-md-6">
 
@@ -372,11 +233,7 @@
 
                             </label>
 
-                            <input
-                                type="password"
-                                name="password"
-                                class="form-control"
-                                required>
+                            <input type="password" name="password" class="form-control" required>
 
                         </div>
 
@@ -388,11 +245,7 @@
 
                             </label>
 
-                            <input
-                                type="password"
-                                name="confirm_password"
-                                class="form-control"
-                                required>
+                            <input type="password" name="confirm_password" class="form-control" required>
 
                         </div>
 
@@ -406,26 +259,19 @@
 
                 <div class="modal-footer">
 
-                    <button
-                        type="button"
-                        class="btn btn-outline-secondary"
-                        data-bs-dismiss="modal">
+                    <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
 
                         Cancel
 
                     </button>
 
-                    <button
-                        type="reset"
-                        class="btn btn-warning">
+                    <button type="reset" class="btn btn-warning">
 
                         Clear
 
                     </button>
 
-                    <button
-                        type="submit"
-                        class="btn btn-success">
+                    <button type="submit" class="btn btn-success">
 
                         Save
 

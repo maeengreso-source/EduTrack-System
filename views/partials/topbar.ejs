@@ -1,54 +1,107 @@
-<header class="topbar">
+<!-- ==========================================
+     HEADER
+========================================== -->
 
-    <div class="left-section">
+<div class="topbar">
 
-        <button class="toggle-btn" onclick="toggleSidebar()">
-            <i class="bi bi-list"></i>
-        </button>
+  <!-- LEFT SIDE -->
+  <div class="topbar-left">
 
-        <div class="page-title">
-            <h3>Dashboard</h3>
-            <p>Welcome back, <%= user.first_name %> 👋</p>
-        </div>
+    <button class="toggle-btn" onclick="toggleSidebar()" type="button">
+      <i class="bi bi-list"></i>
+    </button>
+
+    <div class="page-title">
+      <h3>Dashboard</h3>
+      <p>Welcome back, <%= user.first_name %> 👋</p>
+    </div>
+
+  </div>
+
+
+  <!-- RIGHT SIDE -->
+  <div class="topbar-right">
+
+    <!-- DATE & TIME -->
+    <div class="date-time">
+
+      <div class="date">
+        <i class="bi bi-calendar3"></i>
+        <span id="currentDate"></span>
+      </div>
+
+      <div class="time">
+        <i class="bi bi-clock"></i>
+        <span id="currentTime"></span>
+      </div>
 
     </div>
 
-    <div class="right-section">
 
-        <div class="date-time">
+    <!-- NOTIFICATION -->
+    <button class="icon-btn" type="button">
+      <i class="bi bi-bell"></i>
+      <span class="badge">3</span>
+    </button>
 
-            <div class="date">
-                <i class="bi bi-calendar3"></i>
-                <span id="currentDate"></span>
-            </div>
 
-            <div class="time">
-                <i class="bi bi-clock"></i>
-                <span id="currentTime"></span>
-            </div>
+    <!-- PROFILE -->
+    <div class="profile" id="profile">
 
-        </div>
-  
-        <button class="icon-btn">
-            <i class="bi bi-bell"></i>
-            <span class="badge">3</span>
-        </button>
+      <button 
+        class="profile-toggle" 
+        type="button"
+        onclick="toggleProfileDropdown()"
+      >
 
-<div class="profile">
-
-    <img
-        src="<%= (!user.profile_image || user.profile_image === 'default-avatar-1.png')
+        <img 
+          src="<%= (!user.profile_image || user.profile_image === 'default-avatar-1.png')
             ? '/images/default-avatar-1.png'
             : '/uploads/profiles/' + user.profile_image %>"
-        alt="Profile">
+          alt="Profile"
+        >
 
-    <div class="profile-info">
-        <strong><%= user.first_name %> <%= user.last_name %></strong>
-        <small><%= user.role_name %></small>
+        <div class="profile-info">
+
+          <strong>
+            <%= user.first_name %> <%= user.last_name %>
+          </strong>
+
+          <small>
+            <%= user.role_name %>
+          </small>
+
+        </div>
+
+        <i class="bi bi-chevron-down profile-arrow"></i>
+
+      </button>
+
+
+      <!-- PROFILE DROPDOWN -->
+      <div class="profile-dropdown" id="profileDropdown">
+
+        <a href="/profile">
+          <i class="bi bi-person"></i>
+          <span>My Profile</span>
+        </a>
+
+        <a href="/settings">
+          <i class="bi bi-gear"></i>
+          <span>Settings</span>
+        </a>
+
+        <div class="profile-divider"></div>
+
+        <a href="/logout" class="logout">
+          <i class="bi bi-box-arrow-right"></i>
+          <span>Logout</span>
+        </a>
+
+      </div>
+
     </div>
+
+  </div>
 
 </div>
-
-    </div>
-
-</header>

@@ -1,149 +1,129 @@
 <!-- Sidebar -->
 <aside class="sidebar" id="sidebar">
 
-    <!-- Logo -->
-    <div class="sidebar-header">
+  <!-- Logo -->
+  <div class="sidebar-header">
 
-        <div class="logo">
-            <i class="bi bi-mortarboard-fill"></i>
-        </div>
-
-        <div class="logo-text">
-            <h4>EduTrack</h4>
-            <small>Student Information System</small>
-        </div>
-
+    <div class="logo">
+      <i class="bi bi-mortarboard-fill"></i>
     </div>
 
-    <!-- Menu -->
-    <nav class="sidebar-menu">
-
-        <!-- MAIN -->
-        <small class="menu-title">MAIN</small>
-
-        <a href="/dashboard">
-            <i class="bi bi-grid-fill"></i>
-            <span>Dashboard</span>
-        </a>
-
-        <!-- USER MANAGEMENT -->
-        <% if (user && user.role === "Super Administrator") { %>
-
-        <small class="menu-title">USER MANAGEMENT</small>
-
-        <a href="/users">
-            <i class="bi bi-people-fill"></i>
-            <span>Users</span>
-        </a>
-
-        <a href="/roles">
-            <i class="bi bi-shield-lock-fill"></i>
-            <span>Roles</span>
-        </a>
-
-        <% } %>
-
-        <!-- ACADEMIC -->
-        <small class="menu-title">ACADEMIC</small>
-
-        <% if (["Super Administrator","Administrator","Registrar","Staff","Teacher"].includes(user.role)) { %>
-        <a href="/students">
-            <i class="bi bi-people-fill"></i>
-            <span>Students</span>
-        </a>
-        <% } %>
-
-        <% if (["Super Administrator","Administrator"].includes(user.role)) { %>
-        <a href="/teachers">
-            <i class="bi bi-person-workspace"></i>
-            <span>Teachers</span>
-        </a>
-        <% } %>
-
-        <% if (["Super Administrator","Admin","Registrar"].includes(user.role)) { %>
-        <a href="/sections">
-            <i class="bi bi-building"></i>
-            <span>Sections</span>
-        </a>
-        <% } %>
-
-        <% if (user.role !== "Student") { %>
-        <a href="/subjects">
-            <i class="bi bi-book-fill"></i>
-            <span>Subjects</span>
-        </a>
-        <% } %>
-
-        <% if (["Super Administrator","Administrator","Registrar"].includes(user.role)) { %>
-        <a href="/school-years">
-            <i class="bi bi-calendar-range-fill"></i>
-            <span>School Year</span>
-        </a>
-        <% } %>
-
-        <a href="/class-schedules">
-            <i class="bi bi-clock-fill"></i>
-            <span>Class Schedule</span>
-        </a>
-
-        <!-- OPERATIONS -->
-        <small class="menu-title">OPERATIONS</small>
-
-        <a href="/attendance">
-            <i class="bi bi-calendar-check-fill"></i>
-            <span>Attendance</span>
-        </a>
-
-        <a href="/grades">
-            <i class="bi bi-journal-check"></i>
-            <span>Grades</span>
-        </a>
-
-        <a href="/announcements">
-            <i class="bi bi-megaphone-fill"></i>
-            <span>Announcements</span>
-        </a>
-
-        <!-- REPORTS -->
-        <% if (["Super Administrator","Administrator","Registrar"].includes(user.role)) { %>
-
-        <small class="menu-title">REPORTS</small>
-
-        <a href="/reports">
-            <i class="bi bi-bar-chart-fill"></i>
-            <span>Reports</span>
-        </a>
-
-        <a href="/logs">
-            <i class="bi bi-clock-history"></i>
-            <span>Activity Logs</span>
-        </a>
-
-        <% } %>
-
-        <!-- SYSTEM -->
-        <small class="menu-title">SYSTEM</small>
-
-        <a href="/profile">
-            <i class="bi bi-person-circle"></i>
-            <span>My Profile</span>
-        </a>
-
-<% if (user && user.role === "Super Administrator") { %>            <i class="bi bi-gear-fill"></i>
-            <span>Settings</span>
-        </a>
-        <% } %>
-
-    </nav>
-
-    <!-- Footer -->
-    <div class="sidebar-footer">
-
-        <a href="/logout" class="logout">
-            <i class="bi bi-box-arrow-right"></i>
-            <span>Logout</span>
-        </a>
-
+    <div class="logo-text">
+      <h4>EduTrack</h4>
+      <small>Student Information System</small>
     </div>
+
+  </div>
+
+  <!-- Menu -->
+  <nav class="sidebar-menu">
+
+    <!-- MAIN -->
+    <small class="menu-title">MAIN</small>
+
+    <a href="/dashboard">
+      <i class="bi bi-grid-fill"></i>
+      <span>Dashboard</span>
+    </a>
+
+    <!-- USER MANAGEMENT -->
+    <% if (user && user.role === "Super Administrator") { %>
+
+    <small class="menu-title">USER MANAGEMENT</small>
+
+    <a href="/users">
+      <i class="bi bi-people-fill"></i>
+      <span>Users</span>
+    </a>
+
+    <a href="/roles">
+      <i class="bi bi-shield-lock-fill"></i>
+      <span>Roles</span>
+    </a>
+
+    <% } %>
+
+    <!-- ACADEMIC -->
+    <small class="menu-title">ACADEMIC</small>
+
+<% if (["Super Administrator","Administrator","Registrar","Staff","Teacher"].includes(user.role)) { %>
+    <a href="/students">
+      <i class="bi bi-people-fill"></i>
+      <span>Students</span>
+    </a>
+    <% } %>
+
+    <% if (["Super Administrator","Administrator"].includes(user.role)) { %>
+    <a href="/teachers">
+      <i class="bi bi-person-workspace"></i>
+      <span>Teachers</span>
+    </a>
+    <% } %>
+
+    <% if (["Super Administrator","Admin","Registrar"].includes(user.role)) { %>
+    <a href="/sections">
+      <i class="bi bi-building"></i>
+      <span>Sections</span>
+    </a>
+    <% } %>
+
+    <% if (user.role !== "Student") { %>
+    <a href="/subjects">
+      <i class="bi bi-book-fill"></i>
+      <span>Subjects</span>
+    </a>
+    <% } %>
+
+    <% if (["Super Administrator","Administrator","Registrar"].includes(user.role)) { %>
+    <a href="/school-years">
+      <i class="bi bi-calendar-range-fill"></i>
+      <span>School Year</span>
+    </a>
+    <% } %>
+
+    <a href="/class-schedules">
+      <i class="bi bi-clock-fill"></i>
+      <span>Class Schedule</span>
+    </a>
+
+    <!-- OPERATIONS -->
+    <small class="menu-title">OPERATIONS</small>
+
+    <a href="/attendance">
+      <i class="bi bi-calendar-check-fill"></i>
+      <span>Attendance</span>
+    </a>
+
+    <a href="/grades">
+      <i class="bi bi-journal-check"></i>
+      <span>Grades</span>
+    </a>
+
+    <a href="/announcements">
+      <i class="bi bi-megaphone-fill"></i>
+      <span>Announcements</span>
+    </a>
+
+    <!-- REPORTS -->
+    <% if (["Super Administrator","Administrator","Registrar"].includes(user.role)) { %>
+
+    <small class="menu-title">REPORTS</small>
+
+    <a href="/reports">
+      <i class="bi bi-bar-chart-fill"></i>
+      <span>Reports</span>
+    </a>
+
+    <a href="/logs">
+      <i class="bi bi-clock-history"></i>
+      <span>Activity Logs</span>
+    </a>
+
+    <% } %>
+
+
+  </nav>
+
+
 
 </aside>
